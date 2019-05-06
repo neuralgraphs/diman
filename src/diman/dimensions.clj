@@ -5,15 +5,16 @@
   - `base-dimensions`
   - `standard-formula`
   - `grab-notation` and `grab-name` from `base-dimensions`
-  - `grab-formula` from `standard-formula`
+  - `grab-sformula` from `standard-formula`
   - `notation?`
+  - `matched-notation-sformula`
 
   ## How to use
   ### Loading
   ```
   (:require [diman.dimensions :refer [base_dimensions standard_formula
-                                      grab-notation grab-name
-                                      grab-formula notation?]])
+                                      grab-notation grab-name grab-sformula
+                                      notation? matched-notation-sformula]])
   ```
   ### Examples
   #### View the seven fundamental dimensions
@@ -36,15 +37,37 @@
 
   #### Get formula of a quantity in the standard formula
   ```
-  => (grab-formula \"acceleration\")
+  => (grab-sformula \"acceleration\")
   \"[M^0 L^1 T^(-2)]\"
   ```
+
+  #### Get matching notation/standard formula of a defined symbol
+  Let us define symbol `x`, `v`, `t` and `a` as
+  ```
+  (def varpars [{:symbol \"x\", :dimension \"length\"}
+                {:symbol \"v\", :dimension \"velocity\"}
+                {:symbol \"t\", :dimension \"time\"}
+                {:symbol \"a\", :dimension \"acceleration\"}])
+  ```
+  Then based on the dimensions defined for respective symbol use
+  ```
+  => (matched-notation-sformula varpars \"x\")
+  \"[L]\"
+  => (matched-notation-sformula varpars \"a\")
+  \"[M^(0)*L^(1)*T^(-2)]
+  ```
+  NOTE:
+
+  * definition of any __single letter__ symbol must be a value to key `:symbol`
+  * and must also have the key `:dimension` whose value must be a string corresponding to either
+    - one of the seven `:name` values, i.e, one of the seven fundamental dimensions
+    - one of the `quantity` values, i.e, one of the standard formulae
+
   "
   )
 
 (def base_dimensions
   "The Seven Fundamental/Base Dimensions.
-
   NOTE: This is fixed.
   "
   [{:name "mass"                      :notation "[M]"}
@@ -58,22 +81,27 @@
 
 (def standard_formula
   "Dimensional Formula for standard physical quantity.
-
   NOTE: This is subject to expansion.
   "
-  [{:quantity "volume"       :formula "[M^(0)*L^(3)*T^(0)]"}
-   {:quantity "velocity"     :formula "[M^(0)*L^(1)*T^(-1)]"}
-   {:quantity "acceleration" :formula "[M^(0)*L^(1)*T^(-2)]"}
-   {:quantity "force"        :formula "[M^(1)*L^(1)*T^(-2)]"}
-   {:quantity "mass density" :formula "[M^(1)*L^(-3)*T^(0)]"}
+  [{:quantity "volume"       :sformula "[M^(0)*L^(3)*T^(0)]"}
+   {:quantity "velocity"     :sformula "[M^(0)*L^(1)*T^(-1)]"}
+   {:quantity "acceleration" :sformula "[M^(0)*L^(1)*T^(-2)]"}
+   {:quantity "force"        :sformula "[M^(1)*L^(1)*T^(-2)]"}
+   {:quantity "mass density" :sformula "[M^(1)*L^(-3)*T^(0)]"}
    ])
 
 (defn notation? [x]
   "Checks for notation."
-  (if (nil? (re-matches #"[\[M\]\[L\]\[T\]\[A\]\[K\]\[cd\]\[mol\]]+" x))
+  (if (nil?
+        (re-matches
+          #"[\[M\]]{3}|[\[L\]]{3}|[\[T\]]{3}|[\[A\]]{3}|[\[K\]]{3}|[\[cd\]]{4}|[\[mol\]]{5}"
+          x))
     false
     true))
 
+;; ============================================================================
+;;    Function for grabbing notation given a base/fundamental dimension name.
+;; ============================================================================
 (defn- get-notation-base-dim [dim base]
   "Returns notation if dimension is a base dimension, else \"nil\"."
   (if (= dim (:name base))
@@ -88,11 +116,13 @@
    (if (or (empty? bdim) (some? dim))
      dim
      (recur name (drop-last bdim) (get-notation-base-dim name (last bdim)))
-     )
-    )
+     ))
   )
+;; =====================================x======================================
 
-
+;; ============================================================================
+;;    Function for grabbing name given a base/fundamental dimension notation.
+;; ============================================================================
 (defn- get-name-base-dim [ntn base]
   "Returns name if notation is a base notation, else \"nil\"."
   (if (= ntn (:notation base))
@@ -107,24 +137,61 @@
    (if (or (empty? bdim) (some? dim))
      dim
      (recur notation (drop-last bdim) (get-name-base-dim notation (last bdim)))
-     )
-    )
+     ))
   )
+;; =====================================x======================================
 
-(defn- get-formula-std-form [qnt std]
+;; ============================================================================
+;;          Function for grabbing standard formula given a quantity.
+;; ============================================================================
+(defn- get-sformula [qnt std]
   "Returns formula if quantity is one of the standards, else \"nil\"."
   (if (= qnt (:quantity std))
-    (:formula std)
+    (:sformula std)
     nil)
   )
 
-(defn grab-formula
-  "Returns formula for any one of the standard quantities, else \"nil\"."
-  ([quantity] (grab-formula quantity standard_formula nil))
+(defn grab-sformula
+  "Returns formula for any one of the standard quantities (hence standard formula), else \"nil\"."
+  ([quantity] (grab-sformula quantity standard_formula nil))
   ([quantity sform form]
    (if (or (empty? sform) (some? form))
      form
-     (recur quantity (drop-last sform) (get-formula-std-form quantity (last sform)))
-     )
-    )
+     (recur quantity (drop-last sform) (get-sformula quantity (last sform)))
+     ))
   )
+;; =====================================x======================================
+
+;; ============================================================================
+;;    Function matches a defined symbol to base notation or standard formula.
+;; ============================================================================
+(defn- matched-notation
+  "Returns notation of the matching dimension of the given symbol (symb) which
+  is defined (varpar_def); nil if it is not one of the seven base dimensions."
+  ([varpar_def symb] (matched-notation varpar_def symb ""))
+  ([varpar_def symb ans]
+   (if (= symb (:symbol (last varpar_def)))
+     (grab-notation (:dimension (last varpar_def)))
+     (recur (drop-last varpar_def) symb "")
+     ))
+  )
+
+(defn- matched-sformula
+  "Returns standard formula of the matching quantity of the given symbol (symb)
+  which is defined (varpar_def); nil otherwise."
+  ([varpar_def symb] (matched-sformula varpar_def symb ""))
+  ([varpar_def symb ans]
+   (if (= symb (:symbol (last varpar_def)))
+     (grab-sformula (:dimension (last varpar_def)))
+     (recur (drop-last varpar_def) symb "")
+     ))
+  )
+
+(defn matched-notation-sformula [varpar_def symb]
+  "Returns notation or standard formula for the given symbol (symb)
+  which is defined (varpar_def); nil otherwise."
+  (if (nil? (matched-notation varpar_def symb))
+    (matched-sformula varpar_def symb)
+    (matched-notation varpar_def symb))
+  )
+;; =====================================x======================================
