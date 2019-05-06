@@ -72,3 +72,15 @@
       nil
       common)
     ))
+
+(defn foo
+  ([eqn_form] (foo eqn_form
+                   (clojure.string/split eqn_form #"[\+]")
+                   (formula-with-most-notations (clojure.string/split eqn_form #"[\+]"))
+                   ()))
+  ([eqn_form lst_all_terms_form ref_form ans]
+   (if (empty? lst_all_terms_form)
+     ans
+     )
+    )
+  )
