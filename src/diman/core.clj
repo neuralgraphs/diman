@@ -59,3 +59,16 @@
      )
     )
   )
+
+(defn- comparable-subcomponent [ref_component next_component]
+  "Returns the sub-component in formula component which is in common with the formula with
+  the most notations; returns nil if none of the notations have in common or its same."
+  (let [[common]
+        [(clojure.string/join
+           ["[" (re-find (re-pattern
+                           (clojure.string/replace ref_component #"[\]]" "]+"))
+                         next_component) "]"])]]
+    (if (or (= common ref_component) (= (str (second common)) "^"))
+      nil
+      common)
+    ))
