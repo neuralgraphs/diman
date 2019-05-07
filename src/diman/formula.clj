@@ -66,8 +66,8 @@
 ;; ============================================================================
 (defn- formula-single-varpar [varpar_def a_varpar_symb a_varpar_expt]
   "Returns formula for a given variable/parameter."
-  (let [[notn_sform its_expt]
-        [(matched-notation-sformula varpar_def a_varpar_symb) a_varpar_expt]]
+  (let [notn_sform (matched-notation-sformula varpar_def a_varpar_symb)
+        its_expt   a_varpar_expt]
     (if (notation? notn_sform)
       (tie-notn-expt notn_sform its_expt)               ; exponent in expression
       (tie-subformula-expt notn_sform its_expt)))
@@ -108,7 +108,7 @@
 (defn- update-reference-with-next-subformula [ref_subform next_subform]
   "Returns updated reference subformula (in the list of subformulae) by adding
   exponents of corresponding notations in the other subformula."
-  (let [[common] [(next-subformula-components-with-common-notation ref_subform next_subform)]]
+  (let [common (next-subformula-components-with-common-notation ref_subform next_subform)]
     (if (nil? common)
       ref_subform
       (tie-notnlist-exptlist (ref-expt-plus-expt-allmatch ref_subform common))
@@ -135,8 +135,7 @@
 
 (defn formula-term [varpar_def term_in_expr]
   "Returns formula of a term."
-  (let [[lst_subform]
-        [(formula-all-varpar-for-term varpar_def term_in_expr)]]
+  (let [lst_subform (formula-all-varpar-for-term varpar_def term_in_expr)]
     (tie-subformulae-in-term lst_subform
                           (updated-reference-subformula-overall lst_subform)))
   )

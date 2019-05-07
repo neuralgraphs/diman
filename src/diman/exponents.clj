@@ -56,14 +56,14 @@
 (defn- convert-to-num [expt]
   "Returns numerical version of the exponent (string).
   NOTE: (last list_of_expts) returns expt as (\"expt \")."
-  (let [[matcher] [(re-matcher #"[\-\d|\d]+" (remove-parentheses expt))]]
-    (let [[e_num e_den] [(re-find matcher) (re-find matcher)]]
-      (if (nil? e_den)                                      ; 0.0 will be taken such that
-        (Float. (re-find #"[\-\d|\d]+" e_num))              ; 0. is e_num and .0 is e_den
-        (/ (Float. (re-find #"[\-\d|\d]+" e_num))           ; divide by 0 will occur if
-           (Float. (re-find #"[\-\d|\d]+" e_den)))          ; expt is not rationalized
-        ))
-    )
+  (let [matcher (re-matcher #"[\-\d|\d]+" (remove-parentheses expt))
+        e_num   (re-find matcher)
+        e_den   (re-find matcher)]
+    (if (nil? e_den)                                        ; 0.0 will be taken such that
+      (Float. (re-find #"[\-\d|\d]+" e_num))                ; 0. is e_num and .0 is e_den
+      (/ (Float. (re-find #"[\-\d|\d]+" e_num))             ; divide by 0 will occur if
+         (Float. (re-find #"[\-\d|\d]+" e_den)))            ; expt is not rationalized
+      ))
   )
 
 (defn- expt-times-expt [expt1 expt2]

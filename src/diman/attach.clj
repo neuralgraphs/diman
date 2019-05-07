@@ -275,23 +275,21 @@
 (defn tie-ref-with-distinct-next [ref_subform next_subform common]
   "Returns a sub-formula which is the union of the reference and difference of
   common from next sub-formula (i.t, next sub-formula without the common components)."
-  (let [[ref_set]
-        [(set-of-notn-expt (list-varpar-expt (remove-brackets ref_subform)))]]
+  (let [ref_set (set-of-notn-expt (list-varpar-expt (remove-brackets ref_subform)))]
     (if (and (nil? next_subform) (nil? common))
       ref_subform
       (if (and (not= nil next_subform) (nil? common))
-        (let [[next_set]
-              [(set-of-notn-expt (list-varpar-expt (remove-brackets next_subform)))]]
+        (let [next_set (set-of-notn-expt (list-varpar-expt (remove-brackets next_subform)))]
           (set-to-subformula (clojure.set/union ref_set next_set)))
-        (let [[next_set common_set]
-              [(set-of-notn-expt (list-varpar-expt (remove-brackets next_subform)))
-               (set-of-notn-expt (list-varpar-expt (remove-brackets common)))]]
+        (let [next_set   (set-of-notn-expt (list-varpar-expt (remove-brackets next_subform)))
+              common_set (set-of-notn-expt (list-varpar-expt (remove-brackets common)))]
           (set-to-subformula
             (clojure.set/union ref_set
                                (clojure.set/difference next_set common_set)))
-          ))
-      ))
-  )
+          )
+        )
+      )
+    ))
 ;; =====================================x======================================
 
 ;; ============================================================================

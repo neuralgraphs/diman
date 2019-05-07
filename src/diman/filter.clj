@@ -104,8 +104,8 @@
   "Returns index of the first character after the exponent value, i.e, after )*.
   For example `\"m^(-3)*t\"`, `(next-indx x)` returns 7 for `t`.
   "
-  (let [[indx_multiply indx_backparen]
-        [(clojure.string/index-of x "*") (clojure.string/index-of x ")")]]
+  (let [indx_multiply  (clojure.string/index-of x "*")
+        indx_backparen (clojure.string/index-of x ")")]
     (if (some? indx_multiply)
       (inc indx_multiply)
       (if (some? indx_backparen)
@@ -148,9 +148,9 @@
 
 (defn- pull-expt [x indx_sym]
   "Returns exponent value without symbol (^) and parenthesis (if it has)."
-  (let [[indx_frontparen indx_backparen indx_multiply]
-        [(clojure.string/index-of x "(") (clojure.string/index-of x ")")
-         (clojure.string/index-of x "*")]]
+  (let [indx_frontparen (clojure.string/index-of x "(")
+        indx_backparen  (clojure.string/index-of x ")")
+        indx_multiply   (clojure.string/index-of x "*")]
     (if (and (some? indx_frontparen) (= indx_frontparen (inc indx_sym)))
       (make-expt x (inc indx_frontparen) (dec indx_backparen))
       (if (and (some? indx_multiply) (> indx_multiply (inc indx_sym)))
@@ -232,10 +232,10 @@
 (defn- link-matched-components [ref_subform matched_components]
   "Returns connected <notn>^<expt> pairs by * if the resultant connection is either
   not the same as the reference or not empty."
-  (let [[linked]
-        [(include-brackets
+  (let [linked
+        (include-brackets
            (clojure.string/replace (clojure.string/join "*" matched_components)
-                                   #"^[\*]" ""))]]
+                                   #"^[\*]" ""))]
     (if (or (= ref_subform linked) (= "[]" linked))
       nil
       linked)
