@@ -68,7 +68,7 @@
 
 (def base_dimensions
   "The Seven Fundamental/Base Dimensions.
-  NOTE: This is fixed.
+  NOTE: This is fixed. See [International Metrology](https://www.bipm.org/en/measurement-units/)
   "
   [{:name "mass"                      :notation "[M]"}
    {:name "length"                    :notation "[L]"}
@@ -81,14 +81,31 @@
 
 (def standard_formula
   "Dimensional Formula for standard physical quantity.
-  NOTE: This is subject to expansion.
+  NOTE: This is subject to expansion. See [International Metrology](https://www.bipm.org/en/measurement-units/)
   "
-  [{:quantity "volume"       :sformula "[M^(0)*L^(3)*T^(0)]"}
-   {:quantity "velocity"     :sformula "[M^(0)*L^(1)*T^(-1)]"}
-   {:quantity "acceleration" :sformula "[M^(0)*L^(1)*T^(-2)]"}
-   {:quantity "force"        :sformula "[M^(1)*L^(1)*T^(-2)]"}
-   {:quantity "mass density" :sformula "[M^(1)*L^(-3)*T^(0)]"}
-   ;{:quantity "energy"       :sformula "[M^(1)*L^(2)*T^(-2)]"}
+  [{:quantity "volume"       :sformula "[L^(3)]"}
+   {:quantity "frequency"    :sformula "[T^(-1)]"}          ; hertz, Hz
+   {:quantity "velocity"     :sformula "[L^(1)*T^(-1)]"}
+   {:quantity "acceleration" :sformula "[L^(1)*T^(-2)]"}
+   {:quantity "force"        :sformula "[M^(1)*L^(1)*T^(-2)]"} ; newton, N
+   {:quantity "mass density" :sformula "[M^(1)*L^(-3)]"}
+   ;; [Derived units in SI w/ special names/symbol](https://www.bipm.org/en/publications/si-brochure/table3.html)
+   {:quantity "energy"             :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "work"               :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "amount of heat"     :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "pressure"           :sformula "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
+   {:quantity "stress"             :sformula "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
+   {:quantity "catalytic activity" :sformula "[mol^(1)*T^(-1)]"} ; katal, kat
+   ;; [Electrical quantities](https://www.bipm.org/metrology/electricity-magnetism/units.html)
+   {:quantity "charge"                :sformula "[A^(1)*T^(1)]"} ; charge or amount of electricity; coulomb, C
+   {:quantity "capacitance"           :sformula "[M^(-1)*L^(-2)*T^(4)*A^(2)]"} ; farad, F
+   {:quantity "inductance"            :sformula "[M^(1)*L^(2)*T^(-2)*A^(-2)]"} ; henry, H
+   {:quantity "resistance"            :sformula "[M^(1)*L^(2)*T^(-3)*A^(-2)]"} ; ohm, omega
+   {:quantity "conductance"           :sformula "[M^(-1)*L^(-2)*T^(3)*A^(2)]"} ; siemens, S
+   {:quantity "magnetic flux density" :sformula "[M^(1)*T^(-2)*A^(-1)]"} ; tesla, T
+   {:quantity "electromotive force"   :sformula "[M^(1)*L^(2)*T^(-3)*A^(-1)]"} ; volt, V
+   {:quantity "power"                 :sformula "[M^(1)*L^(2)*T^(-3)]"} ; power or radiant flux, watt, W
+   {:quantity "magnetic flux"         :sformula "[M^(1)*L^(2)*T^(-2)*A^(-1)]"} ; weber, Wb
    ])
 
 (defn notation? [x]

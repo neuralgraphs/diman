@@ -300,17 +300,15 @@
   "Returns formula of the terms by tying up sub-formulae. Specifically, tying the
   updated reference sub-formula with distinct components in rest of sub-formulae."
   ([lst_subform updated_ref_subform]
-   (tie-subformulae-in-term lst_subform updated_ref_subform (last lst_subform)
-                            (next-subformula-components-with-common-notation updated_ref_subform
-                                                                             (last lst_subform))
-                            updated_ref_subform))
-  ([lst_subform updated_ref_subform next_subform common updated_ref_tied]
+   (tie-subformulae-in-term lst_subform updated_ref_subform updated_ref_subform))
+  ([lst_subform updated_ref_subform updated_ref_tied]
    (if (empty? lst_subform)
      updated_ref_tied
-     (recur (drop-last lst_subform) updated_ref_subform (last lst_subform)
-            (next-subformula-components-with-common-notation updated_ref_subform
-                                                             (last lst_subform))
-            (tie-ref-with-distinct-next updated_ref_tied next_subform common))
+     (recur (drop-last lst_subform) updated_ref_subform
+            (tie-ref-with-distinct-next updated_ref_tied (last lst_subform)
+                                        (next-subformula-components-with-common-notation updated_ref_subform
+                                                                                         (last lst_subform))
+                                        ))
      ))
   )
 

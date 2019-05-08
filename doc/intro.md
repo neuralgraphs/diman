@@ -104,19 +104,22 @@ Thus
 
 | Equation                     | Set-up                                           |
 |:----------------------------:|:------------------------------------------------:|
-| $e = m^2 v^2$                |`(def eqn1 {:lhs "e", :rhs "m^(2)*v^(2)"})`       |
-| $e = \frac{1}{2}m v^2$       |`(def eqn2 {:lhs "e", :rhs "0.5*m^(1)*v^(2)"})`    |
-| $e = m a$                    |`(def eqn3 {:lhs "e", :rhs "m^(1)*a^(1)"})`        |
-| $e = \frac{3}{16}m v^2$      |`(def eqn4 {:lhs "e", :rhs "0.1875*m^(1)*v^(2)"})`|
-| $e = \frac{1}{2}m v^2 + m a$ |`(def eqn5 {:lhs "e", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})`|
+| $e = m^2 v^2$                |`(def eqn1 {:lhs "e^(1)", :rhs "m^(2)*v^(2)"})`       |
+| $e = \frac{1}{2}m v^2$       |`(def eqn2 {:lhs "e^(1)", :rhs "0.5*m^(1)*v^(2)"})`    |
+| $e = m a$                    |`(def eqn3 {:lhs "e^(1)", :rhs "m^(1)*a^(1)"})`        |
+| $e = \frac{3}{16}m v^2$      |`(def eqn4 {:lhs "e^(1)", :rhs "0.1875*m^(1)*v^(2)"})`|
+| $e = \frac{1}{2}m v^2 + m a$ |`(def eqn5 {:lhs "e^(1)", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})`|
 
 and define the variables/parameters as
 ```
-(def varpars [{:symbol "m", :dimension "mass"}
+(def varpars [{:symbol "e", :dimension "energy"}
+              {:symbol "m", :dimension "mass"}
               {:symbol "v", :dimension "velocity"}
               {:symbol "a", :dimension "acceleration"}])
 
 ```
+
+
 Notice that kinetic `e` is not defined in the `standard_formula`
 ```
 => (require '[diman.dimensions :refer [standard_formula]])
