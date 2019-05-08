@@ -165,12 +165,12 @@
   \"amount of substance^(-2)*time^(0)*mass^(0)*luminous intensity^(0)*length^(1)*electric current^(1)\"
   ```
   "
-  (:require [diman.utilities :refer [remove-parentheses remove-brackets
+  (:require [diman.utilities :refer [remove-brackets
                                      include-parentheses include-brackets]]
             [diman.filter :refer [list-varpar-expt notns-in-subformula
                                   names-in-subformula expts-in-subformula
                                   next-subformula-components-with-common-notation]]
-            [diman.exponents :refer [allexpt-times-expt ref-expt-plus-expt-allmatch]])
+            [diman.exponents :refer [allexpt-times-expt]])
   )
 
 ;; ============================================================================

@@ -44,11 +44,8 @@
   \"[L^(1)]\"
   ```
   "
-  (:require [diman.utilities :refer [include-brackets include-parentheses
-                                     remove-brackets key-in-expr?]]
-            [diman.dimensions :refer [base_dimensions standard_formula
-                                      grab-notation grab-name grab-sformula
-                                      notation? matched-notation-sformula]]
+  (:require [diman.utilities :refer [key-in-expr?]]
+            [diman.dimensions :refer [notation? matched-notation-sformula]]
             [diman.filter :refer [list-varpar-expt
                                   next-subformula-components-with-common-notation]]
             [diman.exponents :refer [ref-expt-plus-expt-allmatch]]

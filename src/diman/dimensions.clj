@@ -88,6 +88,7 @@
    {:quantity "acceleration" :sformula "[M^(0)*L^(1)*T^(-2)]"}
    {:quantity "force"        :sformula "[M^(1)*L^(1)*T^(-2)]"}
    {:quantity "mass density" :sformula "[M^(1)*L^(-3)*T^(0)]"}
+   ;{:quantity "energy"       :sformula "[M^(1)*L^(2)*T^(-2)]"}
    ])
 
 (defn notation? [x]

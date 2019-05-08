@@ -74,11 +74,8 @@
   nil
   ```
   "
-  (:require [diman.utilities :refer [remove-brackets remove-parentheses
-                                     include-brackets include-parentheses]]
-            [diman.dimensions :refer [base_dimensions standard_formula
-                                      grab-notation grab-name grab-sformula
-                                      notation? matched-notation-sformula]])
+  (:require [diman.utilities :refer [remove-brackets include-brackets]]
+            [diman.dimensions :refer [grab-name]])
   )
 
 ;; ============================================================================

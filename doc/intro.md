@@ -89,3 +89,62 @@ true
 ```
 
 However dimensionally consistent equation **does not guarantee** correct equation.
+### Consistency of multiple equations
+Let us consider the case below
+$$
+e = m^2 v^2
+e = \frac{1}{2}m v^2
+e = m a
+e = \frac{3}{16}m v^2
+e = \frac{1}{2}m v^2 + m a
+$$
+the question is, which of these equations are correct? To do this let us perform dimensional consistency check.
+
+Thus
+
+| Equation                     | Set-up                                           |
+|:----------------------------:|:------------------------------------------------:|
+| $e = m^2 v^2$                |`(def eqn1 {:lhs "e", :rhs "m^(2)*v^(2)"})`       |
+| $e = \frac{1}{2}m v^2$       |`(def eqn2 {:lhs "e", :rhs "0.5*m^(1)*v^(2)"})`    |
+| $e = m a$                    |`(def eqn3 {:lhs "e", :rhs "m^(1)*a^(1)"})`        |
+| $e = \frac{3}{16}m v^2$      |`(def eqn4 {:lhs "e", :rhs "0.1875*m^(1)*v^(2)"})`|
+| $e = \frac{1}{2}m v^2 + m a$ |`(def eqn5 {:lhs "e", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})`|
+
+and define the variables/parameters as
+```
+(def varpars [{:symbol "m", :dimension "mass"}
+              {:symbol "v", :dimension "velocity"}
+              {:symbol "a", :dimension "acceleration"}])
+
+```
+Notice that kinetic `e` is not defined in the `standard_formula`
+```
+=> (require '[diman.dimensions :refer [standard_formula]])
+=> (pprint standard_formula)
+[{:quantity "volume", :sformula "[M^(0)*L^(3)*T^(0)]"}
+ {:quantity "velocity", :sformula "[M^(0)*L^(1)*T^(-1)]"}
+ {:quantity "acceleration", :sformula "[M^(0)*L^(1)*T^(-2)]"}
+ {:quantity "force", :sformula "[M^(1)*L^(1)*T^(-2)]"}
+ {:quantity "mass density", :sformula "[M^(1)*L^(-3)*T^(0)]"}]
+```
+Since we already know that the kinetic energy is in Joules and $1J = kg*m^2*s^(-2)$ whose dimensional formula is `[M^(1)*L^(2)*T(-2)]` this can be added to the `standard_formula` as
+```
+=> (def updated_sform (conj standard_formula {:quantity "energy", :sformula "[M^(1)*L^(2)*T(-2)]"}))
+=> (intern 'diman.dimensions 'standard_formula updated_sform)
+=> (pprint standard_formula)
+[{:quantity "volume", :sformula "[M^(0)*L^(3)*T^(0)]"}
+ {:quantity "velocity", :sformula "[M^(0)*L^(1)*T^(-1)]"}
+ {:quantity "acceleration", :sformula "[M^(0)*L^(1)*T^(-2)]"}
+ {:quantity "force", :sformula "[M^(1)*L^(1)*T^(-2)]"}
+ {:quantity "mass density", :sformula "[M^(1)*L^(-3)*T^(0)]"}
+ {:quantity "energy", :sformula "[M^(1)*L^(2)*T(-2)]"}]
+```
+Now since `energy` is one of the `:quantity` in the `standard_formula`, we can add the symbol `e` in our definition
+```
+=> (def varpars (conj varpars {:symbol "e", :dimension "energy"}))
+=> (pprint varpars)
+[{:symbol "m", :dimension "mass"}
+ {:symbol "v", :dimension "velocity"}
+ {:symbol "a", :dimension "acceleration"}
+ {:symbol "e", :dimension "energy"}]
+```
