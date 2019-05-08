@@ -3,11 +3,12 @@
   These are
 
   - `dimnames`
+  - `consistent?`
 
   ## How to use
   ### Loading
   ```
-  (:require [diman.analyze :refer [allexpt-times-expt]])
+  (:require [diman.analyze :refer [dimnames consistent?]])
   ```
   ### Examples
   Consider the case
