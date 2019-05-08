@@ -118,7 +118,23 @@ and define the variables/parameters as
               {:symbol "a", :dimension "acceleration"}])
 
 ```
+Then
+```
+=> (consistent? varpars eqn1)
+false
+=> (consistent? varpars eqn2)
+true
+=> (consistent? varpars eqn3)
+false
+=> (consistent? varpars eqn4)
+true
+=> (consistent? varpars eqn5)
+false
+```
+which suggests $e = \frac{1}{2}m v^2$ and $e = \frac{3}{16}m v^2$ to be dimensionally consistent.
 
+But both equations can't be correct, illustrating the point that
+> a dimensionally consistent equation does not guarantee correct equation
 
 Notice that kinetic `e` is not defined in the `standard_formula`
 ```
