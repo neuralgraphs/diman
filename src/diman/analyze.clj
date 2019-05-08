@@ -26,17 +26,34 @@
   => (formula-eqn-side varpars rhs)
   \"[L^(1)] + [T^(-2)*M^(0)*L^(2)] + [T^(1)] + [T^(0)*M^(0)*L^(1)]\"
   ```
-  whose dimension names are
+  #### Dimension names of an equation side
+  The rhs of our example equation as dimension names is
   ```
   => (dimnames (formula-eqn-side varpars rhs))
-  \"length^(1) + time^(-2)*length^(2) + time^(1) + length^(1)\"
+  \"length^(1) + length^(1) + length^(1)\"
+  ```
+  and for lhs
+  ```
+  => (dimnames (formula-eqn-side varpars lhs))
+  \"length^(1)\"
   ```
   Notice that names of the dimensions with exponent value = 0 is not seen.
+  #### Consistency check
+  To check if the lhs and rhs of the dimensional formula are the same do
+  ```
+  => (consistent? varpars eqn)
+  true
+  ```
   "
-  (:require [diman.attach :refer [tie-names-in-subformula]])
+  (:require [diman.attach :refer [tie-names-in-subformula]]
+            [diman.formula :refer [formula-eqn-side]])
   )
 
+;; ============================================================================
+;;    Function for representing the dimensional formula in terms of names.
+;; ============================================================================
 (defn dimnames
+  "Returns names of the contents of the dimensional formula."
   ([eqn_form]
    (dimnames eqn_form (clojure.string/split
                         (clojure.string/replace eqn_form #"[\s]+" "")
@@ -49,3 +66,53 @@
             (cons (tie-names-in-subformula (last lst_subform)) lst_ans))
      ))
   )
+;; =====================================x======================================
+
+;; ============================================================================
+;;             Function for performing Dimensional Consistency.
+;; ============================================================================
+(defn- replace-plus-by-empty-string [dimname_form]
+  "Returns a vector of names of the dimensional formula with the plus sign
+  replaced by an empty string."
+  (let [wo_plus (clojure.string/replace dimname_form #"[\+]+" "")]
+    (clojure.string/split wo_plus #" ")                     ; w/o space
+    ))
+
+(defn- replace-empty-string-by-nil [a_string]
+  "Returns a list of names replacing empty strings by nil."
+  (if (empty? a_string)
+    nil
+    a_string))
+
+(defn- remove-empty-string
+  "Returns a list of names removing the empty strings (i.e, nil) in the list."
+  ([vec_strings] (remove-empty-string vec_strings []))
+  ([vec_strings nilified]
+   (if (empty? vec_strings)
+     (remove nil? nilified)
+     (recur (drop-last vec_strings)
+            (conj nilified
+                  (replace-empty-string-by-nil (last vec_strings)))
+            )
+     )
+    ))
+
+(defn- clean-dimnames [dimnames_a_side]
+  "Returns a list of names of the dimensional formula w/o the plus sign."
+  (remove-empty-string (replace-plus-by-empty-string dimnames_a_side))
+  )
+
+(defn consistent? [varpar_def eqn]
+  "Compares dimensional names on lhs vs rhs of the equation."
+  (let [lhs (formula-eqn-side varpar_def (:lhs eqn))
+        rhs (formula-eqn-side varpar_def (:rhs eqn))
+        dimnames_lhs_cleaned (clean-dimnames (dimnames lhs))
+        dimnames_rhs_cleaned (clean-dimnames (dimnames rhs))]
+    (if (apply = dimnames_rhs_cleaned)                      ; all rhs names are same
+      (= (sort (clojure.string/join " " dimnames_lhs_cleaned))
+         (sort (first dimnames_rhs_cleaned)))               ; vs one rhs name
+      (= (sort (clojure.string/join " " dimnames_lhs_cleaned))
+         (sort (clojure.string/join " " dimnames_rhs_cleaned)))
+      )
+    ))
+;; =====================================x======================================

@@ -63,4 +63,29 @@ Dimensional formula for the `rhs` expression is given by
 => (dimnames (formula-eqn-side varpars rhs))
 "length^(1) + time^(-2)*length^(2) + time^(1) + length^(1)"
 ```
+## Consistency check
+Let us consider the equation
+```
+(def lhs "x^(1)")
+(def rhs {:term1 "x^(1)",
+          :term2 "v^(1)*t^(1)",
+          :term3 "0.5*a^(1)*t^(2)"})
+(def eqn {:lhs lhs, :rhs rhs})
+```
+whose variables/parameters are defined as
+```
+(def varpars [{:symbol "x", :dimension "length"}
+              {:symbol "v", :dimension "velocity"}
+              {:symbol "t", :dimension "time"}
+              {:symbol "a", :dimension "acceleration"}])
+```
+If the correctness of an equation is in doubt checking for dimensional consistency is a useful preliminary step.
 
+To perform consistency check based on dimensional analysis you first import the function `consistent?` as `(require '[diman.analyze :refer [consistent?]])`.
+Then
+```
+=> (consistent? varpars eqn)
+true
+```
+
+However dimensionally consistent equation **does not guarantee** correct equation.
