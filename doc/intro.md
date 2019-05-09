@@ -30,7 +30,7 @@ pprint `standard_formula`
 ### Import required functions
 ```
 (require '[diman.formula :refer [formula-term formula-eqn-side]])
-(require '[diman.analyze :refer [dimnames]])
+(require '[diman.analyze :refer [dimnames consistent?]])
 ```
 ## Getting dimensional formula
 ### Sub-formula of the dimensional formula for one side of the equation
