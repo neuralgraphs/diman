@@ -1,3 +1,4 @@
+[diman logo](./resources/images/logo/diman.png)
 # diman
 
 A Clojure library designed to ... well, that part is up to you.
