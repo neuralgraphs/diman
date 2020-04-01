@@ -12,7 +12,7 @@
   ## How to use
   ### Loading
   ```
-  (:require [diman.dimensions :refer [base_dimensions standard_formula
+  (require '[diman.dimensions :refer [base_dimensions standard_formula
                                       grab-notation grab-name grab-sformula
                                       notation? matched-notation-sformula]])
   ```
