@@ -7,13 +7,15 @@
   - `expts-in-subformula`
   - `names-in-subformula`
   - `next-subformula-components-with-common-notation`
+  - `remove-zero-powers`
 
   ## How to use
   ### Loading
   ```
   (:require [diman.filter :refer [list-varpar-expt notns-in-subformula
                                   expts-in-subformula names-in-subformula
-                                  next-subformula-components-with-common-notation])
+                                  next-subformula-components-with-common-notation
+                                  remove-zero-powers])
   ```
   ### Examples
   #### Filter out the variable/parameter and its exponents separately
@@ -24,6 +26,7 @@
   => (list-varpar-expt expr)
   [(\"a\" \"t\") (\"1\" \"2\")]
   ```
+
   #### Filtering out one of the seven fundamental notations and its exponents
   A sub-formula (special case of dimensional formula)
   ```(def subform1 \"[M^(0)*L^(1)*T^(-2)]\")```
@@ -54,6 +57,7 @@
   => (names-in-subformula subform2)
   (\"mass\" \"luminous intensity\" \"amount of substance\")
   ```
+
   #### Filter out recurring notation of component/s in next sub-formula w.r.t reference sub-formula
   For `(def lsubform '(\"[M^(0)*L^(1)*T^(-2)]\" \"[A^(1)*T^(2)]\" \"[cd]^(0)*[mol]^(-2)]\"))`
   consider `\"[M^(0)*L^(1)*T^(-2)]\"` to be the reference sub-formula (because it has the
@@ -73,8 +77,23 @@
   => (next-subformula-components-with-common-notation (first lsubform) (first lsubform))
   nil
   ```
+
+  #### Filtering out base notations having zero exponents in a sub-formula or the formula for a side of the equation.
+  For `(def subformula \"[T^(0)*L^(1)]\")` and
+  `(def formula \"[L^(1)] + [T^(-2)*L^(2)] + [T^(1)] + [T^(0)*L^(1)]\")`
+  their reduced forms are
+  ```
+  => (remove-zero-powers subformula)
+  \"[L^(1)]\"
+  ```
+  and
+  ```
+  => (remove-zero-powers formula)
+  \"[L^(1)] + [T^(-2)*L^(2)] + [T^(1)] + [L^(1)]\"
+  ```
   "
-  (:require [diman.utilities :refer [remove-brackets include-brackets]]
+  (:require [diman.utilities :refer [remove-brackets include-brackets
+                                     include-parentheses]]
             [diman.dimensions :refer [grab-name]])
   )
 
@@ -258,3 +277,49 @@
   )
 ;; =====================================x======================================
 
+;; ============================================================================
+;; Function for filtering out the base notations with zero exponents.
+;; This is done for all components in a sub-formula and hence as a consequence
+;; on the overall formula.
+;; NOTE:
+;; - this function works on both sub-formula and formula representing a side
+;; of the equation.
+;; ============================================================================
+(defn- tie-notn-expt [notn expt]
+  "Returns base notation with its exponent value for value =/= 0, else return nil."
+  (if (= expt "0")
+    nil
+    (clojure.string/join "^" [notn (include-parentheses expt)])
+    ))
+
+(defn- tie-notns-in-subformula
+  "Returns base notations (those w/o zero exponents) and its exponent value with
+  each pair separated by *."
+  ([subform] (tie-notns-in-subformula subform
+                                      (notns-in-subformula subform)
+                                      (expts-in-subformula subform) ""))
+  ([subform lst_notns lst_expts tied_notns_expts]
+    (if (empty? lst_notns)
+      (include-brackets (clojure.string/join "*" (remove nil? tied_notns_expts)))
+      (recur subform (drop-last lst_notns) (drop-last lst_expts)
+             (cons (tie-notn-expt (last lst_notns) (last lst_expts))
+                   tied_notns_expts))
+      ))
+  )
+
+(defn remove-zero-powers
+  "Returns the reduced dimensional formula,
+  i.e. base notations with zero exponents are removed."
+  ([eqn_form]
+    (remove-zero-powers eqn_form
+                        (clojure.string/split
+                          (clojure.string/replace eqn_form #"[\s]+" "") #"[\+]")
+                        ""))
+  ([eqn_form lst_subform lst_ans]
+    (if (empty? lst_subform)
+      (clojure.string/join " + " lst_ans)
+      (recur eqn_form (drop-last lst_subform)
+             (cons (tie-notns-in-subformula (last lst_subform)) lst_ans))
+      ))
+  )
+;; =====================================x======================================
