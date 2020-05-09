@@ -15,7 +15,9 @@ A Clojure library for applying dimensional analysis.
 
 ## Usage
 
-[Tutorial for defining dimensional formulae and consistency checking.](./doc/tutorial1.pdf)
+- [Tutorial for defining dimensional formulae and consistency checking.](./doc/tutorial1.pdf)
+- [Source code documentation](https://cljdoc.org/d/diman/diman/0.0.1-Alpha)
+
 
 ## License
 
