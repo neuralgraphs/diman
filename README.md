@@ -5,6 +5,8 @@
 
 A Clojure library for applying dimensional analysis.
 
+[Motivation for diman.](ProjectPlan.pdf)
+
 ## Current Features
 
 - Create dimensional formulae.
@@ -13,7 +15,7 @@ A Clojure library for applying dimensional analysis.
 
 ## Usage
 
-FIXME
+[Tutorial for defining dimensional formulae and consistency checking.](./doc/tutorial1.pdf)
 
 ## License
 
