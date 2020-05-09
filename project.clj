@@ -13,4 +13,7 @@
           ;:doc-files ["ProjectPlan.pdf",                    ; only supports .md or .markdown
           ;            "doc/tutorial1.pdf"]
           }
+  :deploy-repositories                                      ; deploy w/o calling gpg and only author so
+  [["releases" {:sign-releases false :url "https://repo.clojars.org"}] ; does not require jar verification from others
+   ["snapshots" {:sign-releases false :url "https://repo.clojars.org"}]]
   )

@@ -1,7 +1,7 @@
 ![diman logo](./resources/images/logo/diman.png)
 # diman
 
-``0.0.1-Alpha``
+``[diman "0.0.1-Alpha"]``
 
 A Clojure library for applying dimensional analysis.
 
