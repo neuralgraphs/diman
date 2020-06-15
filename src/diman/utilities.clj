@@ -6,6 +6,7 @@
   - `remove-parentheses`
   - `include-brackets`
   - `include-parentheses`
+  - `key-in-expr?`
 
   ## How to use
   ### Loading

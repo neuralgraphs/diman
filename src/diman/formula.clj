@@ -4,11 +4,12 @@
 
   - `formula-term`
   - `formula-eqn-side`
+  - `formula-eqn-side-manifold`
 
   ## How to use
   ### Loading
   ```
-  (:require [diman.formula :refer [formula-term formula-eqn-side]])
+  (:require [diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]])
   ```
   ### Example
   Given
@@ -43,6 +44,35 @@
   => (formula-eqn-side varpars lhs)
   \"[L^(1)]\"
   ```
+  #### Evaluating formula for a side for multiple equations
+  Lets say we have two different equations
+  ```
+  (def p_leftside \"p^(1)\")
+  (def p_rightside {:term1 \"x^(2)*y^(-1)*t^(1)\"})
+  (def p_equation {:lhs p_leftside, :rhs p_rightside})
+  ```
+  and
+  ```
+  (def q_leftside \"q^(1)\")
+  (def q_rightside {:term1 \"x^(1)*y^(6)*t^(20)\"})
+  (def q_equation {:lhs q_leftside, :rhs q_rightside})
+  ```
+  The RHS of the above two equations can be evaluated in one step using
+  `formula-eqn-side-manifold`. To do this let us set up its argument
+  ```
+  (def manifold_eqn [{:name \"p_quantity\" :eqn (:rhs p_equation)}
+                     {:name \"q_quantity\" :eqn (:rhs q_equation)}])
+  ```
+  Now we may invoke the method by passing the above as the argument
+  ```
+  => (formula-eqn-side-manifold varpars manifold_eqn)
+  [{:quantity \"p_quantity\", :formula \"[L^(-1)*M^(2)*T^(1)]\"}
+  {:quantity \"q_quantity\", :formula \"[L^(6)*M^(1)*T^(20)]\"}]
+  ```
+  **NOTE:** If the user plans to insert these derived dimensional formulae into
+  the `standard_formula` the name given for respective `:quantity` in the above
+  argument (here we named it `manifold_eqn`) **should be the name defined** for
+  the quantity (so, in the definition `varpars`).
   "
   (:require [diman.utilities :refer [key-in-expr?]]
             [diman.dimensions :refer [notation? matched-notation-sformula]]
@@ -158,5 +188,16 @@
     (tie-subformulae-in-eqn-side (list-formula-all-terms varpar_def eqn_side_expr))
     (formula-term varpar_def eqn_side_expr))
   )
-;; =====================================x======================================
 
+(defn formula-eqn-side-manifold
+  ([varpar_def manifold_eqn_side_expr]
+   (formula-eqn-side-manifold varpar_def manifold_eqn_side_expr []))
+  ([varpars manifold_eqn manifold_formula]
+   (if (empty? manifold_eqn)
+     manifold_formula
+     (recur varpars (rest manifold_eqn)
+            (conj manifold_formula
+                  {:quantity (:name (first manifold_eqn))
+                   :formula (formula-eqn-side varpars (:eqn (first manifold_eqn)))}))
+     )))
+;; =====================================x======================================

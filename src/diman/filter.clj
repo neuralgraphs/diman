@@ -285,9 +285,22 @@
 ;; - this function works on both sub-formula and formula representing a side
 ;; of the equation.
 ;; ============================================================================
+(defn- parseNum [x] (if (clojure.string/includes? x ".")
+                      (Float/parseFloat x)
+                      (Integer/parseInt x)))
+
+(defn- rationalize-string [x]
+  (let [matcher (re-matcher #"[\-\d|\d]+" x)
+        ratio_numerator (parseNum (re-find matcher))
+        string_denominator (re-find matcher)
+        ratio_denominator
+        ((fn [x] (if (or (nil? x) (= "0" x))                ; equal "0" in case x is "0.0"
+                   1 (parseNum x))) string_denominator)]
+    (/ ratio_numerator ratio_denominator)))
+
 (defn- tie-notn-expt [notn expt]
   "Returns base notation with its exponent value for value =/= 0, else return nil."
-  (if (= expt "0")
+  (if (zero? (rationalize-string expt))                     ; (zero? (Float/parseFloat expt))
     nil
     (clojure.string/join "^" [notn (include-parentheses expt)])
     ))

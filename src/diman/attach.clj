@@ -20,7 +20,7 @@
   For notation `[M]` with exponent 2
   ```
   => (tie-notn-expt \"[M]\" \"2\")
-  \"[M^(2)]\"
+  \"M^(2)\"
   ```
   which is a formula with just one component, `M^(2)`.
 
@@ -170,7 +170,8 @@
             [diman.filter :refer [list-varpar-expt notns-in-subformula
                                   names-in-subformula expts-in-subformula
                                   next-subformula-components-with-common-notation]]
-            [diman.exponents :refer [allexpt-times-expt]])
+            [diman.exponents :refer [allexpt-times-expt]]
+            [clojure.set :refer [union difference]])        ; only necessary for lein test else ClassNotFoundException error due to clojure.set
   )
 
 ;; ============================================================================

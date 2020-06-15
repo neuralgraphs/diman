@@ -8,6 +8,7 @@
   - `grab-sformula` from `standard-formula`
   - `notation?`
   - `matched-notation-sformula`
+  - `update-sformula`
 
   ## How to use
   ### Loading
@@ -54,7 +55,7 @@
   => (matched-notation-sformula varpars \"x\")
   \"[L]\"
   => (matched-notation-sformula varpars \"a\")
-  \"[M^(0)*L^(1)*T^(-2)]
+  \"[M^(0)*L^(1)*T^(-2)]\"
   ```
   NOTE:
 
@@ -64,6 +65,7 @@
     - one of the `quantity` values, i.e, one of the standard formulae
 
   "
+  (:require [clojure.pprint :refer [pprint]])        ; only necessary for lein test else ClassNotFoundException error due to clojure.set
   )
 
 (def base_dimensions
@@ -190,9 +192,9 @@
   ([varpar_def symb ans]
    (if (= symb (:symbol (last varpar_def)))
      (grab-notation (:dimension (last varpar_def)))
-     (recur (drop-last varpar_def) symb "")
-     ))
-  )
+     (if (empty? varpar_def) nil
+       (recur (drop-last varpar_def) symb ""))
+     )))
 
 (defn- matched-sformula
   "Returns standard formula of the matching quantity of the given symbol (symb)
@@ -201,9 +203,9 @@
   ([varpar_def symb ans]
    (if (= symb (:symbol (last varpar_def)))
      (grab-sformula (:dimension (last varpar_def)))
-     (recur (drop-last varpar_def) symb "")
-     ))
-  )
+     (if (empty? varpar_def) nil
+       (recur (drop-last varpar_def) symb ""))
+     )))
 
 (defn matched-notation-sformula [varpar_def symb]
   "Returns notation or standard formula for the given symbol (symb)
@@ -212,4 +214,14 @@
     (matched-sformula varpar_def symb)
     (matched-notation varpar_def symb))
   )
+
+(defn update-sformula
+  ([x] (update-sformula x []))
+  ([x y]
+   (if (empty? x)
+     (clojure.pprint/pprint standard_formula)
+     (let [to_insert (conj standard_formula {:quantity (:quantity (last x))
+                                             :sformula (:formula (last x))})]
+       (recur (drop-last x) (intern 'diman.dimensions 'standard_formula to_insert)))
+     )))
 ;; =====================================x======================================
