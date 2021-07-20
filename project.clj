@@ -1,9 +1,10 @@
-(defproject diman "0.0.1-Alpha"
+;; Copyright (c) Lungsi Ngwua. All rights reserved
+(defproject diman "0.0.2-Alpha"
   :description "A Clojure library for applying dimensional analysis."
   :url "https://github.com/lungsi/diman"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.10.1"]]
+  :license {:name "BSD 3-Clause 'New' or 'Revised' License"
+            :url "https://choosealicense.com/licenses/bsd-3-clause/"}
+  :dependencies [[org.clojure/clojure "1.10.3"]]
   :plugins [[lein-codox "0.10.7"]]                          ; https://github.com/weavejester/codox
   :codox {
           :output-path "codox"                              ; write output to codox/
@@ -13,6 +14,11 @@
           ;:doc-files ["ProjectPlan.pdf",                    ; only supports .md or .markdown
           ;            "doc/tutorial1.pdf"]
           }
+  :repl-options {:prompt (fn [ns] (str "diman <" ns "> => "));; Custom repl prompt for diman
+                 :welcome (println "Welcome to diman\nA <dim>ensional <anal>ysis tool capable of deriving dimensionless products.")
+                 :init-ns diman.default
+                 ;:init (println "You are in" *ns*)          ;; Top of the repl
+                 }
   :deploy-repositories                                      ; deploy w/o calling gpg and only author so
   [["releases" {:sign-releases false :url "https://repo.clojars.org"}] ; does not require jar verification from others
    ["snapshots" {:sign-releases false :url "https://repo.clojars.org"}]]

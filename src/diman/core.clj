@@ -1,8 +1,11 @@
-(ns diman.core
-  (:require [diman.formula :refer [formula-eqn-side]]
-            [diman.analyze :refer [dimnames]]
-            )
-  )
+(ns diman.core)
+
+(defn view-matrix
+  "View matrices."
+  [M]
+  (dorun (map println
+              (conj M
+                    (str "Size -> " (count M) " x " (count (first M)))))))
 
 
 
