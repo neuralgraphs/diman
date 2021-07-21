@@ -8,7 +8,11 @@ For this tutorial imagine the equation derived from experimental observations is
 The four steps for deriving the dimensionless products are as follows.
 
 ## 1. Generate Dimensional Formula for All the Terms (usually right hand side of equation)
-Let us define <img src="https://latex.codecogs.com/svg.image?p\triangleq\frac{x^3}{y}t" title="p\triangleq\frac{x^3}{y}t" />, <img src="https://latex.codecogs.com/svg.image?q\triangleq&space;xy^6t^{20}" title="q\triangleq xy^6t^{20}" />, <img src="https://latex.codecogs.com/svg.image?r\triangleq&space;\frac{x^3}{y^3t^3}" title="r\triangleq \frac{x^3}{y^3t^3}" /> and <img src="https://latex.codecogs.com/svg.image?s\triangleq&space;\frac{x^4}{t^8}" title="s\triangleq \frac{x^4}{t^8}" />. Replacing *p*, *q*, *r* and *s* for the terms in the main equation we get
+Let us define
+
+<img src="https://latex.codecogs.com/svg.image?p\triangleq\frac{x^3}{y}t" title="p\triangleq\frac{x^3}{y}t" />, <img src="https://latex.codecogs.com/svg.image?q\triangleq&space;xy^6t^{20}" title="q\triangleq xy^6t^{20}" />, <img src="https://latex.codecogs.com/svg.image?r\triangleq&space;\frac{x^3}{y^3t^3}" title="r\triangleq \frac{x^3}{y^3t^3}" /> and <img src="https://latex.codecogs.com/svg.image?s\triangleq&space;\frac{x^4}{t^8}" title="s\triangleq \frac{x^4}{t^8}" />
+
+Replacing *p*, *q*, *r* and *s* for the terms in the main equation we get
 
 <img src="https://latex.codecogs.com/svg.image?u=p&plus;q&plus;r&plus;s" title="u=p+q+r+s" />
 
@@ -91,7 +95,7 @@ Since all the dimensional formula of *p*, *q*, *r* and *s*, representing all the
 
 <img src="https://latex.codecogs.com/svg.image?u=p&plus;q&plus;r&plus;s" title="u=p+q+r+s" />
 
-The definition will be such that each term symbol has the dimension name as defined in the preceeding step (and hence incorporated into the `standard_formula`. For instance, since the term *p* (<img src="https://latex.codecogs.com/svg.image?p\triangleq\frac{x^3}{y}t" title="p\triangleq\frac{x^3}{y}t" />) was named *"term-p"* in
+The definition will be such that each term symbol has the dimension name as defined in the preceeding step (and hence incorporated into the `standard_formula`. For instance, since the term *p* (<i>p</i> &#8796; <i>tx</i><sup>3</sup>/<i>y</i>) was named *"term-p"* in
 
 ```
 => (pprint manifold_eqn)
