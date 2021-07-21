@@ -16,12 +16,11 @@ A Clojure library for applying dimensional analysis.
 ## Usage
 
 - [Tutorial for defining dimensional formulae and consistency checking.](./doc/tutorial1.pdf)
-- [Source code documentation](https://cljdoc.org/d/diman/diman/0.0.1-Alpha)
+- [Source code documentation](https://cljdoc.org/d/diman/diman/0.0.2-Alpha)
 
 
 ## License
 
-Copyright © 2019 B. Lungsi Sharma
+Copyright © 2021 B. Lungsi Sharma
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under BSD 3-Clause "New" or "Revised" License.
