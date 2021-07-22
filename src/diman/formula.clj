@@ -9,15 +9,15 @@
   ## How to use
   ### Loading
   ```
-  (:require [diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]])
+  (require '[diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]])
   ```
   ### Example
   Given
   ```
-  (def varpars [{:symbol \"x\", :dimension \"length\"}
-                {:symbol \"v\", :dimension \"velocity\"}
-                {:symbol \"t\", :dimension \"time\"}
-                {:symbol \"a\", :dimension \"acceleration\"}])
+  (def varpars [{:symbol \"x\", :quantity \"length\"}
+                {:symbol \"v\", :quantity \"velocity\"}
+                {:symbol \"t\", :quantity \"time\"}
+                {:symbol \"a\", :quantity \"acceleration\"}])
   (def lhs \"x^(1)\")
   (def rhs {:term1 \"x^(1)\", :term2 \"v^(2)\", :term3 \"t^(1)\", :term4 \"0.5*a^(1)*t^(2)\"})
   (def eqn {:lhs lhs, :rhs rhs})
@@ -26,7 +26,7 @@
   To get the formula of a term, say, `(:term4 rhs)`
   ```
   => (formula-term varpars (:term4 rhs))
-  \"[T^(0)*M^(0)*L^(1)]\"
+  \"[T^(0)*L^(1)]\"
   ```
   and for left hand side
   ```
@@ -37,7 +37,7 @@
   For right hand side
   ```
   => (formula-eqn-side varpars rhs)
-  \"[L^(1)] + [T^(-2)*M^(0)*L^(2)] + [T^(1)] + [T^(0)*M^(0)*L^(1)]\"
+  \"[L^(1)] + [T^(-2)*L^(2)] + [T^(1)] + [T^(0)*L^(1)]\"
   ```
   for left hand side
   ```
@@ -48,13 +48,13 @@
   Lets say we have two different equations
   ```
   (def p_leftside \"p^(1)\")
-  (def p_rightside {:term1 \"x^(2)*y^(-1)*t^(1)\"})
+  (def p_rightside {:term1 \"x^(2)*v^(-1)*t^(1)\"})
   (def p_equation {:lhs p_leftside, :rhs p_rightside})
   ```
   and
   ```
   (def q_leftside \"q^(1)\")
-  (def q_rightside {:term1 \"x^(1)*y^(6)*t^(20)\"})
+  (def q_rightside {:term1 \"x^(1)*a^(6)*t^(20)\"})
   (def q_equation {:lhs q_leftside, :rhs q_rightside})
   ```
   The RHS of the above two equations can be evaluated in one step using
@@ -66,8 +66,8 @@
   Now we may invoke the method by passing the above as the argument
   ```
   => (formula-eqn-side-manifold varpars manifold_eqn)
-  [{:quantity \"p_quantity\", :formula \"[L^(-1)*M^(2)*T^(1)]\"}
-  {:quantity \"q_quantity\", :formula \"[L^(6)*M^(1)*T^(20)]\"}]
+  [{:quantity \"p_quantity\", :dimension \"[L^(-1)*L^(2)*T^(2)]\"}
+  {:quantity \"q_quantity\", :dimension \"[L^(6)*T^(8)*L^(1)]\"}]
   ```
   **NOTE:** If the user plans to insert these derived dimensional formulae into
   the `standard_formula` the name given for respective `:quantity` in the above
@@ -198,6 +198,6 @@
      (recur varpars (rest manifold_eqn)
             (conj manifold_formula
                   {:quantity (:name (first manifold_eqn))
-                   :formula (formula-eqn-side varpars (:eqn (first manifold_eqn)))}))
+                   :dimension (formula-eqn-side varpars (:eqn (first manifold_eqn)))}))
      )))
 ;; =====================================x======================================

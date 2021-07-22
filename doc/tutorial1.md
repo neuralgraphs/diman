@@ -49,10 +49,10 @@ You want to know if this derived equation is correct. Using diman<sup>(c)</sup> 
 Define all the symbols in the mathematical expression that is associated with a dimension.
 
 ```
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+(def varpars [{:symbol "x", :quantity "length"}
+              {:symbol "v", :quantity "velocity"}
+              {:symbol "t", :quantity "time"}
+              {:symbol "a", :quantity "acceleration"}])
 ```
 
 #### 2.2. Expressions and equation
@@ -84,7 +84,7 @@ the dimensional formula for `:term4` is given by
 
 ```
 => (formula-term varpars (:term4 rhs))
-"[T^(0)*M^(0)*L^(1)]"
+"[T^(0)*L^(1)]"
 ```
 
 #### 3.2. Dimensional formula for one side of the equation
@@ -94,7 +94,7 @@ Dimensional formula for the `rhs` expression is given by
 
 ```
 => (formula-eqn-side varpars rhs)
-"[L^(1)]+[T^(-2)*M^(0)*L^(2)]+[T^(1)]+[T^(0)*M^(0)*L^(1)]"
+"[L^(1)] + [T^(-2)*L^(2)] + [T^(1)] + [T^(0)*L^(1)]"
 ```
 
 #### 3.3. Introspecting the dimensional formula
@@ -125,10 +125,10 @@ Consider the equation
 Define all the symbols in the mathematical expression that is associated with a dimension.
 
 ```
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+(def varpars [{:symbol "x", :quantity "length"}
+              {:symbol "v", :quantity "velocity"}
+              {:symbol "t", :quantity "time"}
+              {:symbol "a", :quantity "acceleration"}])
 ```
 
 #### 2.2. Expressions and equation
@@ -178,10 +178,10 @@ Thus
 and define the variables/parameters as
 
 ```
-(def varpars [{:symbol "e", :dimension "energy"}
-              {:symbol "m", :dimension "mass"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "a", :dimension "acceleration"}])
+(def varpars [{:symbol "e", :quantity "energy"}
+              {:symbol "m", :quantity "mass"}
+              {:symbol "v", :quantity "velocity"}
+              {:symbol "a", :quantity "acceleration"}])
 
 ```
 
@@ -212,32 +212,32 @@ From the previous example of notice that kinetic `e` is not defined in the `stan
 
 ```
 => (pprint standard_formula)
-[{:quantity "volume", :sformula "[M^(0)*L^(3)*T^(0)]"}
- {:quantity "velocity", :sformula "[M^(0)*L^(1)*T^(-1)]"}
- {:quantity "acceleration", :sformula "[M^(0)*L^(1)*T^(-2)]"}
- {:quantity "force", :sformula "[M^(1)*L^(1)*T^(-2)]"}
- {:quantity "mass density", :sformula "[M^(1)*L^(-3)*T^(0)]"}]
+[{:quantity "volume", :dimension "[L^(3)]"}
+ {:quantity "velocity", :dimension "[L^(1)*T^(-1)]"}
+ {:quantity "acceleration", :dimension "[L^(1)*T^(-2)]"}
+ {:quantity "force", :dimension "[M^(1)*L^(1)*T^(-2)]"}
+ {:quantity "mass density", :dimension "[M^(1)*L^(-3)]"}]
 ```
 
 Since we already know that the kinetic energy is in Joules and <img src="https://latex.codecogs.com/svg.latex?1J=kg*m^2*s^{-2}" title="1J=kg*m^2*s^{-2}" /> whose dimensional formula is `[M^(1)*L^(2)*T(-2)]` this can be added to the `standard_formula` as
 
 ```
-=> (update-sformula [{:quantity "energy2", :formula "[M^(1)*L^(2)*T(-2)]"}])
-[{:quantity "volume", :sformula "[M^(0)*L^(3)*T^(0)]"}
- {:quantity "velocity", :sformula "[M^(0)*L^(1)*T^(-1)]"}
- {:quantity "acceleration", :sformula "[M^(0)*L^(1)*T^(-2)]"}
- {:quantity "force", :sformula "[M^(1)*L^(1)*T^(-2)]"}
- {:quantity "mass density", :sformula "[M^(1)*L^(-3)*T^(0)]"}
- {:quantity "energy", :sformula "[M^(1)*L^(2)*T(-2)]"}]
+=> (update-sformula [{:quantity "energy", :dimension "[M^(1)*L^(2)*T(-2)]"}])
+[{:quantity "volume", :dimension "[M^(0)*L^(3)*T^(0)]"}
+ {:quantity "velocity", :dimension "[M^(0)*L^(1)*T^(-1)]"}
+ {:quantity "acceleration", :dimension "[M^(0)*L^(1)*T^(-2)]"}
+ {:quantity "force", :dimension "[M^(1)*L^(1)*T^(-2)]"}
+ {:quantity "mass density", :dimension "[M^(1)*L^(-3)*T^(0)]"}
+ {:quantity "energy", :dimension "[M^(1)*L^(2)*T(-2)]"}]
 ```
 
 Now since `energy` is one of the `:quantity` in the `standard_formula`, we can now add the symbol `e` in our definition as follows
 
 ```
-=> (def varpars (conj varpars {:symbol "e", :dimension "energy"}))
+=> (def varpars (conj varpars {:symbol "e", :quantity "energy"}))
 => (pprint varpars)
-[{:symbol "m", :dimension "mass"}
- {:symbol "v", :dimension "velocity"}
- {:symbol "a", :dimension "acceleration"}
- {:symbol "e", :dimension "energy"}]
+[{:symbol "m", :quantity "mass"}
+ {:symbol "v", :quantity "velocity"}
+ {:symbol "a", :quantity "acceleration"}
+ {:symbol "e", :quantity "energy"}]
 ```

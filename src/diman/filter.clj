@@ -12,10 +12,10 @@
   ## How to use
   ### Loading
   ```
-  (:require [diman.filter :refer [list-varpar-expt notns-in-subformula
+  (require '[diman.filter :refer [list-varpar-expt notns-in-subformula
                                   expts-in-subformula names-in-subformula
                                   next-subformula-components-with-common-notation
-                                  remove-zero-powers])
+                                  remove-zero-powers]])
   ```
   ### Examples
   #### Filter out the variable/parameter and its exponents separately
@@ -32,7 +32,7 @@
   ```(def subform1 \"[M^(0)*L^(1)*T^(-2)]\")```
   is also an expression. Therefore,
   ```
-  => (list-varpar-expt (remove-brackets subform1))
+  => (list-varpar-expt \"M^(0)*L^(1)*T^(-2)\")
   [(\"M\" \"L\" \"T\") (\"0\" \"1\" \"-2\")]
   ```
   Similarly, for `(def subform2 \"[M^(2/3)*cd^(1)*mol^(-2)]\")`

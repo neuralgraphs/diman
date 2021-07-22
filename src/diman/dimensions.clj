@@ -2,8 +2,8 @@
   "Contains definitions and their getters.
   These are:
 
-  - `base-dimensions`
-  - `standard-formula`
+  - `base_dimensions`
+  - `standard_formula`
   - `grab-notation` and `grab-name` from `base-dimensions`
   - `grab-sformula` from `standard-formula`
   - `notation?`
@@ -19,15 +19,15 @@
   ```
   ### Examples
   #### View the seven fundamental dimensions
-  `(pprint base_dimensions)`
+  `(pprint bas e_dimensions)`
 
-  #### Get notation for dimension name \"mass\"
+  #### Get notation for the base dimension name \"mass\"
   ```
   => (grab-notation \"mass\")
   \"[M]\"
   ```
 
-  #### Get name for notation \"[M]\"
+  #### Get base dimension name for notation \"[M]\"
   ```
   => (grab-name \"[M]\")
   \"mass\"
@@ -39,23 +39,24 @@
   #### Get formula of a quantity in the standard formula
   ```
   => (grab-sformula \"acceleration\")
-  \"[M^0 L^1 T^(-2)]\"
+  \"[L^(1)*T^(-2)]\"
   ```
+  Notice that a formula in `standard_formula` is a dimensional formula and hence as a consequence a dimension.
 
   #### Get matching notation/standard formula of a defined symbol
-  Let us define symbol `x`, `v`, `t` and `a` as
+  Let us define symbol *x*, *v*, *t* and *a* representing a combination of variables and parameters as
   ```
-  (def varpars [{:symbol \"x\", :dimension \"length\"}
-                {:symbol \"v\", :dimension \"velocity\"}
-                {:symbol \"t\", :dimension \"time\"}
-                {:symbol \"a\", :dimension \"acceleration\"}])
+  (def varpars [{:symbol \"x\", :quantity \"length\"}
+                {:symbol \"v\", :quantity \"velocity\"}
+                {:symbol \"t\", :quantity \"time\"}
+                {:symbol \"a\", :quantity \"acceleration\"}])
   ```
   Then based on the dimensions defined for respective symbol use
   ```
   => (matched-notation-sformula varpars \"x\")
   \"[L]\"
   => (matched-notation-sformula varpars \"a\")
-  \"[M^(0)*L^(1)*T^(-2)]\"
+  \"[L^(1)*T^(-2)]\"
   ```
   NOTE:
 
@@ -72,42 +73,42 @@
   "The Seven Fundamental/Base Dimensions.
   NOTE: This is fixed. See [International Metrology](https://www.bipm.org/en/measurement-units/)
   "
-  [{:name "mass"                      :notation "[M]"}
-   {:name "length"                    :notation "[L]"}
-   {:name "time"                      :notation "[T]"}
-   {:name "electric current"          :notation "[A]"}
-   {:name "thermodynamic temperature" :notation "[K]"}
-   {:name "luminous intensity"        :notation "[cd]"}
-   {:name "amount of substance"       :notation "[mol]"}
+  [{:quantity "mass"                      :dimension "[M]"}
+   {:quantity "length"                    :dimension "[L]"}
+   {:quantity "time"                      :dimension "[T]"}
+   {:quantity "electric current"          :dimension "[A]"}
+   {:quantity "thermodynamic temperature" :dimension "[K]"}
+   {:quantity "luminous intensity"        :dimension "[cd]"}
+   {:quantity "amount of substance"       :dimension "[mol]"}
    ])
 
 (def standard_formula
   "Dimensional Formula for standard physical quantity.
   NOTE: This is subject to expansion. See [International Metrology](https://www.bipm.org/en/measurement-units/)
   "
-  [{:quantity "volume"       :sformula "[L^(3)]"}
-   {:quantity "frequency"    :sformula "[T^(-1)]"}          ; hertz, Hz
-   {:quantity "velocity"     :sformula "[L^(1)*T^(-1)]"}
-   {:quantity "acceleration" :sformula "[L^(1)*T^(-2)]"}
-   {:quantity "force"        :sformula "[M^(1)*L^(1)*T^(-2)]"} ; newton, N
-   {:quantity "mass density" :sformula "[M^(1)*L^(-3)]"}
+  [{:quantity "volume"       :dimension "[L^(3)]"}
+   {:quantity "frequency"    :dimension "[T^(-1)]"}          ; hertz, Hz
+   {:quantity "velocity"     :dimension "[L^(1)*T^(-1)]"}
+   {:quantity "acceleration" :dimension "[L^(1)*T^(-2)]"}
+   {:quantity "force"        :dimension "[M^(1)*L^(1)*T^(-2)]"} ; newton, N
+   {:quantity "mass density" :dimension "[M^(1)*L^(-3)]"}
    ;; [Derived units in SI w/ special names/symbol](https://www.bipm.org/en/publications/si-brochure/table3.html)
-   {:quantity "energy"             :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
-   {:quantity "work"               :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
-   {:quantity "amount of heat"     :sformula "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
-   {:quantity "pressure"           :sformula "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
-   {:quantity "stress"             :sformula "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
-   {:quantity "catalytic activity" :sformula "[mol^(1)*T^(-1)]"} ; katal, kat
+   {:quantity "energy"             :dimension "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "work"               :dimension "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "amount of heat"     :dimension "[M^(1)*L^(2)*T^(-2)]"} ; joule, J, Nm
+   {:quantity "pressure"           :dimension "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
+   {:quantity "stress"             :dimension "[M^(1)*L^(-1)*T^(-2)]"} ; pascal, P, N/m2
+   {:quantity "catalytic activity" :dimension "[mol^(1)*T^(-1)]"} ; katal, kat
    ;; [Electrical quantities](https://www.bipm.org/metrology/electricity-magnetism/units.html)
-   {:quantity "charge"                :sformula "[A^(1)*T^(1)]"} ; charge or amount of electricity; coulomb, C
-   {:quantity "capacitance"           :sformula "[M^(-1)*L^(-2)*T^(4)*A^(2)]"} ; farad, F
-   {:quantity "inductance"            :sformula "[M^(1)*L^(2)*T^(-2)*A^(-2)]"} ; henry, H
-   {:quantity "resistance"            :sformula "[M^(1)*L^(2)*T^(-3)*A^(-2)]"} ; ohm, omega
-   {:quantity "conductance"           :sformula "[M^(-1)*L^(-2)*T^(3)*A^(2)]"} ; siemens, S
-   {:quantity "magnetic flux density" :sformula "[M^(1)*T^(-2)*A^(-1)]"} ; tesla, T
-   {:quantity "electromotive force"   :sformula "[M^(1)*L^(2)*T^(-3)*A^(-1)]"} ; volt, V
-   {:quantity "power"                 :sformula "[M^(1)*L^(2)*T^(-3)]"} ; power or radiant flux, watt, W
-   {:quantity "magnetic flux"         :sformula "[M^(1)*L^(2)*T^(-2)*A^(-1)]"} ; weber, Wb
+   {:quantity "charge"                :dimension "[A^(1)*T^(1)]"} ; charge or amount of electricity; coulomb, C
+   {:quantity "capacitance"           :dimension "[M^(-1)*L^(-2)*T^(4)*A^(2)]"} ; farad, F
+   {:quantity "inductance"            :dimension "[M^(1)*L^(2)*T^(-2)*A^(-2)]"} ; henry, H
+   {:quantity "resistance"            :dimension "[M^(1)*L^(2)*T^(-3)*A^(-2)]"} ; ohm, omega
+   {:quantity "conductance"           :dimension "[M^(-1)*L^(-2)*T^(3)*A^(2)]"} ; siemens, S
+   {:quantity "magnetic flux density" :dimension "[M^(1)*T^(-2)*A^(-1)]"} ; tesla, T
+   {:quantity "electromotive force"   :dimension "[M^(1)*L^(2)*T^(-3)*A^(-1)]"} ; volt, V
+   {:quantity "power"                 :dimension "[M^(1)*L^(2)*T^(-3)]"} ; power or radiant flux, watt, W
+   {:quantity "magnetic flux"         :dimension "[M^(1)*L^(2)*T^(-2)*A^(-1)]"} ; weber, Wb
    ])
 
 (defn notation? [x]
@@ -124,8 +125,8 @@
 ;; ============================================================================
 (defn- get-notation-base-dim [dim base]
   "Returns notation if dimension is a base dimension, else \"nil\"."
-  (if (= dim (:name base))
-    (:notation base)
+  (if (= dim (:quantity base))
+    (:dimension base)
     nil)
   )
 
@@ -145,8 +146,8 @@
 ;; ============================================================================
 (defn- get-name-base-dim [ntn base]
   "Returns name if notation is a base notation, else \"nil\"."
-  (if (= ntn (:notation base))
-    (:name base)
+  (if (= ntn (:dimension base))
+    (:quantity base)
     nil)
   )
 
@@ -167,7 +168,7 @@
 (defn- get-sformula [qnt std]
   "Returns formula if quantity is one of the standards, else \"nil\"."
   (if (= qnt (:quantity std))
-    (:sformula std)
+    (:dimension std)
     nil)
   )
 
@@ -191,7 +192,7 @@
   ([varpar_def symb] (matched-notation varpar_def symb ""))
   ([varpar_def symb ans]
    (if (= symb (:symbol (last varpar_def)))
-     (grab-notation (:dimension (last varpar_def)))
+     (grab-notation (:quantity (last varpar_def)))
      (if (empty? varpar_def) nil
        (recur (drop-last varpar_def) symb ""))
      )))
@@ -202,7 +203,7 @@
   ([varpar_def symb] (matched-sformula varpar_def symb ""))
   ([varpar_def symb ans]
    (if (= symb (:symbol (last varpar_def)))
-     (grab-sformula (:dimension (last varpar_def)))
+     (grab-sformula (:quantity (last varpar_def)))
      (if (empty? varpar_def) nil
        (recur (drop-last varpar_def) symb ""))
      )))
@@ -221,7 +222,7 @@
    (if (empty? x)
      (clojure.pprint/pprint standard_formula)
      (let [to_insert (conj standard_formula {:quantity (:quantity (last x))
-                                             :sformula (:formula (last x))})]
+                                             :dimension (:dimension (last x))})]
        (recur (drop-last x) (intern 'diman.dimensions 'standard_formula to_insert)))
      )))
 ;; =====================================x======================================

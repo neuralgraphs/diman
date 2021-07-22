@@ -27,9 +27,9 @@ Broadly, the task is to
 Define all the symbols in the parent mathematical expression that is associated with a dimension.
 
 ```
-(def varpars [{:symbol "x", :dimension "mass"}
-              {:symbol "y", :dimension "length"}
-              {:symbol "t", :dimension "time"}])
+(def varpars [{:symbol "x", :quantity "mass"}
+              {:symbol "y", :quantity "length"}
+              {:symbol "t", :quantity "time"}])
 ```
 
 #### 1.1.2. Expressions and equation
@@ -67,10 +67,10 @@ The dimensional formula for one side of the expression (often right hand side) f
 
 ```
 => (pprint (formula-eqn-side-manifold varpars manifold_eqn))
-[{:quantity "term-p", :formula "[L^(-1)*M^(2)*T^(1)]"}
- {:quantity "term-q", :formula "[L^(6)*M^(1)*T^(20)]"}
- {:quantity "term-r", :formula "[T^(-3)*L^(-3)*M^(3)]"}
- {:quantity "term-s", :formula "[M^(4)*T^(8)]"}]
+[{:quantity "term-p", :dimension "[L^(-1)*M^(2)*T^(1)]"}
+ {:quantity "term-q", :dimension "[L^(6)*M^(1)*T^(20)]"}
+ {:quantity "term-r", :dimension "[T^(-3)*L^(-3)*M^(3)]"}
+ {:quantity "term-s", :dimension "[M^(4)*T^(8)]"}]
 ```
 
 ### 1.3 Standardize All the Generated Dimensional Formula
@@ -78,16 +78,16 @@ All the dimensional formula generated from each equation in the vector of equati
 
 ```
 => (update-sformula (formula-eqn-side-manifold varpars manifold_eqn))
-[{:quantity "volume", :sformula "[L^(3)]"}
-{:quantity "frequency", :sformula "[T^(-1)]"}
-{:quantity "velocity", :sformula "[L^(1)*T^(-1)]"}
-{:quantity "acceleration", :sformula "[L^(1)*T^(-2)]"}
-{:quantity "force", :sformula "[M^(1)*L^(1)*T^(-2)]"}
+[{:quantity "volume", :dimension "[L^(3)]"}
+{:quantity "frequency", :dimension "[T^(-1)]"}
+{:quantity "velocity", :dimension "[L^(1)*T^(-1)]"}
+{:quantity "acceleration", :dimension "[L^(1)*T^(-2)]"}
+{:quantity "force", :dimension "[M^(1)*L^(1)*T^(-2)]"}
 ...
-{:quantity "term-s", :sformula "[M^(4)*T^(8)]"}
-{:quantity "term-r", :sformula "[T^(-3)*L^(-3)*M^(3)]"}
-{:quantity "term-q", :sformula "[L^(6)*M^(1)*T^(20)]"}
-{:quantity "term-p", :sformula "[L^(-1)*M^(2)*T^(1)]"}]
+{:quantity "term-s", :dimension "[M^(4)*T^(8)]"}
+{:quantity "term-r", :dimension "[T^(-3)*L^(-3)*M^(3)]"}
+{:quantity "term-q", :dimension "[L^(6)*M^(1)*T^(20)]"}
+{:quantity "term-p", :dimension "[L^(-1)*M^(2)*T^(1)]"}]
 ```
 
 ### 1.4. Definitions setup for the reduced form of the parent expression
@@ -108,10 +108,10 @@ The definition will be such that each term symbol has the dimension name as defi
 we will have `{:symbol "p", :dimension "term-p"}`. Therefore, we define
 
 ```
-(def varpars2 [{:symbol "p", :dimension "term-p"}
-               {:symbol "q", :dimension "term-q"}
-               {:symbol "r", :dimension "term-r"}
-               {:symbol "s", :dimension "term-s"}])
+(def varpars2 [{:symbol "p", :quantity "term-p"}
+               {:symbol "q", :quantity "term-q"}
+               {:symbol "r", :quantity "term-r"}
+               {:symbol "s", :quantity "term-s"}])
 ```
 
 ## 2. Generate Dimensional Matrix
