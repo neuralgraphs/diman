@@ -8,11 +8,11 @@ Example: Journal Bearing
 
 If one were interested in studying the frictional coefficient |f| of the bearing, then we must consider the variables/parameters that may influence it.
 
-* bearing length, `L`
-* bearing diameter, `D`
-* bearing load, `P`
+* bearing length, |L|
+* bearing diameter, |D|
+* bearing load, |P|
 
-  - The load on the bearing is represented in terms of the average bearing pressure `P = W/(LD)` where `W` is the actual load of bearing.
+  - The load on the bearing is represented in terms of the average bearing pressure ``P = W/(LD)`` where `W` is the actual load of bearing.
 
 * rotating speed, `N`
 
@@ -196,3 +196,13 @@ But, <i>L</i>/<i>D</i> and <i>C</i>/<i>D</i> are dimensionless. Therefore, the n
 </center> 
 
 .. |f| image:: ../resources/math/f.gif
+
+.. |L| image:: ../resources/math/L.gif
+
+.. |D| image:: ../resources/math/D.gif
+
+.. |P| image:: ../resources/math/P.gif
+
+.. |W| image:: ../resources/math/W.gif
+
+.. |N| image:: ../resources/math/N.gif
