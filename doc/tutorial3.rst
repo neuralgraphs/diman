@@ -1,21 +1,32 @@
-# Example: Journal Bearing
-<center>
-<img src="../resources/images/journal_bearing.png" />
-</center>
+=========================
+Example: Journal Bearing
+=========================
 
-If one were interested in studying the frictional coefficient <i>f</i> of the bearing, then we must consider the variables/parameters that may influence it.
+.. image:: ../resources/images/journal_bearing.png
+   :scale: 70%
+   :align: center
 
-##### bearing length, <i>L</i>
-##### bearing diameter, <i>D</i>
-##### bearing load, <i>P</i>
-The load on the bearing is represented in terms of the average bearing pressure <i>P</i> = <i>W</i>/(<i>LD</i>) where <i>W</i> is the actual load of bearing.
-##### rotating speed, <i>N</i>
-Assume that the resulting rotating speed of the bearing is the constant average speed <i>N</i>.
-##### viscosity of lubricating oil, <i>&mu;</i>
-This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of <i>N</i> produces heat which is conducts and convects.
-##### clearance between bearing and journal, <i>C</i>
-##### bearing moment, <i>M</i>
-Load applied to the shaft passing through the bearing results in bearing moment.
+
+If one were interested in studying the frictional coefficient :math:`f` of the bearing, then we must consider the variables/parameters that may influence it.
+
+* bearing length, :math:`L`
+* bearing diameter, :math:`D`
+* bearing load, :math:`P`
+
+  - The load on the bearing is represented in terms of the average bearing pressure :math:`P = W/(LD)` where :math:`W` is the actual load of bearing.
+
+* rotating speed, :matha:`N`
+
+  - Assume that the resulting rotating speed of the bearing is the constant average speed *N*.
+
+* viscosity of lubricating oil, :math:`\mu`
+
+  - This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of :math:`N` produces heat which is conducts and convects.
+
+* clearance between bearing and journal, :math:`C`
+* bearing moment, :math:`M`
+
+  - Load applied to the shaft passing through the bearing results in bearing moment.
 
 We can therefore start our study with the assumption that the frictional coefficient of the bearing is a function of the above seven variables.
 
