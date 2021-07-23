@@ -1,3 +1,10 @@
+.. role:: raw-latex(raw)
+    :format: latex html
+
+.. raw:: html
+
+    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
 =========================
 Example: Journal Bearing
 =========================
@@ -7,32 +14,33 @@ Example: Journal Bearing
    :align: center
 
 
-If one were interested in studying the frictional coefficient :math:`f` of the bearing, then we must consider the variables/parameters that may influence it.
+If one were interested in studying the frictional coefficient :raw-latex:`f` of the bearing, then we must consider the variables/parameters that may influence it.
 
-* bearing length, :math:`L`
-* bearing diameter, :math:`D`
-* bearing load, :math:`P`
+* bearing length, :raw-latex:`L`
+* bearing diameter, :raw-latex:`D`
+* bearing load, :raw-latex:`P`
 
-  - The load on the bearing is represented in terms of the average bearing pressure :math:`P = W/(LD)` where :math:`W` is the actual load of bearing.
+  - The load on the bearing is represented in terms of the average bearing pressure :raw-latex:`P = W/(LD)` where :raw-latex:`W` is the actual load of bearing.
 
-* rotating speed, :matha:`N`
+* rotating speed, :raw-latex:`N`
 
   - Assume that the resulting rotating speed of the bearing is the constant average speed *N*.
 
-* viscosity of lubricating oil, :math:`\mu`
+* viscosity of lubricating oil, :raw-latex:`\mu`
 
-  - This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of :math:`N` produces heat which is conducts and convects.
+  - This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of :raw-latex:`N` produces heat which is conducts and convects.
 
-* clearance between bearing and journal, :math:`C`
-* bearing moment, :math:`M`
+* clearance between bearing and journal, :raw-latex:`C`
+* bearing moment, :raw-latex:`M`
 
   - Load applied to the shaft passing through the bearing results in bearing moment.
 
 We can therefore start our study with the assumption that the frictional coefficient of the bearing is a function of the above seven variables.
 
-<center>
-<i>f = f</i>(<i>L, D, P, N, &mu;, C, M</i>)
-</center>
+.. raw:: latex html
+
+    f = f(L, D, P, N, \mu, C, M)
+
 
 But, <i>L</i>, <i>D</i> and <i>C</i> have the same dimensions. Then, <i>L</i>/<i>D</i> and <i>C</i>/<i>D</i> are dimensionless.
 Therefore, if we temporarily disregard the variables <i>L</i> and <i>C</i>, then we can reduce seven variables to five.
