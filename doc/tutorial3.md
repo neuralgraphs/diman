@@ -27,9 +27,10 @@ Therefore, if we temporarily disregard the variables <i>L</i> and <i>C</i>, then
 
 Hence, the tentative function for the derivation is
 <center>
-<i>f</i> = f</i>(<i>D, P, N, &mu;, M</i>)
+<i>f</i> = <i>f</i>(<i>D, P, N, &mu;, M</i>)
 </center>
 Since,
+
 | quantity symbol | quantity name | unit (say, SI)                           | dimensions                     |
 |:---------------:|:-------------:|:----------------------------------------:|:------------------------------:|
 | <i>P</i>	      | pressure      | Pa = kg/m&sdot;s<sup>2</sup>             | M/(LT<sup>2</sup>)             |
