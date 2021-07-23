@@ -5,10 +5,10 @@ Example: Journal Bearing
 =========================
 
 .. image:: ../resources/images/journal_bearing.png
-   :width: 350em
+   :width: 350px
    :align: center
 
-If one were interested in studying the frictional coefficient ``f`` of the bearing, then we must consider the variables/parameters that may influence it.
+If one were interested in studying the frictional coefficient `f` of the bearing, then we must consider the variables/parameters that may influence it.
 
 * bearing length, :raw-latex:`L`
 * bearing diameter, :raw-latex:`D`
