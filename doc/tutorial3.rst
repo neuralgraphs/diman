@@ -10,30 +10,28 @@ Example: Journal Bearing
 
 If one were interested in studying the frictional coefficient `f` of the bearing, then we must consider the variables/parameters that may influence it.
 
-* bearing length, :raw-latex:`L`
-* bearing diameter, :raw-latex:`D`
-* bearing load, :raw-latex:`P`
+* bearing length, `L`
+* bearing diameter, `D`
+* bearing load, `P`
 
-  - The load on the bearing is represented in terms of the average bearing pressure :raw-latex:`P = W/(LD)` where :raw-latex:`W` is the actual load of bearing.
+  - The load on the bearing is represented in terms of the average bearing pressure `P = W/(LD)` where `W` is the actual load of bearing.
 
-* rotating speed, :raw-latex:`N`
+* rotating speed, `N`
 
   - Assume that the resulting rotating speed of the bearing is the constant average speed *N*.
 
-* viscosity of lubricating oil, :raw-latex:`\mu`
+* viscosity of lubricating oil, `\mu`
 
-  - This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of :raw-latex:`N` produces heat which is conducts and convects.
+  - This is the viscosity at equillibrium temperature &mdash; the bearing rotating at an average of `N` produces heat which is conducts and convects.
 
-* clearance between bearing and journal, :raw-latex:`C`
-* bearing moment, :raw-latex:`M`
+* clearance between bearing and journal, `C`
+* bearing moment, `M`
 
   - Load applied to the shaft passing through the bearing results in bearing moment.
 
 We can therefore start our study with the assumption that the frictional coefficient of the bearing is a function of the above seven variables.
 
-.. raw:: latex html
-
-    f = f(L, D, P, N, \mu, C, M)
+`f = f(L, D, P, N, mu, C, M)`
 
 
 But, <i>L</i>, <i>D</i> and <i>C</i> have the same dimensions. Then, <i>L</i>/<i>D</i> and <i>C</i>/<i>D</i> are dimensionless.
