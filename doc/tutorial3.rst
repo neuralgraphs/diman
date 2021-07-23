@@ -195,4 +195,4 @@ But, <i>L</i>/<i>D</i> and <i>C</i>/<i>D</i> are dimensionless. Therefore, the n
 <i>f</i> = <i>f</i>(<i>P</i>/(<i>&mu;</i>&sdot;<i>N</i>), <i>M</i>/(<i>D</i><sup>3</sup>&sdot;<i>&mu;</i>&sdot;<i>N</i>), <i>L</i>/<i>D</i>, <i>C</i>/<i>D</i>)
 </center> 
 
-.. |f| image:: ../resources/math/f.fig
+.. |f| image:: ../resources/math/f.gif
