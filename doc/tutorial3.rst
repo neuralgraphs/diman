@@ -8,7 +8,7 @@ Example: Journal Bearing
 
 
 If one were interested in studying the frictional coefficient
-.. |function f| image:: ../resources/math/f.gif
+.. image:: ../resources/math/f.gif
 of the bearing, then we must consider the variables/parameters that may influence it.
 
 * bearing length, :raw-latex:`L`
