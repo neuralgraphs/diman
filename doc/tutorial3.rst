@@ -1,4 +1,4 @@
-.. include:: substitutions.rst
+.. include:: inline_math.rsti
 
 =========================
 Example: Journal Bearing
@@ -8,9 +8,7 @@ Example: Journal Bearing
    :scale: 70%
    :align: center
 
-If one were interested in studying the frictional coefficient
-.. image:: ../resources/math/f.gif
-of the bearing, then we must consider the variables/parameters that may influence it.
+If one were interested in studying the frictional coefficient |f| of the bearing, then we must consider the variables/parameters that may influence it.
 
 * bearing length, :raw-latex:`L`
 * bearing diameter, :raw-latex:`D`
