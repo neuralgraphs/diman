@@ -1,5 +1,3 @@
-.. include:: inline_math.rst
-
 =========================
 Example: Journal Bearing
 =========================
@@ -8,7 +6,7 @@ Example: Journal Bearing
    :width: 350px
    :align: center
 
-If one were interested in studying the frictional coefficient `f` of the bearing, then we must consider the variables/parameters that may influence it.
+If one were interested in studying the frictional coefficient |f| of the bearing, then we must consider the variables/parameters that may influence it.
 
 * bearing length, `L`
 * bearing diameter, `D`
@@ -196,3 +194,5 @@ But, <i>L</i>/<i>D</i> and <i>C</i>/<i>D</i> are dimensionless. Therefore, the n
 <center>
 <i>f</i> = <i>f</i>(<i>P</i>/(<i>&mu;</i>&sdot;<i>N</i>), <i>M</i>/(<i>D</i><sup>3</sup>&sdot;<i>&mu;</i>&sdot;<i>N</i>), <i>L</i>/<i>D</i>, <i>C</i>/<i>D</i>)
 </center> 
+
+.. |f| image:: ../resources/math/f.fig
