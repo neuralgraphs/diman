@@ -1,4 +1,4 @@
-.. include:: inline_math.rsti
+.. include:: inline_math.rst
 
 =========================
 Example: Journal Bearing
