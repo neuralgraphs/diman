@@ -1,10 +1,3 @@
-.. role:: raw-latex(raw)
-    :format: latex html
-
-.. raw:: html
-
-    <script type='text/javascript' src='http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
-
 =========================
 Example: Journal Bearing
 =========================
@@ -14,7 +7,9 @@ Example: Journal Bearing
    :align: center
 
 
-If one were interested in studying the frictional coefficient :raw-latex:`f` of the bearing, then we must consider the variables/parameters that may influence it.
+If one were interested in studying the frictional coefficient
+.. |function f| image:: ../resources/math/f.gif
+of the bearing, then we must consider the variables/parameters that may influence it.
 
 * bearing length, :raw-latex:`L`
 * bearing diameter, :raw-latex:`D`
