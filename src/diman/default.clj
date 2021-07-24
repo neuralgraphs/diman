@@ -1,6 +1,6 @@
 (ns diman.default
   (:require
-    [diman.dimensions :refer [standard_formula update-sformula]]
+    [diman.dimensions :refer [base_dimensions standard_formula update-sformula]]
     [diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]]
     [diman.analyze :refer [dimnames consistent?]]
     [diman.buckingham
@@ -12,7 +12,7 @@
 
 (def default-functions
     "\n
-    standard_formula*, update-sformula,\n
+    base_dimensions*, standard_formula*, update-sformula,\n
     formula-term, formula-eqn-side, formula-eqn-side-manifold,\n
     dimnames, consistent?,\n
     generate-dimmat,\n
