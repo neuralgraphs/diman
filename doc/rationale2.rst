@@ -79,7 +79,7 @@ References
 ==========
 
 .. [Langhaar1951] Langhaar, H. L. (1951). Systematic Calculation of Dimensionless Products. In *Dimensional Analysis and Theory of Models* (pp. 29-46). John Wiley & Sons, Inc.
-.. [Ngwua2021] Ngwua, L. (2021, July 4). *Theory of Dimensionless Products. NeuralGraphs*. <https://www.neuralgraphs.com/lectures/diman/lectp8.html>_.
+.. [Ngwua2021] Ngwua, L. (2021, July 4). *Theory of Dimensionless Products*. NeuralGraphs. `<https://www.neuralgraphs.com/lectures/diman/lectp8.html>`_.
 
 
 .. |f| image:: ../resources/math/f.gif
