@@ -4,14 +4,12 @@ Rationale for the seven base dimensions
 
 diman is based on the seven base dimensions for the quantities; mass, length, time, electric current, thermodynamic temperature, amount of substance and luminous intensity. Therefore, one may think of these seven names as the dimension names. But, they are quantities not dimensions. So, **What is a dimension?**
 
-
 What is dimension?
 ==================
 
 This is best define by McNish as
 
     It is simply a tag we attach to a quantity in an equation expressing some physical law... [D]imensions are only symbols of an elementary algebra, involving neither addition nor subtraction. To ask what are the true or natural dimensions of a quantity makes no more sense than to ask what is the true or natural word for goldfish. [McNish1957]_
-
 
 
 Dimension vs Quantity Units
@@ -26,7 +24,6 @@ If one could just assign a magnitude to a single quantity and consider this as t
     The magnitudes of quantities are not determined by nature, but by the units we have arbitrarily chosen for our measurement system. [McNish1957]_
 
 
-
 Why seven elemental dimensions is a good start?
 ===============================================
 
@@ -35,17 +32,18 @@ McNish's argument for it is
     [F]or the simplest mechanical quantities we need four dimensions to avoid ambiguities, five, if we include solid angle; that if we set one of these quantities equal to unity we can get along with four. But having one quantity equal to unity we cannot set another equal to unity without creating an ambiguity. Thus, unity itself becomes like a dimension, so again we may say we have five. Heat and electromagnetism add at least two more required dimensions. So I might venture to say that we should have seven elemental dimensions, at least, but I do not know, because I do not comprehend all of physics. One, of course, may get along with fewer dimensions if he will tolerate some ambiguities. [McNish1957]_
 
 
-
 The seven base dimensions for diman
 ===================================
 
-The seven base dimensions for diman is based on the `International System of Units, SI units<https://www.bipm.org/en/home>`_.
+The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
 
 Since,
 
     A part of the secret of analysis is the art of using notation well. - Leibniz
 
+
 The notation for diman are
+
 
 +---------------------------+----------------------+
 | Quantity                  | Dimension (Notation) |
@@ -64,6 +62,7 @@ The notation for diman are
 +---------------------------+----------------------+
 | luminous intensity	    | [cd]                 |
 +---------------------------+----------------------+
+
 
 This is implemented in diman as
 
@@ -116,6 +115,6 @@ Notice that the derived dimensions are in a sense the dimensional formula for re
 References
 ==========
 
-.. [McNish1957] McNish, A. G. (1957, April 1). Dimensions units and standards. *Physics Today*, 10(4), 19. `10.1063/1.3060330<https://doi.org/10.1063/1.3060330>`_
+.. [McNish1957] McNish, A. G. (1957, April 1). Dimensions units and standards. *Physics Today*, 10(4), 19. `10.1063/1.3060330 <https://doi.org/10.1063/1.3060330>`_
 
-.. [BIDM2020] BIPM (2020). *Base unit definitions*. Retrieved from the `Base units page<https://www.bipm.org/en/measurement-units/base-units.html>`_.
+.. [BIDM2020] BIPM (2020). *Base unit definitions*. Retrieved from the `Base units page <https://www.bipm.org/en/measurement-units/base-units.html>`_.
