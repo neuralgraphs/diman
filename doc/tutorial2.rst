@@ -220,13 +220,13 @@ Since, &pi; is the conventional symbol for dimensionless products to get the |pi
     "p^(1)*r^(-1/3)*s^(-1/4)"
 
     
-.. |p| image:: ../resources/math/p.gif
+.. |p| image:: ../resources/math/small_p.gif
 
-.. |q| image:: ../resources/math/q.gif
+.. |q| image:: ../resources/math/small_q.gif
 
-.. |r| image:: ../resources/math/r.gif
+.. |r| image:: ../resources/math/small_r.gif
 
-.. |s| image:: ../resources/math/s.gif
+.. |s| image:: ../resources/math/small_s.gif
 
 .. |term_p| image:: ../resources/math/tutorial2_term_p.gif
 
