@@ -35,12 +35,11 @@ McNish's argument for it is
 The seven base dimensions for diman
 ===================================
 
-+------------------------+------------+----------+----------+
-| Header row, column 1   | Header 2   | Header 3 | Header 4 |
-| (header rows optional) |            |          |          |
-+========================+============+==========+==========+
-| body row 1, column 1   | column 2   | column 3 | column 4 |
-+------------------------+------------+----------+----------+
++------------------------+----------------------+
+| Quantity               | Dimension (Notation) |
++========================+======================+
+| time                   | column 2             |
++------------------------+----------------------+
 
 
 The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
