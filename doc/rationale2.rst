@@ -28,8 +28,8 @@ Constructing the Augmented Matrix
 
 The term augmented matrix to most people will invoke the matrix |A_b| for the linear system |Ax_b|. Since our system is a system of homogeneous equation our augmented matrix is not the same as |A_b|. It is an augmentation of the dimensional matrix such that blocks of the matrix is rearranged.
 
-How are thes block rearranged?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How are the two blocks rearranged?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A arbitrary dimensional matrix |m| times |n| is partitioned into two blocks which are then shifted from tail-block to head-block and head-block to tail-block. Therefore, the dimensional and the augmented matrix have the same size.
 
@@ -50,10 +50,10 @@ Below is the pseudocode for constructing the augmented matrix.
         Augmented matrix <- [Dsub_RHS | (-1)*Dsub_LHS] size is m x (p + r)
     STOP
 
-Using Gaussian Elimination Method to Solve the System of Homogeneous Equations
-------------------------------------------------------------------------------
+Using Modified Gaussian Elimination Method to Solve the System of Homogeneous Equations
+---------------------------------------------------------------------------------------
 
-Gaussian elimation method is used such that the m by m block at the head of the augmented matrix becomes an identity matrix. The diagonal of the identity block matrix represents the left hand side of the solution for the last |m| |k_i|'s (there are |n| |k_i|'s). In other words, the returned matrix is the **reduced row-echelon form** of the augmented matrix. But, this matrix is not the solution matrix, the solution matrix for complete set of dimensionless products.
+A modified Gaussian elimation method is used such that the |m| times |m| block at the head of the augmented matrix becomes an identity matrix. The diagonal of the identity block matrix represents the left hand side of the solution for the last |m| |k_i|'s (there are |n| |k_i|'s). In other words, the returned matrix is the **reduced row-echelon form** of the augmented matrix. But, this matrix is not the solution matrix, the solution matrix for complete set of dimensionless products.
 
 Getting the Solution Matrix
 ===========================
