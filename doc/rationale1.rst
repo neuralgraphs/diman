@@ -2,12 +2,12 @@
 Rationale for the seven base dimensions
 =========================================
 
-diman is based on the seven base dimensions for the quantities; mass, length, time, electric current, thermodynamic temperature, amount of substance and luminous intensity. Therefore, one may think of these seven names as the dimension names. But, they are quantities not dimensions. So, **What is a dimension?**
+diman is based on the seven base dimensions for the quantities; mass, length, time, electric current, thermodynamic temperature, amount of substance and luminous intensity. Therefore, one may think of these seven names as the dimension names. But, they are quantities not dimensions. So,
 
-What is dimension?
-==================
+What is a dimension?
+====================
 
-This is best define by McNish as
+This is best defined by McNish as
 
     It is simply a tag we attach to a quantity in an equation expressing some physical law... [D]imensions are only symbols of an elementary algebra, involving neither addition nor subtraction. To ask what are the true or natural dimensions of a quantity makes no more sense than to ask what is the true or natural word for goldfish. [McNish1957]_
 
@@ -75,7 +75,7 @@ This is implemented in diman as
 Derived Dimensions
 ------------------
 
-There are some well know dimensions derived from the ``base_dimensions`` in ``standard_formula``.
+Some well known dimensions derived from the ``base_dimensions`` are placed in the ``standard_formula``.
 
 ::
 
@@ -102,7 +102,7 @@ There are some well know dimensions derived from the ``base_dimensions`` in ``st
     {:quantity "power", :dimension "[M^(1)*L^(2)*T^(-3)]"}
     {:quantity "magnetic flux", :dimension "[M^(1)*L^(2)*T^(-2)*A^(-1)]"}]
 
-Notice that the derived dimensions are in a sense the dimensional formula for respective quantity. Hence, the name ``standard_formula``.
+Notice that the derived dimensions are in a sense the *dimensional formula for respective quantity*. Hence, the name ``standard_formula``.
 
 
 
