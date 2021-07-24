@@ -52,7 +52,7 @@ Since,
 +-----------------+---------------+----------------+------------+
 | |mu|            | viscosity     | |Pas|          | |MbyLT2|   |
 +-----------------+---------------+----------------+------------+
-| |N|	          | speed         | |1 divideby s  | |1byT|     |
+| |N|	          | speed         | |1_divby_s|    | |1byT|     |
 +-----------------+---------------+----------------+------------+
 
 the dimensional system for the problem is MLT-system.
@@ -248,7 +248,7 @@ But, |LbyD| and |CbyD| are dimensionless. Therefore, the number of products in t
 
 .. |Pas| image:: ../resources/math/PascalSecond.gif
 
-.. |1 divideby s| image:: ../resources/math/1overSecond.gif
+.. |1_divby_s| image:: ../resources/math/1overSecond.gif
 
 .. |MbyLT2| image:: ../resources/math/MbyLT2.gif
 
