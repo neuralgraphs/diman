@@ -53,7 +53,7 @@ The seven base dimensions for diman
 | luminous intensity        | \[cd\]               |
 +---------------------------+----------------------+
 
-The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
+The seven base dimensions for diman is based on the International System of Units, SI units [BIPM2020]_.
 
     A part of the secret of analysis is the art of using notation well. - Leibniz
 
@@ -111,4 +111,4 @@ References
 
 .. [McNish1957] McNish, A. G. (1957, April 1). Dimensions units and standards. *Physics Today*, 10(4), 19. `10.1063/1.3060330 <https://doi.org/10.1063/1.3060330>`_
 
-.. [BIDM2020] BIPM (2020). *Base unit definitions*. Retrieved from the `Base units page <https://www.bipm.org/en/measurement-units/base-units.html>`_.
+.. [BIPM2020] BIPM (2020). *Base unit definitions*. Retrieved from the `Base units page <https://www.bipm.org/en/measurement-units/base-units.html>`_.
