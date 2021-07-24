@@ -1,6 +1,6 @@
-======================================================
-Generate dimensional formulae and consistency checking
-======================================================
+==============================================================
+Generate dimensional formulae and perform consistency checking
+==============================================================
 
 This introduction will teach how to
 
@@ -252,6 +252,7 @@ Since we already know that the kinetic energy is in Joules and |1Joule| whose di
 Now since ``"energy"`` is one of the ``:quantity`` in the ``standard_formula``, we can now add the symbol ``"e"`` in our definition as follows
 
 ::
+
     => (def varpars (conj varpars {:symbol "e", :quantity "energy"}))
     => (pprint varpars)
     [{:symbol "m", :quantity "mass"}
