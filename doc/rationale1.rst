@@ -38,19 +38,19 @@ The seven base dimensions for diman
 +---------------------------+----------------------+
 | Quantity                  | Dimension (Notation) |
 +===========================+======================+
-| time	                    | ``[T]``              |
+| time	                    | T              |
 +---------------------------+----------------------+
-| length	                | ``[L]``              |
+| length	                | L              |
 +---------------------------+----------------------+
-| mass	                    | ``[M]``              |
+| mass	                    | M              |
 +---------------------------+----------------------+
-| electric current	        | ``[A]``              |
+| electric current	        | A              |
 +---------------------------+----------------------+
-| thermodynamic temperature	| ``[K]``              |
+| thermodynamic temperature	| K              |
 +---------------------------+----------------------+
-| amount of substance	    | ``[mol]``            |
+| amount of substance	    | mol            |
 +---------------------------+----------------------+
-| luminous intensity	    | ``[cd]``             |
+| luminous intensity	    | cd            |
 +---------------------------+----------------------+
 
 The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
