@@ -221,6 +221,7 @@ But, |LbyD| and |CbyD| are dimensionless. Therefore, the number of products in t
    
 
 .. |f| image:: ../resources/math/f.gif
+    :height: 16
 
 .. |L| image:: ../resources/math/L.gif
 
