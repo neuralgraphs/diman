@@ -35,16 +35,6 @@ McNish's argument for it is
 The seven base dimensions for diman
 ===================================
 
-The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
-
-Since,
-
-    A part of the secret of analysis is the art of using notation well. - Leibniz
-
-
-The notation for diman are
-
-
 +---------------------------+----------------------+
 | Quantity                  | Dimension (Notation) |
 +===========================+======================+
@@ -62,6 +52,10 @@ The notation for diman are
 +---------------------------+----------------------+
 | luminous intensity	    | [cd]                 |
 +---------------------------+----------------------+
+
+The seven base dimensions for diman is based on the `International System of Units, SI units <https://www.bipm.org/en/home>`_.
+
+    A part of the secret of analysis is the art of using notation well. - Leibniz
 
 
 This is implemented in diman as
