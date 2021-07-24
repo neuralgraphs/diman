@@ -2,7 +2,7 @@
 Rationale for implementing the steps for deriving a complete set of dimensionless products
 ==========================================================================================
 
-The raitonale for the derivation of a complete set dimensionless product is based on Buckingham's theorem. Langhaar provides an excellent guide on the systematic calculation [Langhaar1951]_. There are some minor difference in implementing the derivation steps in diman. Aside from the programmatic implementation for generating the dimensional matrix and returning the dimensionless products in its expression form the uniqueness in diman is in the steps for solving the homogeneous equation.
+The raitonale for the derivation of a complete set dimensionless product is based on Buckingham's theorem [Ngwua2021]_. Langhaar provides an excellent guide on the systematic calculation [Langhaar1951]_. There are some minor difference in implementing the derivation steps in diman. Aside from the programmatic implementation for generating the dimensional matrix and returning the dimensionless products in its expression form the uniqueness in diman is in the steps for solving the homogeneous equation.
 
 The typical approach to solving the system of homogeneous equation is followed by a substitution step which would then result in the solution matrix of the complete set of dimensionless products. In diman the substitution step is incorporated into the solving process. This is due to the combination of constructing an augmented matrix and using a modified Gaussian elimation process that returns a reduced row-echelon form of the augmented matrix. However, although this results in all the ingredients for the solution matrix the reduced row enchelon form is not the solution matrix. An additional step is required to obtain the solution matrix from the reduced row-echelon form of the augmented matrix.
 
@@ -79,6 +79,7 @@ References
 ==========
 
 .. [Langhaar1951] Langhaar, H. L. (1951). Systematic Calculation of Dimensionless Products. In *Dimensional Analysis and Theory of Models* (pp. 29-46). John Wiley & Sons, Inc.
+.. [Ngwua2021] Ngwua, L. (2021, July 4). *Theory of Dimensionless Products. NeuralGraphs*. <https://www.neuralgraphs.com/lectures/diman/lectp8.html>_.
 
 
 .. |f| image:: ../resources/math/f.gif
