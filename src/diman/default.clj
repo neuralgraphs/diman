@@ -8,6 +8,7 @@
      [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
      [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
     [diman [core :refer [view-matrix]]]
+    [diman.linalg.matfun [rank :refer [rank]]]
     ))
 
 (def default-functions
@@ -18,5 +19,6 @@
     generate-dimmat,\n
     get-augmented-matrix, solve, get-solved-matrix,\n
     get-dimensionless-products, get-pi-expression,\n
-    view-matrix\n
+    view-matrix,\n
+    rank\n
     Asterix (*) denotes data and not a function.")
