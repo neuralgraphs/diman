@@ -19,8 +19,8 @@
                  :init-ns diman.default
                  ;:init (println "You are in" *ns*)          ;; Top of the repl
                  }
-  :deploy-repositories [["releases" :clojars
-                         :creds :gpg]
+  :deploy-repositories [["releases" {:url "https://repo.clojars.org"
+                                     :creds :gpg}]
                         ;; w/o gpg you are the only author,does not require jar verification from others
                         ["snapshots" {:sign-releases false :url "https://repo.clojars.org"}]]
   )
