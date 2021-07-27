@@ -133,11 +133,11 @@ formula for respective quantity_. Hence, the name `standard_formula`.
 == References
 
 [[BIPM2020]]
-  BIPM (2020). _Base unit definitions_. Retrieved from the
-  https://www.bipm.org/en/measurement-units/base-units.html[Base units
+BIPM (2020). _Base unit definitions_. Retrieved from the
+  link:++https://www.bipm.org/en/measurement-units/base-units.html++[Base units
   page].
 
 [[McNish1957]]
-  McNish, A. G. (1957, April 1). Dimensions units and standards.
+McNish, A. G. (1957, April 1). Dimensions units and standards.
   _Physics Today_, 10(4), 19.
-  https://doi.org/10.1063/1.3060330[10.1063/1.3060330]
+  link:++https://doi.org/10.1063/1.3060330++[10.1063/1.3060330]
