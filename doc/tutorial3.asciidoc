@@ -2,89 +2,75 @@
 
 image:../resources/images/journal_bearing.png[image,width=350]
 
-If one were interested in studying the frictional coefficient
-image:../resources/math/f.gif[f] of the bearing, then we must consider
+If one were interested in studying the frictional coefficient _f_
+of the bearing, then we must consider
 the variables/parameters that may influence it.
 
-* bearing length, image:../resources/math/L.gif[L]
-* bearing diameter, image:../resources/math/D.gif[D]
-* bearing load, image:../resources/math/P.gif[P]
+* bearing length, _L_
+* bearing diameter, _D_
+* bearing load, _P_
 ** The load on the bearing is represented in terms of the average
-bearing pressure
-image:../resources/math/P_eq_W_div_LD.gif[P_eq_W_div_LD] where
-image:../resources/math/W.gif[W] is the actual load of bearing.
-* rotating speed, image:../resources/math/N.gif[N]
+bearing pressure _P_ = _W_/(_LD_) where _W_ is the actual load of bearing.
+* rotating speed, _N_
 ** Assume that the resulting rotating speed of the bearing is the
 constant average speed _N_.
-* viscosity of lubricating oil, image:../resources/math/mu.gif[mu]
+* viscosity of lubricating oil, _&mu;_
 ** This is the viscosity at equillibrium temperature &mdash; the bearing
-rotating at an average of image:../resources/math/N.gif[N] produces heat
+rotating at an average of _N_ produces heat
 which is conducts and convects.
-* clearance between bearing and journal,
-image:../resources/math/C.gif[C]
-* bearing moment, image:../resources/math/Meter.gif[m]
+* clearance between bearing and journal, _C_
+* bearing moment, _M_
 ** Load applied to the shaft passing through the bearing results in
 bearing moment.
 
 We can therefore start our study with the assumption that the frictional
-coefficient of the bearing is a function of the above seven variables.
+coefficient of the bearing is a function of the above seven variables resulting in
+the function value _f_(_L_, _D_, _P_, _N_, _&mu;_, _C_, _M_).
 
-image:../resources/math/func_of_LDPNmuCM.gif[image]
+But, _L_, _D_ and _C_ have the same dimensions. Then, _L_/_D_ and _C_/_D_
+are dimensionless. Therefore, if we temporarily disregard the variables _L_
+and _C_, then we can reduce seven variables to five.
 
-But, image:../resources/math/L.gif[L], image:../resources/math/D.gif[D]
-and image:../resources/math/C.gif[C] have the same dimensions. Then,
-image:../resources/math/LbyD.gif[LbyD] and
-image:../resources/math/CbyD.gif[CbyD] are dimensionless. Therefore, if
-we temporarily disregard the variables image:../resources/math/L.gif[L]
-and image:../resources/math/C.gif[C], then we can reduce seven variables
-to five.
+Hence, the tentative function for the derivation is such that its value is given by
 
-Hence, the tentative function for the derivation is
-
-image:../resources/math/func_of_DPNmuM.gif[image]
+_f_(_D_, _P_, _N_, _&mu;_, _M_)
 
 Since,
 
 [width="88%",cols="29%,25%,26%,20%",options="header",]
 |===
 |quantity symbol |quantity name |unit (say, SI) |dimensions
-|image:../resources/math/P.gif[P] |pressure
-|image:../resources/math/Pascal.gif[Pa]
-|image:../resources/math/MbyLT2.gif[MbyLT2]
+|  _P_  | pressure |_Pa_ = _kg_/_ms_^2^ | _M_/(_LT_^2^)
 
-|image:../resources/math/Meter.gif[m] |moment
-|image:../resources/math/NewtonMeter.gif[Nm]
-|image:../resources/math/ML2byT2.gif[ML2byT2]
+|_M_ | moment
+|__N__&sdot;__m__ = ((__kg__&sdot;__m__)/_s_^2^)_m_
+|_ML_^2^/_T_^2^
 
-|image:../resources/math/D.gif[D] |diameter
-|image:../resources/math/Meter.gif[m]
-|image:../resources/math/Meter.gif[m]
+|_D_ | diameter | _m_ |_M_
 
-|image:../resources/math/mu.gif[mu] |viscosity
-|image:../resources/math/PascalSecond.gif[Pas]
-|image:../resources/math/MbyLT2.gif[MbyLT2]
+|_&mu;_ | viscosity
+| __Pa__&sdot;__s__ = (_kg_/_ms_^2^)_s_
+|_M_/_LT_
 
-|image:../resources/math/N.gif[N] |speed
-|image:../resources/math/1overSecond.gif[1_divby_s]
-|image:../resources/math/1byT.gif[1byT]
+|_N_ | speed | 1/_s_ | 1/_T_
 |===
 
-the dimensional system for the problem is MLT-system.
+the dimensional system for the problem is _MLT_-system.
 
 We can now proceed with the steps (four) for deriving the dimensionless
 products.
 
 == 1. Generate Dimensional Formula for All the Terms
 
-Since the terms for our unknown function
-image:../resources/math/f.gif[f] are the above five variables we do the
-setup as follows.
+The derivation of the dimensionless products will be based on the reduced _f_ where
+the parent function depends on the independent five variables. The generation of
+the dimensional matrix is follows some preceding setup steps.
 
 === 1.1. Setup for Generation
 
 ==== 1.1.1. Definitions setup
 
-Since our problem uses MLT dimensional system
+Since our problem uses _MLT_ dimensional system
 
 ....
 (def varpars [{:symbol "x", :quantity "mass"}
@@ -94,8 +80,7 @@ Since our problem uses MLT dimensional system
 
 ==== 1.1.2. Expressions and equation
 
-We express the variables for the unknown function
-image:../resources/math/f.gif[f] as
+We express the variables for the unknown function _f_ as
 
 ....
 (def manifold_eqn [{:name "term-P", :eqn {:term1 "x^(1)*y^(-1)*t^(-2)"}}
@@ -220,13 +205,10 @@ step such that it returns the solution matrix.
 ....
 
 Note that these two dimensionless products are derived from the
-tentative function image:../resources/math/f.gif[f] where we temporily
-disregarded image:../resources/math/LbyD.gif[LbyD] and
-image:../resources/math/CbyD.gif[CbyD].
+tentative function _f__ where we temporarily disregarded _L_/_D_ and _C_/_D_.
 
-But, image:../resources/math/LbyD.gif[LbyD] and
-image:../resources/math/CbyD.gif[CbyD] are dimensionless. Therefore, the
+But, _L_/_D_ and _C_/_D_ are dimensionless. Therefore, the
 number of products in the complete set of dimensionless products is
-four. Hence,
+four. Hence, the frictional coefficient has the value
 
-image:../resources/math/func_of_LDPNmuCM_as_pi.gif[image]
+_f_~1~(_P_/(_&mu;N_), _M_/(_D_^3^_&mu;N_), _L_/_D_, _C_/_D_).

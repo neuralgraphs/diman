@@ -3,7 +3,7 @@
 For this introductory tutorial imagine the equation derived from
 experimental observations is
 
-image:../resources/math/tutorial2_unknown_f.gif[image]
+_u_ = (_x_^3^/_y_)_t_ + _xy_^6^t^20^ + _x_^3^/(_y_^3^_t_^3^) + _x_^4^/_t_^8^
 
 *What are its dimensionless products?*
 
@@ -13,18 +13,12 @@ The four steps for deriving the dimensionless products are as follows.
 
 Let us define
 
-image:../resources/math/tutorial2_term_p.gif[term_p],
-image:../resources/math/tutorial2_term_q.gif[term_q],
-image:../resources/math/tutorial2_term_r.gif[term_r],
-image:../resources/math/tutorial2_term_s.gif[term_s]
+_p_ &#8796; (_x_^3^/_y_)_t_, _q_ &#8796; _xy_^6^t^20^,
+_r_ &#8796; _x_^3^/(_y_^3^_t_^3^), _s_ &#8796; _x_^4^/_t_^8^
 
-Replacing image:../resources/math/small_p.gif[p],
-image:../resources/math/small_q.gif[q],
-image:../resources/math/small_r.gif[r] and
-image:../resources/math/small_s.gif[s] for the terms in the main
-equation we get
+Replacing _p_, _q_, _r_ and _s_ for the terms in the main equation we get
 
-image:../resources/math/tutorial2_unknown_f_reduced.gif[image]
+_u_ = _p_ + _q_ + _r_ + _s_
 
 Broadly, the task is to
 
@@ -113,23 +107,18 @@ of equations is added to the `standard_formula` with
 
 === 1.4. Definitions setup for the reduced form of the parent expression
 
-Since all the dimensional formula of
-image:../resources/math/small_p.gif[p],
-image:../resources/math/small_q.gif[q],
-image:../resources/math/small_r.gif[r] and
-image:../resources/math/small_s.gif[s], representing all the terms in
+Since all the dimensional formula of _p_, _q_, _r_ and _s_,
+representing all the terms in
 the main equation are now part of the `standard_formula`, we can now
 define all the symbols in the reduced form of the parent mathematical
 expression
 
-image:../resources/math/tutorial2_unknown_f_reduced.gif[image]
+_u_ = _p_ + _q_ + _r_ + _s_
 
 The definition will be such that each term symbol has the dimension name
 as defined in the preceeding step (and hence incorporated into the
-`standard_formula`. For instance, since the term
-image:../resources/math/small_p.gif[p]
-(image:../resources/math/tutorial2_term_p.gif[term_p]) was named
-`"term-p"` in
+`standard_formula`. For instance, since the term _p_
+(_p_ &#8796; (_x_^3^/_y_)_t_) was named `"term-p"` in
 
 ....
 => (pprint manifold_eqn)
@@ -161,7 +150,7 @@ of the `generate-dimmat` function.
 Size -> 3 x 4
 ....
 
-This is a 3 times 4 dimensional matrix.
+This is a 3 &times; 4 dimensional matrix.
 
 == 3. Get the Homogeneous equation of the Dimensional Matrix
 
@@ -194,7 +183,7 @@ Size -> 3 x 4
 Size -> 2 x 4
 ....
 
-This is a 2 times 4 matrix. Therefore, there will be two dimensionless
+This is a 2 &times; 4 matrix. Therefore, there will be two dimensionless
 products.
 
 We can put all these individual steps involving matrix into one coding
@@ -223,9 +212,8 @@ The dimensionless products are generated with the help of the
 ....
 
 Since, &pi; is the conventional symbol for dimensionless products to get
-the image:../resources/math/pi_i.gif[pi_i] th one use the
-`get-pi-expression` function. For example, for
-image:../resources/math/pi0.gif[pi0]
+the &pi;~_i_~ th one use the
+`get-pi-expression` function. For example, for &pi;~0~
 
 ....
 => (def all-dimless (get-dimensionless-products solution_matrix varpars2))

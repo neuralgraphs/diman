@@ -13,7 +13,7 @@ This introduction will teach how to
 Imagine you derived the equation below based on the experimental
 observations
 
-image:../resources/math/tutorial1_unknown_f_generate_dimmat.gif[image]
+_x_ = _x_~0~ + _v_^2^ + _t_ + (1/2)_at_^2^
 
 You want to know if this derived equation is correct. Using *diman* you
 can perform a _preliminary check with consistency analysis_. But before
@@ -38,7 +38,7 @@ with a dimension.
 
 Next, define the equation in terms of its left and right hand side of
 the expression. If a side has more than one term they are expressed as a
-map with appropriate key `:termi` for respective term.
+map with appropriate key `:term<i>` for respective term.
 
 ....
 (def lhs "x^(1)")
@@ -110,7 +110,7 @@ Dimensional formula for the `rhs` expression is given by
 
 Consider the equation
 
-image:../resources/math/tutorial1_unknown_f_consistency_check.gif[image]
+_x_ = _x_~0~ + _vt_ + (1/2)_at_^2^
 
 === 2. Setting Up for Checking
 
@@ -130,7 +130,7 @@ with a dimension.
 
 Next, define the equation in terms of its left and right hand side of
 the expression. If a side has more than one term they are expressed as a
-map with appropriate key `:termi` for respective term.
+map with appropriate key `:term<i>` for respective term.
 
 ....
 (def lhs "x^(1)")
@@ -146,7 +146,7 @@ If the correctness of an equation is in doubt checking for dimensional
 consistency is a useful preliminary step.
 
 To perform consistency check based on dimensional analysis in diman
-<sup>(c)</sup> you use the predicate function `consistent?`. Thus, for
+^(c)^ you use the predicate function `consistent?`. Thus, for
 the given problem
 
 ....
@@ -163,15 +163,15 @@ Let us consider the case of a problem where one derives multiple
 expressions thought to be potential candidates for representing the
 problem.
 
-image:../resources/math/tutorial1_e_m2v2.gif[image]
+_e_ = _m_^2^_v_^2^
 
-image:../resources/math/tutorial1_e_half_mv2.gif[image]
+_e_ = (1/2) _mv_^2^
 
-image:../resources/math/tutorial1_e_ma.gif[image]
+_e_ = _ma_
 
-image:../resources/math/tutorial1_e_3by16_mv2.gif[image]
+_e_ = (3/16) _mv_^2^
 
-image:../resources/math/tutorial1_e_half_mv2_plus_ma.gif[image]
+_e_ = (1/2) _mv_^2^ + _ma_
 
 the question is, *which of these equations are correct?* To tackle this
 question let us first look at the answer for _which of these equations
@@ -183,19 +183,19 @@ Thus
 [width="100%",cols="43%,57%",options="header",]
 |===
 |Equation |Setup
-|image:../resources/math/tutorial1_e_m2v2.gif[image]
+|_e_ = _m_^2^_v_^2^
 |`(def eqn1 {:lhs "e^(1)", :rhs "m^(2)*v^(2)"})`
 
-|image:../resources/math/tutorial1_e_half_mv2.gif[image]
+|_e_ = (1/2) _mv_^2^
 |`(def eqn2 {:lhs "e^(1)", :rhs "0.5*m^(1)*v^(2)"})`
 
-|image:../resources/math/tutorial1_e_ma.gif[image]
+|_e_ = _ma_
 |`(def eqn3 {:lhs "e^(1)", :rhs "m^(1)*a^(1)"})`
 
-|image:../resources/math/tutorial1_e_3by16_mv2.gif[image]
+|_e_ = (3/16) _mv_^2^
 |`(def eqn4 {:lhs "e^(1)", :rhs "0.1875*m^(1)*v^(2)"})`
 
-|image:../resources/math/tutorial1_e_half_mv2_plus_ma.gif[image]
+|_e_ = (1/2) _mv_^2^ + _ma_
 |`(def eqn5 {:lhs "e^(1)", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})`
 |===
 
@@ -223,9 +223,7 @@ true
 false
 ....
 
-which suggests
-image:../resources/math/tutorial1_e_half_mv2.gif[e_half_mv2] and
-image:../resources/math/tutorial1_e_3by16_mv2.gif[e_3by16_mv2] to be
+which suggests _e_ = (1/2) _mv_^2^ and _e_ = (3/16) _mv_^2^ to be
 dimensionally consistent.
 
 But both equations can't be correct, illustrating the point that
@@ -249,8 +247,9 @@ the `standard_formula`
 ....
 
 Since we already know that the kinetic energy is in Joules and
-image:../resources/math/Joule.gif[1Joule] whose dimensional formula is
-`"[M^(1)*L^(2)*T(-2)]"` this can be added to the `standard_formula` as
+1__J__ = __kg__&sdot;__m__^2^&sdot;__s__^&minus;2^
+whose dimensional formula is
+`"[M\^(1)*L^(2)*T(-2)]"` this can be added to the `standard_formula` as
 
 ....
 => (update-sformula [{:quantity "energy", :dimension "[M^(1)*L^(2)*T(-2)]"}])

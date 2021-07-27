@@ -27,16 +27,16 @@ If one were interested in studying the frictional coefficient |f| of the bearing
 
   - Load applied to the shaft passing through the bearing results in bearing moment.
 
-We can therefore start our study with the assumption that the frictional coefficient of the bearing is a function of the above seven variables.
+We can therefore start our study with the assumption that the frictional coefficient of the bearing is a function of the above seven variables resulting in the function value
 
-.. image:: ../resources/math/func_of_LDPNmuCM.gif
+.. image:: ../resources/math/tutorial3_func_value_of_LDPNmuCM.gif
    :align: center
 
 But, |L|, |D| and |C| have the same dimensions. Then, |LbyD| and |CbyD| are dimensionless. Therefore, if we temporarily disregard the variables |L| and |C|, then we can reduce seven variables to five.
 
-Hence, the tentative function for the derivation is
+Hence, the tentative function for the derivation is such that its value is given by
 
-.. image:: ../resources/math/func_of_DPNmuM.gif
+.. image:: ../resources/math/tutorial3_func_value_of_DPNmuM.gif
    :align: center
 
 Since,
@@ -50,7 +50,7 @@ Since,
 +-----------------+---------------+----------------+------------+
 | |D|	          | diameter      | |m|            | |M|        |
 +-----------------+---------------+----------------+------------+
-| |mu|            | viscosity     | |Pas|          | |MbyLT2|   |
+| |mu|            | viscosity     | |Pas|          | |MbyLT|    |
 +-----------------+---------------+----------------+------------+
 | |N|	          | speed         | |1_divby_s|    | |1byT|     |
 +-----------------+---------------+----------------+------------+
@@ -62,7 +62,9 @@ We can now proceed with the steps (four) for deriving the dimensionless products
 1. Generate Dimensional Formula for All the Terms
 =================================================
 
-Since the terms for our unknown function |f| are the above five variables we do the setup as follows.
+The derivation of the dimensionless products will be based on the reduced |f| where
+the parent function depends on the independent five variables. The generation of
+the dimensional matrix is follows some preceding setup steps.
 
 1.1. Setup for Generation
 -------------------------
@@ -211,11 +213,12 @@ We can put all these individual steps involving matrix into one coding step such
     => (get-pi-expression all-dimless "pi0")
       "P^(1)*mu^(-1)*N^(-1)"
 
-Note that these two dimensionless products are derived from the tentative function |f| where we temporily disregarded |LbyD| and |CbyD|.
+Note that these two dimensionless products are derived from the tentative function |f| where we temporarily disregarded |LbyD| and |CbyD|.
 
-But, |LbyD| and |CbyD| are dimensionless. Therefore, the number of products in the complete set of dimensionless products is four. Hence,
+But, |LbyD| and |CbyD| are dimensionless. Therefore, the number of products in the complete set of dimensionless products is four.
+Hence, the frictional coefficient has the value
 
-.. image:: ../resources/math/func_of_LDPNmuCM_as_pi.gif
+.. image:: ../resources/math/tutorial3_func_value_of_LDPNmuCM_as_pi.gif
    :align: center
 
    
