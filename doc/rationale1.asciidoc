@@ -33,7 +33,7 @@ units from which other units are derived would be problem specific.
 
 If one could just assign a magnitude to a single quantity and consider
 this as the "absolute" unit we might be able to derive a system of units
-(consisten around this absolute unit) to measure all other quantities by
+(consistent around this absolute unit) to measure all other quantities by
 arbitrarily assigning values to several physical constants. But, in
 practice measuring the units for many of the quantities in this system
 will require difficult experiments that cannot be performed accurately.

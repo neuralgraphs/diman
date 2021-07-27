@@ -15,11 +15,11 @@ This is best defined by McNish as
 Dimension vs Quantity Units
 ---------------------------
 
-Since dimensions are represented by symbols, they follow the rule of algebra. However, units (eg. meter is a unit for the quanity length) are not bound by the rules of an algebra. This is an important concept for dimensional analysis.
+Since dimensions are represented by symbols, they follow the rule of algebra. However, units (eg. meter is a unit for the quantity length) are not bound by the rules of an algebra. This is an important concept for dimensional analysis.
 
 Due to this reason we can have a minimum number of dimension to create a dimensional system such that we can relate arbitrarily chosen chosen into one coherent system. But, limiting the units to certain "absolute" units from which other units are derived would be problem specific.
 
-If one could just assign a magnitude to a single quantity and consider this as the "absolute" unit we might be able to derive a system of units (consisten around this absolute unit) to measure all other quantities by arbitrarily assigning values to several physical constants. But, in practice measuring the units for many of the quantities in this system will require difficult experiments that cannot be performed accurately. McNish says,
+If one could just assign a magnitude to a single quantity and consider this as the "absolute" unit we might be able to derive a system of units (consistent around this absolute unit) to measure all other quantities by arbitrarily assigning values to several physical constants. But, in practice measuring the units for many of the quantities in this system will require difficult experiments that cannot be performed accurately. McNish says,
 
     The magnitudes of quantities are not determined by nature, but by the units we have arbitrarily chosen for our measurement system. [McNish1957]_
 

@@ -1,7 +1,7 @@
 = Rationale for implementing the steps for deriving a complete set of
 dimensionless products
 
-The raitonale for the derivation of a complete set dimensionless product
+The rationale for the derivation of a complete set dimensionless product
 is based on Buckingham's theorem <<Ngwua2021>>. Langhaar
 provides an excellent guide on the systematic calculation
 <<Langhaar1951>>. There are some minor difference in
@@ -26,19 +26,19 @@ matrix.
 
 Create a matrix such that its entries are the exponents of the base
 dimensions. A row stands for a base dimension and a column stands for a
-quantity in image:../resources/math/f.gif[f]. Therefore, the size of the
+quantity in the original function, __f__. Therefore, the size of the
 dimensional matrix is such that the number of rows is the number of base
 dimensions needed to derive all the quantities in
-image:../resources/math/f.gif[f] and the number of columns is the number
-of quantities in image:../resources/math/f.gif[f], the number of
-independent variable for image:../resources/math/f.gif[f].
+__f__. The number of columns is the number
+of quantities in __f__, the number of
+independent variable for __f__.
 
 === The Dimensional Matrix and the System of Homogeneous Equations
 
 The row entries of a dimensional matrix may be considered the
 coefficients of a homogeneous equation such that the unknown variables
 of the equation represent exponents of respective quantities, the
-independent variables of image:../resources/math/f.gif[f]. The resulting
+independent variables of __f__. The resulting
 product of all the quantities with their respective exponents (the
 unknown variables of the homogeneous equation) is a dimensionless
 product.
@@ -55,25 +55,25 @@ equations is to construct the augmented matrix.
 === Constructing the Augmented Matrix
 
 The term augmented matrix to most people will invoke the matrix
-image:../resources/math/augmented_Ab.gif[A_b] for the linear system
-image:../resources/math/Ax_b.gif[Ax_b]. Since our system is a system of
-homogeneous equation our augmented matrix is not the same as
-image:../resources/math/augmented_Ab.gif[A_b]. It is an augmentation of
+[A|**b**] for the linear system A**x** = **b**.
+Since our system is a system of
+homogeneous equation our augmented matrix is __not the same__ as
+[A|**b**]. It is an augmentation of
 the dimensional matrix such that blocks of the matrix is rearranged.
 
 ==== How are the two blocks rearranged?
 
-A arbitrary dimensional matrix image:../resources/math/small_m.gif[m]
-times image:../resources/math/small_n.gif[n] is partitioned into two
+A arbitrary dimensional matrix __m__ &times; __n__
+is partitioned into two
 blocks which are then shifted from tail-block to head-block and
 head-block to tail-block. Therefore, the dimensional and the augmented
 matrix have the same size.
 
 The basic idea is that the augmented matrix has at its head section
-(initial columns of the matrix) the m by m block taken from the tail of
+(initial columns of the matrix) the __m __ &times; __m__ block taken from the tail of
 the dimensional matrix. The remaining part of the augmented matrix is
 the rest of the head of the dimensional matrix multiplied by the scalar
--1. Thus, the signs for every entry of the m by m block taken from the
+&minus;1. Thus, the signs for every entry of the __m__ &times; __m__ block taken from the
 tail remain unchanged while the sign of the entries of the remaining
 block of the dimensional matrix is reversed when they become part of the
 augmented matrix.
@@ -96,14 +96,11 @@ STOP
 === Using Modified Gaussian Elimination Method to Solve the System of Homogeneous Equations
 
 A modified Gaussian elimation method is used such that the
-image:../resources/math/small_m.gif[m] times
-image:../resources/math/small_m.gif[m] block at the head of the
+__m __ &times; __m__ block at the head of the
 augmented matrix becomes an identity matrix. The diagonal of the
 identity block matrix represents the left hand side of the solution for
-the last image:../resources/math/small_m.gif[m]
-image:../resources/math/unknown_ks.gif[k_i]'s (there are
-image:../resources/math/small_n.gif[n]
-image:../resources/math/unknown_ks.gif[k_i]'s). In other words, the
+the last __m__ number of __k__~__i__~'s (there are __n__ number of
+__k__~__i__~'s). In other words, the
 returned matrix is the *reduced row-echelon form* of the augmented
 matrix. But, this matrix is not the solution matrix, the solution matrix
 for complete set of dimensionless products.
@@ -114,9 +111,7 @@ The solution matrix for a complete set of dimensionless products is
 determined from the solution of the augmented matrix such that the
 number of rows of the solution matrix is the number of dimensionless
 products in the set and the number of columns is the number of
-quantities in image:../resources/math/f.gif[f], the number of
-independent variable for image:../resources/math/f.gif[f]. Below shows
-the pseudocode for getting the solution matrix.
+quantities in __f__. Below shows the pseudocode for getting the solution matrix.
 
 ....
 START
