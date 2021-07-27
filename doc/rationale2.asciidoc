@@ -2,9 +2,9 @@
 dimensionless products
 
 The raitonale for the derivation of a complete set dimensionless product
-is based on Buckingham's theorem link:#Ngwua2021[[Ngwua2021]]. Langhaar
+is based on Buckingham's theorem <<Ngwua2021>>. Langhaar
 provides an excellent guide on the systematic calculation
-link:#Langhaar1951[[Langhaar1951]]. There are some minor difference in
+<<Langhaar1951>>. There are some minor difference in
 implementing the derivation steps in diman. Aside from the programmatic
 implementation for generating the dimensional matrix and returning the
 dimensionless products in its expression form the uniqueness in diman is
@@ -133,11 +133,11 @@ STOP
 
 == References
 
-[[citations]]
-[#Langhaar1951 .citation-label]#Langhaar1951#::
+[[Langhaar1951]]
   Langhaar, H. L. (1951). Systematic Calculation of Dimensionless
   Products. In _Dimensional Analysis and Theory of Models_ (pp. 29-46).
   John Wiley & Sons, Inc.
-[#Ngwua2021 .citation-label]#Ngwua2021#::
+
+[[Ngwua2021]]
   Ngwua, L. (2021, July 4). _Theory of Dimensionless Products_.
   NeuralGraphs. https://www.neuralgraphs.com/lectures/diman/lectp8.html.
