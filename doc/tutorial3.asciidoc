@@ -1,0 +1,232 @@
+= Example: Journal Bearing
+
+image:../resources/images/journal_bearing.png[image,width=350]
+
+If one were interested in studying the frictional coefficient
+image:../resources/math/f.gif[f] of the bearing, then we must consider
+the variables/parameters that may influence it.
+
+* bearing length, image:../resources/math/L.gif[L]
+* bearing diameter, image:../resources/math/D.gif[D]
+* bearing load, image:../resources/math/P.gif[P]
+** The load on the bearing is represented in terms of the average
+bearing pressure
+image:../resources/math/P_eq_W_div_LD.gif[P_eq_W_div_LD] where
+image:../resources/math/W.gif[W] is the actual load of bearing.
+* rotating speed, image:../resources/math/N.gif[N]
+** Assume that the resulting rotating speed of the bearing is the
+constant average speed _N_.
+* viscosity of lubricating oil, image:../resources/math/mu.gif[mu]
+** This is the viscosity at equillibrium temperature &mdash; the bearing
+rotating at an average of image:../resources/math/N.gif[N] produces heat
+which is conducts and convects.
+* clearance between bearing and journal,
+image:../resources/math/C.gif[C]
+* bearing moment, image:../resources/math/Meter.gif[m]
+** Load applied to the shaft passing through the bearing results in
+bearing moment.
+
+We can therefore start our study with the assumption that the frictional
+coefficient of the bearing is a function of the above seven variables.
+
+image:../resources/math/func_of_LDPNmuCM.gif[image]
+
+But, image:../resources/math/L.gif[L], image:../resources/math/D.gif[D]
+and image:../resources/math/C.gif[C] have the same dimensions. Then,
+image:../resources/math/LbyD.gif[LbyD] and
+image:../resources/math/CbyD.gif[CbyD] are dimensionless. Therefore, if
+we temporarily disregard the variables image:../resources/math/L.gif[L]
+and image:../resources/math/C.gif[C], then we can reduce seven variables
+to five.
+
+Hence, the tentative function for the derivation is
+
+image:../resources/math/func_of_DPNmuM.gif[image]
+
+Since,
+
+[width="88%",cols="29%,25%,26%,20%",options="header",]
+|===
+|quantity symbol |quantity name |unit (say, SI) |dimensions
+|image:../resources/math/P.gif[P] |pressure
+|image:../resources/math/Pascal.gif[Pa]
+|image:../resources/math/MbyLT2.gif[MbyLT2]
+
+|image:../resources/math/Meter.gif[m] |moment
+|image:../resources/math/NewtonMeter.gif[Nm]
+|image:../resources/math/ML2byT2.gif[ML2byT2]
+
+|image:../resources/math/D.gif[D] |diameter
+|image:../resources/math/Meter.gif[m]
+|image:../resources/math/Meter.gif[m]
+
+|image:../resources/math/mu.gif[mu] |viscosity
+|image:../resources/math/PascalSecond.gif[Pas]
+|image:../resources/math/MbyLT2.gif[MbyLT2]
+
+|image:../resources/math/N.gif[N] |speed
+|image:../resources/math/1overSecond.gif[1_divby_s]
+|image:../resources/math/1byT.gif[1byT]
+|===
+
+the dimensional system for the problem is MLT-system.
+
+We can now proceed with the steps (four) for deriving the dimensionless
+products.
+
+== 1. Generate Dimensional Formula for All the Terms
+
+Since the terms for our unknown function
+image:../resources/math/f.gif[f] are the above five variables we do the
+setup as follows.
+
+=== 1.1. Setup for Generation
+
+==== 1.1.1. Definitions setup
+
+Since our problem uses MLT dimensional system
+
+....
+(def varpars [{:symbol "x", :quantity "mass"}
+              {:symbol "y", :quantity "length"}
+              {:symbol "t", :quantity "time"}])
+....
+
+==== 1.1.2. Expressions and equation
+
+We express the variables for the unknown function
+image:../resources/math/f.gif[f] as
+
+....
+(def manifold_eqn [{:name "term-P", :eqn {:term1 "x^(1)*y^(-1)*t^(-2)"}}
+                   {:name "term-M", :eqn {:term1 "x^(1)*y^(2)*t^(-2)"}}
+                   {:name "term-D", :eqn {:term1 "y^(1)"}}
+                   {:name "term-mu", :eqn {:term1 "x^(1)*y^(-1)*t^(-1)"}}
+                   {:name "term-N", :eqn {:term1 "t^(-1)"}}])
+....
+
+=== 1.2. Getting the Dimensional Formula
+
+The dimensional formula all the terms are
+
+....
+=> (pprint (formula-eqn-side-manifold varpars manifold_eqn))
+  [{:quantity "term-P", :dimension "[M^(1)*T^(-2)*L^(-1)]"}
+   {:quantity "term-M", :dimension "[M^(1)*T^(-2)*L^(2)]"}
+   {:quantity "term-D", :dimension "[L^(1)]"}
+   {:quantity "term-mu", :dimension "[M^(1)*T^(-1)*L^(-1)]"}
+   {:quantity "term-N", :dimension "[T^(-1)]"}]
+....
+
+=== 1.3 Standardize All the Generated Dimensional Formula
+
+We add the above dimensional formulae into the
+[.title-ref]#standard_formula#
+
+....
+=> (update-sformula (formula-eqn-side-manifold varpars manifold_eqn))
+  [{:quantity "volume", :dimension "[L^(3)]"}
+   {:quantity "frequency", :dimension "[T^(-1)]"}
+   {:quantity "velocity", :dimension "[L^(1)*T^(-1)]"}
+   {:quantity "acceleration", :dimension "[L^(1)*T^(-2)]"}
+   {:quantity "force", :dimension "[M^(1)*L^(1)*T^(-2)]"}
+   ...
+   {:quantity "term-N", :dimension "[T^(-1)]"}
+   {:quantity "term-mu", :dimension "[M^(1)*T^(-1)*L^(-1)]"}
+   {:quantity "term-D", :dimension "[L^(1)]"}
+   {:quantity "term-M", :dimension "[M^(1)*T^(-2)*L^(2)]"}
+   {:quantity "term-P", :dimension "[M^(1)*T^(-2)*L^(-1)]"}]
+....
+
+=== 1.4. Definitions setup for dimensional matrix
+
+....
+(def varpars2 [{:symbol "P", :quantity "term-P"}
+               {:symbol "M", :quantity "term-M"}
+               {:symbol "D", :quantity "term-D"}
+               {:symbol "mu", :quantity "term-mu"}
+               {:symbol "N", :quantity "term-N"}])
+....
+
+== 2. Generate Dimensional Matrix
+
+....
+=> (view-matrix (generate-dimmat varpars2))
+  [-1N 2N 1N -1N 0]
+  [-2N -2N 0 -1N -1N]
+  [1N 1N 0 1N 0]
+  Size -> 3 x 5
+....
+
+== 3. Get the Homogeneous equation of the Dimensional Matrix
+
+=== 3.1. Get the augmented matrix of the dimensional matrix
+
+....
+=> (view-matrix (get-augmented-matrix (generate-dimmat varpars2)))
+  [1N -1N 0 1N -2N]
+  [0 -1N -1N 2N 2N]
+  [0 1N 0 -1N -1N]
+  Size -> 3 x 5
+....
+
+=== 3.2. Solve the augmented matrix
+
+....
+=> (view-matrix (solve (get-augmented-matrix (generate-dimmat varpars2))))
+  [1N 0N 0N 0N -3N]
+  [0 1N 0N -1N -1N]
+  [0 0N 1N -1N -1N]
+  Size -> 3 x 5
+....
+
+=== 3.3. Get the solution matrix
+
+....
+=> (view-matrix (get-solved-matrix (solve (get-augmented-matrix (generate-dimmat varpars2)))))
+  [1 0 0N -1N -1N]
+  [0 1 -3N -1N -1N]
+  Size -> 2 x 5
+....
+
+This is a 2 &times; 5 matrix. Therefore, two dimensionless products will
+be derived.
+
+We can put all these individual steps involving matrix into one coding
+step such that it returns the solution matrix.
+
+....
+=> (def solution_matrix (get-solved-matrix
+                            (solve
+                                (get-augmented-matrix
+                                    (generate-dimmat varpars2)))))
+=> (view-matrix solution_matrix)
+  [1 0 0N -1N -1N]
+  [0 1 -3N -1N -1N]
+  Size -> 2 x 5
+....
+
+== 4. Get Dimensionless Products
+
+....
+=> (def all-dimless (get-dimensionless-products solution_matrix varpars2))
+
+=> (pprint all-dimless)
+  [{:symbol "pi0", :expression "P^(1)*mu^(-1)*N^(-1)"}
+   {:symbol "pi1", :expression "M^(1)*D^(-3)*mu^(-1)*N^(-1)"}]
+
+=> (get-pi-expression all-dimless "pi0")
+  "P^(1)*mu^(-1)*N^(-1)"
+....
+
+Note that these two dimensionless products are derived from the
+tentative function image:../resources/math/f.gif[f] where we temporily
+disregarded image:../resources/math/LbyD.gif[LbyD] and
+image:../resources/math/CbyD.gif[CbyD].
+
+But, image:../resources/math/LbyD.gif[LbyD] and
+image:../resources/math/CbyD.gif[CbyD] are dimensionless. Therefore, the
+number of products in the complete set of dimensionless products is
+four. Hence,
+
+image:../resources/math/func_of_LDPNmuCM_as_pi.gif[image]
