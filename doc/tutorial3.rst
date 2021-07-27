@@ -218,7 +218,7 @@ Note that these two dimensionless products are derived from the tentative functi
 But, |LbyD| and |CbyD| are dimensionless. Therefore, the number of products in the complete set of dimensionless products is four.
 Hence, the frictional coefficient has the value
 
-.. image:: ../resources/math/tutorial3_func_value_of_LDPNmuCM_as_pi.gif
+.. image:: ../resources/math/tutorial3_func_value_of_pis.gif
    :align: center
 
    
