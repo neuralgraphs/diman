@@ -1,7 +1,7 @@
 ![diman logo](./resources/images/logo/diman.png)
 # diman
 
-[![Clojars Project](https://img.shields.io/clojars/v/diman.svg)](https://clojars.org/diman)
+[![Clojars Project](https://img.shields.io/clojars/v/com.neuralgraphs/diman.svg)](https://clojars.org/com.neuralgraphs/diman)
 
 A Clojure library for applying dimensional analysis.
 
