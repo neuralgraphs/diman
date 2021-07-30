@@ -8,7 +8,7 @@ tags:
   - quantitative analysis
   - scientific computing
 authors:
-  - name: B. Lungsi Sharma^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Lungsi Sharma^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0002-1607-0164
     affiliation: 1
 affiliations:
@@ -23,7 +23,7 @@ bibliography: paper.bib
 
 `diman` (**dim**ensional **an**alysis) is a Clojure based scientific software. It has the following features: create a dimensional formula, create dimensional equation, implement principle of dimensional homogeneity, i.e., perform consistency checks and derive dimensionless products.
 
-`diman` provide functions for each step of the analytic process of checking for dimensional homogeneity or deriving dimensionless products. Users can write their custom function that performs the desired process by compounding the functions provided by `diman`. The functions make the computationally repetitive operations hidden. This saves the analyst from labouring in computational tasks while still able to go through the steps of dimensional analysis thereby affording the user to reflect on the analysis.
+`diman` provide functions for each step of the analytic process of checking for dimensional homogeneity or deriving dimensionless products. Users can write their custom function that performs the desired process by compounding the functions provided by `diman`. The functions make the computationally repetitive operations hidden. This saves the analyst from laboring in computational tasks while still able to go through the steps of dimensional analysis thereby affording the user to reflect on the analysis.
 
 # Statement of need
 
