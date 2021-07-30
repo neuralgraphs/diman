@@ -1,5 +1,5 @@
 ;; Copyright (c) Lungsi Ngwua. All rights reserved
-(defproject com.neuralgraphs/diman "1.0.1"
+(defproject com.neuralgraphs/diman "1.0.2"
   :description "A Clojure library for applying dimensional analysis."
   :url "https://github.com/lungsi/diman"
   :license {:name "BSD 3-Clause 'New' or 'Revised' License"
@@ -9,10 +9,9 @@
   :codox {
           :output-path "codox"                              ; write output to codox/
           :source-uri                                       ; document links to source files
-                       "http://github.com/lungsi/diman/blob/{version}/{filepath}#L{line}"
+                       "http://github.com/neuralgraphs/diman/blob/{version}/{filepath}#L{line}"
           :source-paths ["src"]                             ; location of source files
-          ;:doc-files ["ProjectPlan.pdf",                    ; only supports .md or .markdown
-          ;            "doc/tutorial1.pdf"]
+          ;:doc-files ["doc/tutorial1.pdf",]                ; supports .md (or .markdown), .adoc
           }
   :repl-options {:prompt (fn [ns] (str "diman <" ns "> => "));; Custom repl prompt for diman
                  :welcome (println "Welcome to diman\nA <dim>ensional <an>alysis tool capable of deriving dimensionless products.\nTo view built-in functions do (println default-functions).")
@@ -21,6 +20,6 @@
                  }
   :repositories [["releases" {:url "https://repo.clojars.org"
                               :creds :gpg}]
-                ;; w/o gpg you are the only author,does not require jar verification from others
+                 ;; w/o gpg you are the only author,does not require jar verification from others
                  ["snapshots" {:sign-releases false :url "https://repo.clojars.org"}]]
   )

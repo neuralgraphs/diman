@@ -100,7 +100,7 @@ This is implemented in diman as
 
 === Derived Dimensions
 
-The `standard_formula` contains some well-known dimensions derived from the `base_dimensions`.
+The `+standard_formula+` contains some well-known dimensions derived from the `+base_dimensions+`.
 
 ....
 => (pprint standard_formula)
@@ -128,16 +128,16 @@ The `standard_formula` contains some well-known dimensions derived from the `bas
 ....
 
 Notice that the derived dimensions are in a sense the _dimensional
-formula for respective quantity_. Hence, the name `standard_formula`.
+formula for respective quantity_. Hence, the name `+standard_formula+`.
 
 == References
 
 [[BIPM2020]]
 BIPM (2020). _Base unit definitions_. Retrieved from the
-  link:++https://www.bipm.org/en/measurement-units/base-units.html++[Base units
+link:++https://www.bipm.org/en/measurement-units/base-units.html++[Base units
   page].
 
 [[McNish1957]]
 McNish, A. G. (1957, April 1). Dimensions units and standards.
-  _Physics Today_, 10(4), 19.
-  link:++https://doi.org/10.1063/1.3060330++[10.1063/1.3060330]
+_Physics Today_, 10(4), 19.
+link:++https://doi.org/10.1063/1.3060330++[10.1063/1.3060330]

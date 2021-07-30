@@ -38,7 +38,7 @@ with a dimension.
 
 Next, define the equation in terms of its left and right hand side of
 the expression. If a side has more than one term they are expressed as a
-map with appropriate key `:term<i>` for respective term.
+map with appropriate key `+:term<i>+` for respective term.
 
 ....
 (def lhs "x^(1)")
@@ -68,7 +68,7 @@ the previous section)
 {:term1 "x^(1)", :term2 "v^(2)", :term3 "t^(1)", :term4 "0.5*a^(1)*t^(2)"}
 ....
 
-the dimensional formula for `:term4` is given by
+the dimensional formula for `+:term4+` is given by
 
 ....
 => (formula-term varpars (:term4 rhs))
@@ -78,10 +78,10 @@ the dimensional formula for `:term4` is given by
 ==== 3.2. Dimensional formula for one side of the equation
 
 Dimensional formula for one side of the expression regardless of the
-number of terms in it can be generated using the `formula-eqn-side`
+number of terms in it can be generated using the `+formula-eqn-side+`
 function.
 
-Dimensional formula for the `rhs` expression is given by
+Dimensional formula for the `+rhs+` expression is given by
 
 ....
 => (formula-eqn-side varpars rhs)
@@ -130,7 +130,7 @@ with a dimension.
 
 Next, define the equation in terms of its left and right hand side of
 the expression. If a side has more than one term they are expressed as a
-map with appropriate key `:term<i>` for respective term.
+map with appropriate key `+:term<i>+` for respective term.
 
 ....
 (def lhs "x^(1)")
@@ -146,7 +146,7 @@ If the correctness of an equation is in doubt checking for dimensional
 consistency is a useful preliminary step.
 
 To perform consistency check based on dimensional analysis in diman
-^(c)^ you use the predicate function `consistent?`. Thus, for
+^(c)^ you use the predicate function `+consistent?+`. Thus, for
 the given problem
 
 ....
@@ -184,19 +184,19 @@ Thus
 |===
 |Equation |Setup
 |_e_ = _m_^2^_v_^2^
-|`(def eqn1 {:lhs "e^(1)", :rhs "m^(2)*v^(2)"})`
+|`+(def eqn1 {:lhs "e^(1)", :rhs "m^(2)*v^(2)"})+`
 
 |_e_ = (1/2) _mv_^2^
-|`(def eqn2 {:lhs "e^(1)", :rhs "0.5*m^(1)*v^(2)"})`
+|`+(def eqn2 {:lhs "e^(1)", :rhs "0.5*m^(1)*v^(2)"})+`
 
 |_e_ = _ma_
-|`(def eqn3 {:lhs "e^(1)", :rhs "m^(1)*a^(1)"})`
+|`+(def eqn3 {:lhs "e^(1)", :rhs "m^(1)*a^(1)"})+`
 
 |_e_ = (3/16) _mv_^2^
-|`(def eqn4 {:lhs "e^(1)", :rhs "0.1875*m^(1)*v^(2)"})`
+|`+(def eqn4 {:lhs "e^(1)", :rhs "0.1875*m^(1)*v^(2)"})+`
 
 |_e_ = (1/2) _mv_^2^ + _ma_
-|`(def eqn5 {:lhs "e^(1)", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})`
+|`+(def eqn5 {:lhs "e^(1)", :rhs {:term1 "0.5*m^(1)*v^(2)", :term2 "m^(1)*a^(1)"}})+`
 |===
 
 and define the variables/parameters as
@@ -234,8 +234,8 @@ ____
 
 == How to Standardize the Correct Equation
 
-From the previous example of notice that kinetic `"e"` is not defined in
-the `standard_formula`
+From the previous example of notice that kinetic `+"e"+` is not defined in
+the `+standard_formula+`
 
 ....
 => (pprint standard_formula)
@@ -249,7 +249,7 @@ the `standard_formula`
 Since we already know that the kinetic energy is in Joules and
 1__J__ = __kg__&sdot;__m__^2^&sdot;__s__^&minus;2^
 whose dimensional formula is
-`"[M\^(1)*L^(2)*T(-2)]"` this can be added to the `standard_formula` as
+`+"[M^(1)*L^(2)*T(-2)]"+` this can be added to the `+standard_formula+` as
 
 ....
 => (update-sformula [{:quantity "energy", :dimension "[M^(1)*L^(2)*T(-2)]"}])
@@ -261,8 +261,8 @@ whose dimensional formula is
 {:quantity "energy", :dimension "[M^(1)*L^(2)*T(-2)]"}]
 ....
 
-Now since `"energy"` is one of the `:quantity` in the
-`standard_formula`, we can now add the symbol `"e"` in our definition as
+Now since `+"energy"+` is one of the `+:quantity+` in the
+`+standard_formula+`, we can now add the symbol `+"e"+` in our definition as
 follows
 
 ....

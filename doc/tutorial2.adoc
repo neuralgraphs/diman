@@ -23,7 +23,7 @@ _u_ = _p_ + _q_ + _r_ + _s_
 Broadly, the task is to
 
 * generate dimensional formula for each term
-* insert all the generated dimensional formula into `standard_formula`
+* insert all the generated dimensional formula into `+standard_formula+`
 
 === 1.1. Setup for Generation
 
@@ -76,7 +76,7 @@ dimensional formula and hence introspecting them.
 
 The dimensional formula for one side of the expression (often right hand
 side) for every equation in the vector of all the equations defined
-earlier can be generated using the `formula-eqn-side-manifold` function.
+earlier can be generated using the `+formula-eqn-side-manifold+` function.
 
 ....
 => (pprint (formula-eqn-side-manifold varpars manifold_eqn))
@@ -89,7 +89,7 @@ earlier can be generated using the `formula-eqn-side-manifold` function.
 === 1.3 Standardize All the Generated Dimensional Formula
 
 All the dimensional formula generated from each equation in the vector
-of equations is added to the `standard_formula` with
+of equations is added to the `+standard_formula+` with
 
 ....
 => (update-sformula (formula-eqn-side-manifold varpars manifold_eqn))
@@ -109,7 +109,7 @@ of equations is added to the `standard_formula` with
 
 Since all the dimensional formula of _p_, _q_, _r_ and _s_,
 representing all the terms in
-the main equation are now part of the `standard_formula`, we can now
+the main equation are now part of the `+standard_formula+`, we can now
 define all the symbols in the reduced form of the parent mathematical
 expression
 
@@ -117,8 +117,8 @@ _u_ = _p_ + _q_ + _r_ + _s_
 
 The definition will be such that each term symbol has the dimension name
 as defined in the preceeding step (and hence incorporated into the
-`standard_formula`. For instance, since the term _p_
-(_p_ &#8796; (_x_^3^/_y_)_t_) was named `"term-p"` in
+`+standard_formula+`. For instance, since the term _p_
+(_p_ &#8796; (_x_^3^/_y_)_t_) was named `+"term-p"+` in
 
 ....
 => (pprint manifold_eqn)
@@ -128,7 +128,7 @@ as defined in the preceeding step (and hence incorporated into the
 {:name "term-s", :eqn {:term1 "x^(4)*t^(8)"}}]
 ....
 
-we will have `{:symbol "p", :dimension "term-p"}`. Therefore, we define
+we will have `+{:symbol "p", :dimension "term-p"}+`. Therefore, we define
 
 ....
 (def varpars2 [{:symbol "p", :quantity "term-p"}
@@ -140,7 +140,7 @@ we will have `{:symbol "p", :dimension "term-p"}`. Therefore, we define
 == 2. Generate Dimensional Matrix
 
 The dimensional matrix of the parent equation is generated with the help
-of the `generate-dimmat` function.
+of the `+generate-dimmat+` function.
 
 ....
 => (view-matrix (generate-dimmat varpars2))
@@ -203,7 +203,7 @@ Size -> 2 x 4
 == 4. Get Dimensionless Products
 
 The dimensionless products are generated with the help of the
-`get-dimensionless-products` function.
+`+get-dimensionless-products+` function.
 
 ....
 => (pprint (get-dimensionless-products solution_matrix varpars2))
@@ -213,7 +213,7 @@ The dimensionless products are generated with the help of the
 
 Since, &pi; is the conventional symbol for dimensionless products to get
 the &pi;~_i_~ th one use the
-`get-pi-expression` function. For example, for &pi;~0~
+`+get-pi-expression+` function. For example, for &pi;~0~
 
 ....
 => (def all-dimless (get-dimensionless-products solution_matrix varpars2))

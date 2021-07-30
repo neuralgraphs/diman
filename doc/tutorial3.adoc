@@ -25,7 +25,7 @@ bearing moment.
 
 We can therefore start our study with the assumption that the frictional
 coefficient of the bearing is a function of the above seven variables resulting in
-the function value _f_(_L_, _D_, _P_, _N_, _&mu;_, _C_, _M_).
+the function value _f_ (_L_, _D_, _P_, _N_, _&mu;_, _C_, _M_).
 
 But, _L_, _D_ and _C_ have the same dimensions. Then, _L_/_D_ and _C_/_D_
 are dimensionless. Therefore, if we temporarily disregard the variables _L_
@@ -205,7 +205,7 @@ step such that it returns the solution matrix.
 ....
 
 Note that these two dimensionless products are derived from the
-tentative function _f__ where we temporarily disregarded _L_/_D_ and _C_/_D_.
+tentative function _f_ where we temporarily disregarded _L_/_D_ and _C_/_D_.
 
 But, _L_/_D_ and _C_/_D_ are dimensionless. Therefore, the
 number of products in the complete set of dimensionless products is
