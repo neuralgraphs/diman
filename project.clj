@@ -1,5 +1,5 @@
 ;; Copyright (c) Lungsi Ngwua. All rights reserved
-(defproject com.neuralgraphs/diman "1.0.2"
+(defproject com.neuralgraphs/diman "1.0.3"
   :description "A Clojure library for applying dimensional analysis."
   :url "https://github.com/lungsi/diman"
   :license {:name "BSD 3-Clause 'New' or 'Revised' License"
