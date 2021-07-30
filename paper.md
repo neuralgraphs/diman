@@ -47,11 +47,11 @@ We define the variables
 ```
 => (def variables [{:symbol "E", :quantity "energy"}
                    {:symbol "m", :quantity "mass"}
-                   {:symbol "v", :quantity "velocity"}
+                   {:symbol "v", :quantity "velocity"}])
 ```
 then the equation
 ```
-=> (def equation {:lhs "E^(1)", :rhs "m^(2)*v^(2)"})
+=> (def equation {:lhs "E^(1)", :rhs "0.5*m^(1)*v^(2)"})
 ```
 Finally, the predicate `consistent?` is used to check if the equation is dimensionally homogenous.
 ```
@@ -105,7 +105,7 @@ Size -> 4 x 7
 ```
 The set of dimensionless products can be obtained from the solution matrix by using the function `get-dimensionless-products`. Thus
 ```
-=> (pprint (get-dimensionless-products solution_matrix independent_variables))
+=> (println (get-dimensionless-products solution_matrix independent_variables))
   [{:symbol "pi0", :expression "P^(1)*T^(-11)*U^(5)*V^(8)"}
   {:symbol "pi1", :expression "Q^(1)*T^(9)*U^(-4)*V^(-7)"}
   {:symbol "pi2", :expression "R^(1)*T^(-9)*U^(5)*V^(7)"}
