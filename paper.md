@@ -1,5 +1,5 @@
 ---
-title: 'diman: A Clojure package for dimensional analysis'
+title: 'diman: A Clojure Package for Dimensional Analysis'
 tags:
   - Clojure
   - neuroscience
