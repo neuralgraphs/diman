@@ -27,7 +27,7 @@ bibliography: paper.bib
 
 # Statement of need
 
-Explaining the mechanism of a phenomenon is often the goal of experiments. As most mechanistic description is expressible in terms of some measurable quantity, its value is a function of other measurable quantities, the function represents the relationship among the quantities, which provides a mechanistic explanation. For example, $F = ma = mdv/dt$ where the measurable value of force $F$ is a function of the measurable quantities: mass, $m$; velocity, $v$; and time, $t$.
+Explaining the mechanism of a phenomenon is often the goal of experiments. As most mechanistic description is expressible in terms of some measurable quantity, its value is a function of other measurable quantities; the function represents the relationship among the quantities, which provides a mechanistic explanation. For example, $F = ma = m \frac{dv}{dt}$ where the measurable value of force $F$ is a function of the measurable quantities: mass, $m$; velocity, $v$; and time, $t$.
 
 Some or all the independent variables of the parent (first or original) functions have dimensions. Since most of the functions are unknown, and hence conceptual, the researcher deals with many candidates for independent variable, whose considerations are based on experimental results. Although the mathematical expression of the function is unknown, knowledge of the relationship among the measurable quantities is profitable not only in putting together the series of experimental results to explain the mechanism, but also testing the hypothesis presented by the function.
 
