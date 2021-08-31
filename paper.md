@@ -29,9 +29,9 @@ bibliography: paper.bib
 
 Explaining the mechanism of a phenomenon is often the goal of experiments. As most mechanistic description is expressible in terms of some measurable quantity, its value is a function of other measurable quantities, the function represents the relationship among the quantities, which provides a mechanistic explanation. For example, $F = ma = mdv/dt$ where the measurable value of force $F$ is a function of the measurable quantities: mass, $m$; velocity, $v$; and time, $t$.
 
-Some or all the independent variables of the parent (first or original) function have dimensions. Since most of the functions are unknown, and hence conceptual, the researcher deals with many candidates for independent variable, whose considerations are based on experimental results. Although the mathematical expression of the function is unknown, knowledge of the relationship among the measurable quantities is profitable not only in putting together the series of experimental results to explain the mechanism, but also testing the hypothesis presented by the function.
+Some or all the independent variables of the parent (first or original) functions have dimensions. Since most of the functions are unknown, and hence conceptual, the researcher deals with many candidates for independent variable, whose considerations are based on experimental results. Although the mathematical expression of the function is unknown, knowledge of the relationship among the measurable quantities is profitable not only in putting together the series of experimental results to explain the mechanism, but also testing the hypothesis presented by the function.
 
-If possible, it is beneficial to use the transformed parent function, where all the independent variables are dimensionless. Dimensionless products are scalars that contains information of the dimensional quantities that it is a product of. Therefore, not only are points in a graph of dimensionless products experimentally determinable, but also dimensionless graphs can provide more information than dimensional graphs [@Langhaar:1951]. Reducing the number of independent variables to a smaller collection of dimensionless products can assist in understanding the mechanism of the phenomenon [@Langhaar:1951; @Sharma:2021].
+If possible, it is beneficial to use the transformed parent function, where all the independent variables are dimensionless. Dimensionless products are magnitudes that contains information of the dimensional quantities that it is a product of. Therefore, not only are points in a graph of dimensionless products experimentally determinable, but also dimensionless graphs can provide more information than dimensional graphs [@Langhaar:1951]. Reducing the number of independent variables to a smaller collection of dimensionless products can assist in understanding the mechanism of the phenomenon [@Langhaar:1951; @Sharma:2021].
 
 Numerous softwares have been developed to deal with dimensions in some shape or form [@Preussner:2018; @Sharma:2021]. Most incorporate the ability to tag quantities with units, however, few are capable of doing consistency checks and fewer still deal with dimensionless products let alone, deriving dimensionless products.
 
@@ -117,7 +117,7 @@ or
 $$
 \pi_0 = PT^{-11}U^5V^8, \pi_1 = QT^9U^{-4}V^{-7}, \pi_2 = RT^{-9}U^5V^7, \pi_3 = ST^{15}U^{-6}V^{-12}
 $$
-Therefore, function $f$ is transformed into some function $f_1$ whose independent variables are the dimensionless products; $\pi_0$, $\pi_1$, $\pi_2$ and $\pi_3$&mdash;$\pi$ is the conventional notation for any dimensionless product and is not a reference to the number 3.14159... Thus, the number of variables is reduced from 7 to 4.
+Therefore, function $f$ is transformed into some function $f_1$ whose independent variables are the dimensionless products; $\pi_0$, $\pi_1$, $\pi_2$, and $\pi_3$&mdash;$\pi$ is the conventional notation for any dimensionless product and is not a reference to the number 3.14159... Thus, the number of variables is reduced from 7 to 4.
 
 # Conclusion
 
