@@ -62,10 +62,10 @@
 ;; ============================================================================
 
 ;; ============ TEST diman.dimensions/matched-notation-sformula ===============
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+(def varpars [{:symbol "x", :quantity "length"}
+              {:symbol "v", :quantity "velocity"}
+              {:symbol "t", :quantity "time"}
+              {:symbol "a", :quantity "acceleration"}])
 (deftest test-matched-notation-sformula
   (testing "comment"
     (is (= "[L]" (matched-notation-sformula varpars "x")))

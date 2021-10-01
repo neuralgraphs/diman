@@ -2,10 +2,10 @@
   (:require [clojure.test :refer :all]
             [diman.buckingham [dimensional-matrix :refer [generate-dimmat]]]
             ))
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+(def varpars [{:symbol "x", :quantity "length"}
+              {:symbol "v", :quantity "velocity"}
+              {:symbol "t", :quantity "time"}
+              {:symbol "a", :quantity "acceleration"}])
 ;;  TEST diman.buckingham.dimensional-matrix/get-notn-expt-of-expressed-symbol
 (deftest test-get-notn-expt-of-expressed-symbol
   (testing "comment"
