@@ -23,7 +23,57 @@ The easiest way to get all the built-in functions is to be in the default namesp
 - Example: Journal Bearing; [AsciiDoc](./doc/tutorial3.adoc), [reStructuredText for Bitbucket](./doc/tutorial3.rst)
 - Rationale for the seven base dimensions; [AsciiDoc](./doc/rationale1.adoc), [reStructuredText for Bitbucket](./doc/rationale1.rst)
 - Rationale for implementing the steps for deriving a complete set of dimensionless products; [AsciiDoc](./doc/rationale2.adoc), [reStructuredText for Bitbucket](./doc/rationale2.rst)
-- [Source code documentation](https://cljdoc.org/d/com.neuralgraphs/diman) 
+- [Source code documentation](https://cljdoc.org/d/com.neuralgraphs/diman)
+
+### For Clojure Noobs
+
+Since [Leiningen](https://leiningen.org/) is one of the easiest way to use Clojure, I recommend using Leiningen to run diman. Once Leiningen is installed you can use diman in two ways; by cloning this diman repo and starting up a repl ([Read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) inside the cloned directory `cd ~/diman`, and by making diman as a dependency to your clojure project.
+
+#### Running diman by cloning the repo
+
+Once you have cloned the repository do `cd ~/diman`, then
+```
+lein repl
+```
+
+By default you should already be in the **default namespace**, that is, there is no need to `(in-ns 'diman.default)`. To list all the essential functions (and therefore all the functions for the tutorials) do `(println default-functions)`.
+
+#### Running diman as a dependency (recommended)
+
+Assuming you already have a clojure project or you can create one with the command `lein new <project-name>`, then diman can be added as a dependency in the `project.clj` file by doing
+```
+...
+:dependencies [[org.clojure/clojure "1.10.3"]
+               [com.neuralgraphs/diman "x.y.z"]]
+...
+```
+
+Do `(in-ns 'diman.default)` prior to going through the tutorials. Otherwise, you will need to load the required diman libraries. For example,
+```
+(ns <project-name>.<your-namespace>
+  (:require [diman.analyze :refer [dimnames consistent?]]))
+```
+
+Inside a repl the above libraries are loaded as
+```
+(require '[diman.analyze :refer [dimnames consistent?]])
+```
+
+Below are all the diman libraries essential for dimensional analysis
+```
+...
+  (:require
+    [diman.dimensions :refer [base_dimensions standard_formula update-sformula]]
+    [diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]]
+    [diman.analyze :refer [dimnames consistent?]]
+    [diman.buckingham
+     [dimensional-matrix :refer [generate-dimmat]]
+     [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
+     [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
+    [diman [core :refer [view-matrix]]]
+    [diman.linalg.matfun [rank :refer [rank]]]
+    )
+```
 
 ## License
 
