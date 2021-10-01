@@ -29,16 +29,16 @@ The easiest way to get all the built-in functions is to be in the default namesp
 
 Since [Leiningen](https://leiningen.org/) is one of the easiest way to use Clojure, I recommend using Leiningen to run diman. Once Leiningen is installed you can use diman in two ways; by cloning this diman repo and starting up a repl ([Read-eval-print loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) inside the cloned directory `cd ~/diman`, and by making diman as a dependency to your clojure project.
 
-#### Running diman by cloning the repo
+#### 1. Running diman by cloning the repo
 
-Once you have cloned the repository do `cd ~/diman`, then
+Once you have cloned the repository do `cd ~/path/to/diman`, then
 ```
 lein repl
 ```
 
 By default you should already be in the **default namespace**, that is, there is no need to `(in-ns 'diman.default)`. To list all the essential functions (and therefore all the functions for the tutorials) do `(println default-functions)`.
 
-#### Running diman as a dependency (recommended)
+#### 2. Running diman as a dependency (recommended)
 
 Assuming you already have a clojure project or you can create one with the command `lein new <project-name>`, then diman can be added as a dependency in the `project.clj` file by doing
 ```
@@ -48,13 +48,15 @@ Assuming you already have a clojure project or you can create one with the comma
 ...
 ```
 
-Do `(in-ns 'diman.default)` prior to going through the tutorials. Otherwise, you will need to load the required diman libraries. For example,
+Do `(in-ns 'diman.default)` prior to going through the tutorials.
+
+Otherwise, you will need to load the required diman libraries. For example,
 ```
 (ns <project-name>.<your-namespace>
   (:require [diman.analyze :refer [dimnames consistent?]]))
 ```
 
-Inside a repl the above libraries are loaded as
+The above libraries is loaded inside the repl by
 ```
 (require '[diman.analyze :refer [dimnames consistent?]])
 ```
