@@ -56,7 +56,7 @@ Otherwise, you will need to load the required diman libraries. For example,
   (:require [diman.analyze :refer [dimnames consistent?]]))
 ```
 
-The above libraries is loaded inside the repl by
+The above libraries is loaded inside the repl (i.e. after `lein repl` inside the directory `<project-name`) by
 ```
 (require '[diman.analyze :refer [dimnames consistent?]])
 ```
