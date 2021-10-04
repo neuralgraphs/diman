@@ -48,33 +48,24 @@ Assuming you already have a clojure project or you can create one with the comma
 ...
 ```
 
-Do `(in-ns 'diman.default)` prior to going through the tutorials.
+To go through the tutorials, startup a repl (`lein repl`) inside the created project (`cd /path/to/<project-name>`) load the diman libraries as follows
+```
+(require '[diman.dimensions :refer [base_dimensions standard_formula update-sformula]]
+         '[diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]]
+         '[diman.analyze :refer [dimnames consistent?]]
+         '[diman.buckingham [dimensional-matrix :refer [generate-dimmat]]
+                            [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
+                            [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
+         '[diman [core :refer [view-matrix]]]
+         '[diman.linalg.matfun [rank :refer [rank]]])
+```
 
-Otherwise, you will need to load the required diman libraries. For example,
+These are all the diman libraries essential for dimensional analysis (you may copy-paste the above inside the repl).
+
+To load specific diman libraries in specific namespace under the new project do
 ```
 (ns <project-name>.<your-namespace>
   (:require [diman.analyze :refer [dimnames consistent?]]))
-```
-
-The above libraries is loaded inside the repl (i.e. after `lein repl` inside the directory `<project-name`) by
-```
-(require '[diman.analyze :refer [dimnames consistent?]])
-```
-
-Below are all the diman libraries essential for dimensional analysis
-```
-...
-  (:require
-    [diman.dimensions :refer [base_dimensions standard_formula update-sformula]]
-    [diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]]
-    [diman.analyze :refer [dimnames consistent?]]
-    [diman.buckingham
-     [dimensional-matrix :refer [generate-dimmat]]
-     [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
-     [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
-    [diman [core :refer [view-matrix]]]
-    [diman.linalg.matfun [rank :refer [rank]]]
-    )
 ```
 
 ## License
