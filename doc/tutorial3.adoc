@@ -46,7 +46,7 @@ Since,
 |__N__&sdot;__m__ = ((__kg__&sdot;__m__)/_s_^2^)_m_
 |_ML_^2^/_T_^2^
 
-|_D_ | diameter | _m_ |_M_
+|_D_ | diameter | _m_ |_L_
 
 |_&mu;_ | viscosity
 | __Pa__&sdot;__s__ = (_kg_/_ms_^2^)_s_
