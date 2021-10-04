@@ -204,13 +204,13 @@ We can put all these individual steps involving matrix into one coding step such
 
 ::
 
-    => (def all-dimless (get-dimensionless-products solution_matrix varpars2))
+    => (def all_dimless (get-dimensionless-products solution_matrix varpars2))
 
-    => (pprint all-dimless)
+    => (pprint all_dimless)
       [{:symbol "pi0", :expression "P^(1)*mu^(-1)*N^(-1)"}
        {:symbol "pi1", :expression "M^(1)*D^(-3)*mu^(-1)*N^(-1)"}]
 
-    => (get-pi-expression all-dimless "pi0")
+    => (get-pi-expression all_dimless "pi0")
       "P^(1)*mu^(-1)*N^(-1)"
 
 Note that these two dimensionless products are derived from the tentative function |f| where we temporarily disregarded |LbyD| and |CbyD|.
