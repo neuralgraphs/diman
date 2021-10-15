@@ -92,7 +92,7 @@ Thus, `diman` now contains dimensions of the independent variables of $f$. Hence
 The theory of dimensionless products [@Ngwua:2020] tells us that the derivation of dimensionless products can be broken down into four steps: generate the dimensional matrix, solve the homogeneous equation, determine the solution matrix and get the set of dimensionless products. Compounding the first three steps into one code block we get,
 ```
 => (def solution_matrix
-        (get-solved-matrix
+        (get-solution-matrix
             (solve (get-augmented-matrix
 						(generate-dimmat independent_variables)))))
 ```
