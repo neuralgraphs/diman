@@ -3,10 +3,7 @@
             [diman [attach :refer [tie-notn-expt tie-subformula-expt tie-notnlist-exptlist tie-ref-with-distinct-next
                                    tie-subformulae-in-term tie-subformulae-in-eqn-side tie-names-in-subformula]]]
             ))
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+
 ;; ==================== TEST diman.attach/tie-notn-expt =======================
 (deftest test-tie-notn-expt
   (testing "comment"
