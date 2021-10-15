@@ -13,10 +13,10 @@
   ### Examples
   Consider the case
   ```
-  (def varpars [{:symbol \"x\", :dimension \"length\"},
-                {:symbol \"v\", :dimension \"velocity\"}
-                {:symbol \"t\", :dimension \"time\"}
-                {:symbol \"a\", :dimension \"acceleration\"}])
+  (def varpars [{:symbol \"x\", :quantity \"length\"},
+                {:symbol \"v\", :quantity \"velocity\"}
+                {:symbol \"t\", :quantity \"time\"}
+                {:symbol \"a\", :quantity \"acceleration\"}])
   (def lhs \"x^(1)\")
   (def rhs {:term1 \"x^(1)\", :term2 \"v^(2)\", :term3 \"t^(1)\", :term4 \"0.5*a^(1)*t^(2)\"})
   (def eqn {:lhs lhs, :rhs rhs})
@@ -25,13 +25,13 @@
   The formula for the right hand side of the equation is
   ```
   => (formula-eqn-side varpars rhs)
-  \"[L^(1)] + [T^(-2)*M^(0)*L^(2)] + [T^(1)] + [T^(0)*M^(0)*L^(1)]\"
+  \"[L^(1)] + [T^(-2)*L^(2)] + [T^(1)] + [T^(0)*L^(1)]\"
   ```
   #### Dimension names of an equation side
   The rhs of our example equation as dimension names is
   ```
   => (dimnames (formula-eqn-side varpars rhs))
-  \"length^(1) + length^(1) + length^(1)\"
+  \"length^(1) + time^(-2)*length^(2) + time^(1) + length^(1)\"
   ```
   and for lhs
   ```
@@ -79,29 +79,9 @@
     (clojure.string/split wo_plus #" ")                     ; w/o space
     ))
 
-(defn- replace-empty-string-by-nil [a_string]
-  "Returns a list of names replacing empty strings by nil."
-  (if (empty? a_string)
-    nil
-    a_string))
-
-(defn- remove-empty-string
-  "Returns a list of names removing the empty strings (i.e, nil) in the list."
-  ([vec_strings] (remove-empty-string vec_strings []))
-  ([vec_strings nilified]
-   (if (empty? vec_strings)
-     (remove nil? nilified)
-     (recur (drop-last vec_strings)
-            (conj nilified
-                  (replace-empty-string-by-nil (last vec_strings)))
-            )
-     )
-    ))
-
 (defn- clean-dimnames [dimnames_a_side]
   "Returns a list of names of the dimensional formula w/o the plus sign."
-  (remove-empty-string (replace-plus-by-empty-string dimnames_a_side))
-  )
+  (remove empty? (replace-plus-by-empty-string dimnames_a_side)))
 
 (defn consistent? [varpar_def eqn]
   "Compares dimensional names on lhs vs rhs of the equation."
