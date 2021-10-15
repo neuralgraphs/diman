@@ -3,10 +3,7 @@
             [diman [filter :refer [list-varpar-expt notns-in-subformula expts-in-subformula names-in-subformula
                                    next-subformula-components-with-common-notation remove-zero-powers]]]
             ))
-(def varpars [{:symbol "x", :dimension "length"}
-              {:symbol "v", :dimension "velocity"}
-              {:symbol "t", :dimension "time"}
-              {:symbol "a", :dimension "acceleration"}])
+
 ;; ===================== TEST diman.filter/list-varpar-expt ===================
 (deftest test-list-varpar-expt
   (testing "comment"
