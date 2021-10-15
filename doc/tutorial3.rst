@@ -179,7 +179,7 @@ We add the above dimensional formulae into the `standard_formula`
 
 ::
 
-    => (view-matrix (get-solved-matrix (solve (get-augmented-matrix (generate-dimmat varpars2)))))
+    => (view-matrix (get-solution-matrix (solve (get-augmented-matrix (generate-dimmat varpars2)))))
       [1 0 0N -1N -1N]
       [0 1 -3N -1N -1N]
       Size -> 2 x 5
@@ -190,7 +190,7 @@ We can put all these individual steps involving matrix into one coding step such
 
 ::
 
-    => (def solution_matrix (get-solved-matrix
+    => (def solution_matrix (get-solution-matrix
                                 (solve
                                     (get-augmented-matrix
                                         (generate-dimmat varpars2)))))

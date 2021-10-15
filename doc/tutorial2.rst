@@ -180,7 +180,7 @@ This is a 3 times 4 dimensional matrix.
 
 ::
 
-    => (view-matrix (get-solved-matrix (solve (get-augmented-matrix (generate-dimmat varpars2)))))
+    => (view-matrix (get-solution-matrix (solve (get-augmented-matrix (generate-dimmat varpars2)))))
     [1 0 -1/3 -1/4]
     [0 1 2N -7/4]
     Size -> 2 x 4
@@ -191,7 +191,7 @@ We can put all these individual steps involving matrix into one coding step such
 
 ::
 
-    => (def solution_matrix (get-solved-matrix
+    => (def solution_matrix (get-solution-matrix
                                 (solve
                                     (get-augmented-matrix
                                         (generate-dimmat varpars2)))))
