@@ -2,7 +2,7 @@
 (ns diman.buckingham.homogeneous-equation-test
   (:require [clojure.test :refer :all]
             [diman.buckingham
-             [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]]
+             [homogeneous-equation :refer [get-augmented-matrix solve get-solution-matrix]]]
             ))
 ;; ============================================================================
 ;;         Standard case: rank >= number of rows of dimensional matrix.
@@ -39,7 +39,7 @@
 (deftest test-get-solved-matrix
   (testing "Standard case: rank >= number of rows of dimensional matrix."
     ;(println (get-solved-matrix augsolved))
-    (is (= solved_matrix_stnd (get-solved-matrix augmat_solved_stnd)))
+    (is (= solved_matrix_stnd (get-solution-matrix augmat_solved_stnd)))
     ))
 ;lein test :only diman.buckingham.homogeneous-equation-test/test-get-solved-matrix
 ;; ============================================================================
@@ -76,8 +76,8 @@
                          [0 1   2  -7/4]])
 (deftest test-get-solved-matrix-singular
   (testing "Case: Singular matrix, i.e, rank < number of rows of dimensional matrix."
-    ;(println (get-solved-matrix augsolved))
-    (is (= solved_matrix_sing (get-solved-matrix augmat_solved_sing)))
+    ;(println (get-soln-matrix augsolved))
+    (is (= solved_matrix_sing (get-solution-matrix augmat_solved_sing)))
     ))
 ;lein test :only diman.buckingham.homogeneous-equation-test/test-get-solved-matrix-singular
 ;; ============================================================================
