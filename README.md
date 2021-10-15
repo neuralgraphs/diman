@@ -54,7 +54,7 @@ To go through the tutorials, startup a repl (`lein repl`) inside the created pro
          '[diman.formula :refer [formula-term formula-eqn-side formula-eqn-side-manifold]]
          '[diman.analyze :refer [dimnames consistent?]]
          '[diman.buckingham [dimensional-matrix :refer [generate-dimmat]]
-                            [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
+                            [homogeneous-equation :refer [get-augmented-matrix solve get-solution-matrix]]
                             [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
          '[diman [core :refer [view-matrix]]]
          '[diman.linalg.matfun [rank :refer [rank]]])

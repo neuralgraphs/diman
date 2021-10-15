@@ -5,7 +5,7 @@
     [diman.analyze :refer [dimnames consistent?]]
     [diman.buckingham
      [dimensional-matrix :refer [generate-dimmat]]
-     [homogeneous-equation :refer [get-augmented-matrix solve get-solved-matrix]]
+     [homogeneous-equation :refer [get-augmented-matrix solve get-solution-matrix]]
      [dimensionless-product :refer [get-dimensionless-products get-pi-expression]]]
     [diman [core :refer [view-matrix]]]
     [diman.linalg.matfun [rank :refer [rank]]]
@@ -17,7 +17,7 @@
     formula-term, formula-eqn-side, formula-eqn-side-manifold,\n
     dimnames, consistent?,\n
     generate-dimmat,\n
-    get-augmented-matrix, solve, get-solved-matrix,\n
+    get-augmented-matrix, solve, get-solution-matrix,\n
     get-dimensionless-products, get-pi-expression,\n
     view-matrix,\n
     rank\n
