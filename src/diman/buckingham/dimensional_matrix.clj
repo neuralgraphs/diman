@@ -1,4 +1,21 @@
 (ns diman.buckingham.dimensional-matrix
+  "Contains function
+
+   - `generate-dimmat`
+
+  Given
+  ```
+  (def varpars [ {:symbol \"x\", :quantity \"length\"}
+                 {:symbol \"v\", :quantity \"velocity\"}
+                 {:symbol \"t\", :quantity \"time\"}
+                 {:symbol \"a\", :quantity \"acceleration\"} ])
+  ```
+  to get the [dimensional matrix](https://neuralgraphs.com/lectures/diman/lectp8.html#p4_thispage) of the system containing (only) the above dimensional quantities
+  ```
+  => (generate-dimmat varpars)
+  [[1N 1N 0 1N] [0 -1N 1N -2N]]
+  ```
+  "
   (:require [diman.formula :refer [formula-term]]
             [diman.filter :refer [notns-in-subformula expts-in-subformula]]
             [diman.linalg [core :refer [zero-mat]]]
