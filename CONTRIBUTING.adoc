@@ -1,6 +1,6 @@
 = Contributing to diman
 Lungsi Ngwua <aneuralgraphs@gmail.com>
-3.0, July 29, 2022: AsciiDoc article template
+1.0, October 16, 2021: AsciiDoc article
 :toc:
 :icons: font
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
@@ -11,18 +11,18 @@ This article provides guidelines on how to contribute to diman.
 
 Contribution to the project is based on GitHub issues. Extensive use of labels categorizes the issues. Some "standard labels" to find issues and begin working are:
 
-* Something isn't working https://github.com/neuralgraphs/diman/labels/bug[[#d73a4a]#bug#]
-* Improvements or additions to documentation https://github.com/neuralgraphs/diman/labels/documentation[[#0075ca]#documentation#]
-* This issue or pull request already exists https://github.com/neuralgraphs/diman/labels/duplicate[[#cfd3d7]#duplicate#]
-* New feature or request https://github.com/neuralgraphs/diman/labels/enhancement[[#a2eeef]#enhancement#]
-* Good for newcomers https://github.com/neuralgraphs/diman/labels/good%20first%20issue[[#7057ff]#good first issue#]
-* Extra attention is needed https://github.com/neuralgraphs/diman/labels/help%20wanted[[#008672]#help wanted#]
-* This doesn't seem right https://github.com/neuralgraphs/diman/labels/invalid[[#e4e669]#invalid#]
-* Further information is requested https://github.com/neuralgraphs/diman/labels/question[[#d876e3]#question#]
-* Improve design/structure without changing behavior https://github.com/neuralgraphs/diman/labels/refactor[[#ccff00]#refactor#]
-* Make the code cleaner and clearer https://github.com/neuralgraphs/diman/labels/simplify[[#96c8a2]#simplify#]
-* This needs a test https://github.com/neuralgraphs/diman/labels/test[[#ff8c00]#test#]
-* This will not be worked on https://github.com/neuralgraphs/diman/labels/wontfix[[#ffffff]#wontfix#]
+* Something isn't working &#128681; https://github.com/neuralgraphs/diman/labels/bug[[#d73a4a]#bug#]
+* Improvements or additions to documentation &#128681; https://github.com/neuralgraphs/diman/labels/documentation[[#0075ca]#documentation#]
+* This issue or pull request already exists &#128681; https://github.com/neuralgraphs/diman/labels/duplicate[[#cfd3d7]#duplicate#]
+* New feature or request &#128681; https://github.com/neuralgraphs/diman/labels/enhancement[[#a2eeef]#enhancement#]
+* Good for newcomers &#128681; https://github.com/neuralgraphs/diman/labels/good%20first%20issue[[#7057ff]#good first issue#]
+* Extra attention is needed &#128681; https://github.com/neuralgraphs/diman/labels/help%20wanted[[#008672]#help wanted#]
+* This doesn't seem right &#128681; https://github.com/neuralgraphs/diman/labels/invalid[[#e4e669]#invalid#]
+* Further information is requested &#128681; https://github.com/neuralgraphs/diman/labels/question[[#d876e3]#question#]
+* Improve design/structure without changing behavior &#128681; https://github.com/neuralgraphs/diman/labels/refactor[[#ccff00]#refactor#]
+* Make the code cleaner and clearer &#128681; https://github.com/neuralgraphs/diman/labels/simplify[[#96c8a2]#simplify#]
+* This needs a test &#128681; https://github.com/neuralgraphs/diman/labels/test[[#ff8c00]#test#]
+* This will not be worked on &#128681; https://github.com/neuralgraphs/diman/labels/wontfix[[#ffffff]#wontfix#]
 
 === Proposing a New Issue
 
@@ -31,12 +31,12 @@ If a contributor has discovered a "potential issue" that has not yet been highli
 . Create a GitHub issue with all the relevant details; the problem/issue and rationale for why it is a problem/issue and the proposed solution/change.
 * *Do not* make a pull request without creating the issue.
 . Wait for the created issue to be designated by a label.
-. Begin working on the labeled issue -- with some exceptions like https://github.com/neuralgraphs/diman/labels/wontfix[[#ffffff]#wontfix#], see above list.
+. Begin working on the labeled issue -- with some exceptions like &#128681; https://github.com/neuralgraphs/diman/labels/wontfix[[#ffffff]#wontfix#], see above list.
 * See <<the_contribution_process,the contribution process>>
 
 ==== A Note on Proposing New Issues
 
-Before posting https://github.com/neuralgraphs/diman/labels/question[[#d876e3]#question#] issue please make sure the exact or related question is not already part of the https://github.com/neuralgraphs/diman/discussions[discussions].
+Before posting &#128681; https://github.com/neuralgraphs/diman/labels/question[[#d876e3]#question#] issue please make sure the exact or related question is not already part of the https://github.com/neuralgraphs/diman/discussions[discussions].
 
 == The Contribution Process [[the_contribution_process]]
 
@@ -53,7 +53,7 @@ Steps to contribute are:
 
 === Documentation Guidelines [[documentation_guidelines]]
 
-Documentation refers to docstrings within the source code and documentation on functionalities (how to use and rationale for why or how the functionality is needed). The first type of documentation is mandatory for all contributions made to the source code.
+Documentation refers to docstrings within the source code and documentation on functionalities (how to use and rationale for why or how the functionality is needed). The second type of documentation is written in https://www.writethedocs.org/guide/writing/asciidoc/[AsciiDoc]. The first type of documentation is mandatory for all contributions made to the source code.
 
 Source code documentation are docstrings which may contain markdown syntax.
 

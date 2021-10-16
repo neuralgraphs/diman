@@ -68,6 +68,11 @@ To load specific diman libraries in specific namespace under the new project do
   (:require [diman.analyze :refer [dimnames consistent?]]))
 ```
 
+## Contributing to diman
+
+Thank you for your interest in contributing to diman.
+Please refer to the [guidelines](CONTRIBUTING.adoc) on how to contribute.
+
 ## License
 
 Copyright © 2021 Lungsi Ngwua
