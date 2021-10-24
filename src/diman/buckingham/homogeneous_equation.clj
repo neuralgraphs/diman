@@ -72,9 +72,4 @@
   "Transforms the solved augmented matrix such that the returned matrix
   rows are the number of dimensionless products (i.e rank) and
   columns are the number of varpars. [Replaces `get-solved-matrix`]"
-  (let [adjusted_mat (strip-zero-rows solved_augmat)
-        [m n] (size adjusted_mat)
-        submat_solved (transpose (submatrix adjusted_mat [0 m] [m (- n m)]))
-        solved_matrix (eye (- n m) n)]
-    (insert-submatrix solved_matrix submat_solved 0 (- n m))
-    ))
+  (get-solved-matrix solved_augmat))
