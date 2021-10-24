@@ -5,7 +5,7 @@
 
 A Clojure library for applying dimensional analysis.
 
-[Motivation for diman.](ProjectPlan.pdf)
+[Motivation for diman.](./doc/ProjectPlan.pdf)
 
 ## Current Features
 
@@ -71,7 +71,7 @@ To load specific diman libraries in specific namespace under the new project do
 ## Contributing to diman
 
 Thank you for your interest in contributing to diman.
-Please refer to the [guidelines](CONTRIBUTING.adoc) on how to contribute.
+Please refer to the [guidelines](./doc/zCONTRIBUTING.adoc) on how to contribute.
 
 ## License
 
