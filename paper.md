@@ -21,9 +21,9 @@ bibliography: paper.bib
 
 # Summary
 
-`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software with the ability to: create dimensional formula, create dimensional equation, check dimensional homogeneity (consistency), and derive dimensionless products.
+`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software with the ability to: create dimensional formulas, create dimensional equations, check dimensional homogeneity (consistency), and derive dimensionless products.
 
-`diman` provides functions for each step of the analytic process for checking dimensional homogeneity or deriving dimensionless products; the repetitive operations (computational) are hidden. Users can write compound functions that performs a desired process. Thus, not only is the computational labor saved, but also introspection of the analysis is possible; the analyst is able to go through the steps of dimensional analysis.
+`diman` provides functions for each step of the analytic process for checking dimensional homogeneity or deriving dimensionless products; the repetitive operations (computational) are hidden. Users can write compound functions that perform a desired process. Thus, not only is the computational labor saved, but also introspection of the analysis is possible; the analyst is able to go through the steps of dimensional analysis.
 
 # Statement of need
 
@@ -33,17 +33,17 @@ Some or all the independent variables of the parent (first or original) function
 
 If possible, it is beneficial to use the transformed parent function, where all the independent variables are dimensionless. Dimensionless products are magnitudes that contains information on the dimensional quantities that it is a product of. Therefore, not only are points in a graph of dimensionless products experimentally determinable, but also are more informative than dimensional graphs. Reducing the number of independent variables to a smaller collection of dimensionless products can assist in understanding the mechanism of the phenomenon [@Langhaar:1951; @Sharma:2021].
 
-Numerous softwares have been developed to deal with dimensions in some shape or form [@Preussner:2018; @Sharma:2021]. Most incorporate the ability to tag quantities with units, however, few are capable of doing consistency checks and fewer still deal with dimensionless products let alone, deriving dimensionless products.
+Numerous software packages have been developed to deal with dimensions in some shape or form [@Preussner:2018; @Sharma:2021]. Most incorporate the ability to tag quantities with units, however, few are capable of doing consistency checks and fewer still deal with dimensionless products let alone, deriving dimensionless products.
 
 `diman` is designed with an emphasis on **analysis**; the  application of the algebraic theory of dimensionally homogeneous functions [@Langhaar:1951]. It can check for dimensional homogeneity of a given equation and can derive the complete set of dimensionless products of a given equation.
 
 # Design and implementation
 
-Based on the International System of Units `diman` uses the seven base (or elementary) dimensions: [M], [L], [T], [A], [K], [mol] and [cd] for the quantities: mass, length, time, electric current, thermodynamic temperature, amount of substance and luminous intensity respectively [@BIPM:2020]. They are defined in `base_dimensions`. Furthermore, some well-known dimensions derived from the `base_dimensions` are defined in `standard_formula`; a dimensional formula for respective quantity is its dimension.
+Based on the International System of Units, `diman` uses the seven base (or elementary) dimensions: [M], [L], [T], [A], [K], [mol] and [cd] for the quantities: mass, length, time, electric current, thermodynamic temperature, amount of substance and luminous intensity respectively [@BIPM:2020]. They are defined in `base_dimensions`. Furthermore, some well-known dimensions derived from the `base_dimensions` are defined in `standard_formula`; a dimensional formula for respective quantity is its dimension.
 
 ## Consistency checking
 
-This is done by the predicate `consistent?`. There are some preliminary steps before invoking the predicate. Consider the given function $E = \frac{1}{2}mv^2$
+This is done by the predicate `consistent?`. There are some preliminary steps before invoking the predicate. Consider the given function $E = \frac{1}{2}mv^2$.
 
 We define the variables
 ```
@@ -115,13 +115,13 @@ The set of dimensionless products can be obtained from the solution matrix by us
 ```
 or
 $$
-\pi_0 = PT^{-11}U^5V^8, \pi_1 = QT^9U^{-4}V^{-7}, \pi_2 = RT^{-9}U^5V^7, \pi_3 = ST^{15}U^{-6}V^{-12}
+\pi_0 = PT^{-11}U^5V^8,  \pi_1 = QT^9U^{-4}V^{-7},  \pi_2 = RT^{-9}U^5V^7,  \pi_3 = ST^{15}U^{-6}V^{-12}
 $$
-Therefore, function $f$ is transformed into some function $f_1$ whose independent variables are the dimensionless products; $\pi_0$, $\pi_1$, $\pi_2$, and $\pi_3$&mdash;$\pi$ is the conventional notation for any dimensionless product and is not a reference to the number 3.14159... Thus, the number of variables is reduced from 7 to 4.
+Therefore, function $f$ is transformed into some function $f_1$ whose independent variables are the dimensionless products; $\pi_0$, $\pi_1$, $\pi_2$, and $\pi_3$&mdash;$\pi$ is the conventional notation for any dimensionless product. Thus, the number of variables is reduced from 7 to 4.
 
 # Conclusion
 
-`diman` is a Clojure library with no other dependencies. It has its own linear algebra submodule which provides all the necessary operations. Internally, the numerical data type is Clojure's *ratio*; a ratio between integers rather than floats [@Clojure:2020]. This avoids truncation and rounding errors. Since dimensional analysis do not often involve very large matrices, the hit on computational performance due to using the *ratio* number type is practically insignificant. `diman` supplies all the necessary functions for dimensional homogeneity operations and the derivation of dimensionless products; thus making the analysis steps transparent.
+`diman` is a Clojure library with no other dependencies. It has its own linear algebra submodule which provides all the necessary operations. Internally, the numerical data type is Clojure's *ratio*; a ratio between integers rather than floats [@Clojure:2020]. This avoids truncation and rounding errors. Since dimensional analysis does not often involve very large matrices, the hit on computational performance due to using the *ratio* number type is practically insignificant. `diman` supplies all the necessary functions for dimensional homogeneity operations and the derivation of dimensionless products; thus making the analysis steps transparent.
 
 
 # Acknowledgements
