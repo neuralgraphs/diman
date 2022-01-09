@@ -115,7 +115,7 @@ The set of dimensionless products can be obtained from the solution matrix by us
 ```
 or
 $$
-\pi_0 = PT^{-11}U^5V^8,  \pi_1 = QT^9U^{-4}V^{-7},  \pi_2 = RT^{-9}U^5V^7,  \pi_3 = ST^{15}U^{-6}V^{-12}
+\pi_0 = PT^{-11}U^5V^8, \quad \pi_1 = QT^9U^{-4}V^{-7}, \quad \pi_2 = RT^{-9}U^5V^7, \quad \pi_3 = ST^{15}U^{-6}V^{-12}
 $$
 Therefore, function $f$ is transformed into some function $f_1$ whose independent variables are the dimensionless products; $\pi_0$, $\pi_1$, $\pi_2$, and $\pi_3$&mdash;$\pi$ is the conventional notation for any dimensionless product. Thus, the number of variables is reduced from 7 to 4.
 
