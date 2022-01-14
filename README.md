@@ -73,6 +73,11 @@ To load specific diman libraries in specific namespace under the new project do
 Thank you for your interest in contributing to diman.
 Please refer to the [guidelines](./doc/zCONTRIBUTING.adoc) on how to contribute.
 
+## Publications
+
+* [![DOI](https://joss.theoj.org/papers/10.21105/joss.03735/status.svg)](https://doi.org/10.21105/joss.03735)
+
+
 ## License
 
 Copyright © 2021 Lungsi Ngwua
