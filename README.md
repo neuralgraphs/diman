@@ -75,7 +75,8 @@ Please refer to the [guidelines](./doc/zCONTRIBUTING.adoc) on how to contribute.
 
 ## Publications
 
-* [![DOI](https://joss.theoj.org/papers/10.21105/joss.03735/status.svg)](https://doi.org/10.21105/joss.03735)
+* Sharma, L., (2022). diman: A Clojure Package for Dimensional Analysis. Journal of Open Source Software, 7(69), 3735, [https://doi.org/10.21105/joss.03735](https://doi.org/10.21105/joss.03735)
+- [![DOI](https://joss.theoj.org/papers/10.21105/joss.03735/status.svg)](https://doi.org/10.21105/joss.03735)
 
 
 ## License
