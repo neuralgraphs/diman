@@ -21,7 +21,7 @@ bibliography: paper.bib
 
 # Summary
 
-`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software package with the ability to: create dimensional formulas, create dimensional equations, check dimensional homogeneity (consistency), and derive dimensionless products.
+`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software with the ability to: create dimensional formulas, create dimensional equations, check dimensional homogeneity (consistency), and derive dimensionless products.
 
 `diman` provides functions for each step of the analytic process for checking dimensional homogeneity or deriving dimensionless products; the repetitive operations (computational) are hidden. Users can write compound functions that perform a desired process. Thus, not only is the computational labor saved, but also introspection of the analysis is possible; the analyst is able to go through the steps of dimensional analysis.
 
@@ -31,11 +31,11 @@ Explaining the mechanism of a phenomenon is often the goal of experiments. As mo
 
 Some or all the independent variables of the parent (first or original) functions have dimensions. Since most of the functions are unknown, and hence conceptual, the researcher deals with many candidates for independent variable, whose considerations are based on experimental results. Although the mathematical expression of the function is unknown, knowledge of the relationship among the measurable quantities is profitable not only in putting together the series of experimental results to explain the mechanism, but also testing the hypothesis presented by the function.
 
-If possible, it is beneficial to use the transformed parent function, where all the independent variables are dimensionless. Dimensionless products are magnitudes that contains information on the dimensional quantities that they are a product of. Therefore, not only are points in a graph of dimensionless products experimentally determinable, but also they are more informative than dimensional graphs. Reducing the number of independent variables to a smaller collection of dimensionless products can assist in understanding the mechanism of the phenomenon [@Langhaar:1951; @Sharma:2021].
+If possible, it is beneficial to use the transformed parent function, where all the independent variables are dimensionless. Dimensionless products are magnitudes that contains information on the dimensional quantities that it is a product of. Therefore, not only are points in a graph of dimensionless products experimentally determinable, but also are more informative than dimensional graphs. Reducing the number of independent variables to a smaller collection of dimensionless products can assist in understanding the mechanism of the phenomenon [@Langhaar:1951; @Sharma:2021].
 
 Numerous software packages have been developed to deal with dimensions in some shape or form [@Preussner:2018; @Sharma:2021]. Most incorporate the ability to tag quantities with units, however, few are capable of doing consistency checks and fewer still deal with dimensionless products let alone, deriving dimensionless products.
 
-Frink and F sharp are two active languages that incorporate units of measurement. Frink is a calculating tool and programming language designed to make physical calculations as it tracks units of measure throughout calculations [@Eliasen:2004]. F# is a general purpose language that allows annotating floating point and integer values with statically-typed unit metadata. F#'s units of measure is based on a prototype Meta Language (ML) like language that has dimensional type; the language supports type polymorphism as well as dimension polymorphism [@Kennedy:1996].
+Frink and F sharp are two active languages that incorporate units of measurement. Frink is a calculating tool and programming language designed to make physical calculations as it tracks units of measure throughout calculations [@Eliasen:2004]. F# is a general purpose language which allows annotating floating point and integer values with statically-typed unit metadata. F#'s units of measure is based on a prototype Meta Language (ML) like language that has dimensional type; the language supports type polymorphism as well as dimension polymorphism [@Kennedy:1996].
 
 In F# the notion of dimension is based on ideas from type theory; therefore, dimensions satisfy algebraic properties of Abelian groups (commutative groups). The concepts of dimensional type and dimensional invariance can be mathematically extended to apply Buckingham's Theorem (also called Pi theorem) [@Kennedy:1996]&mdash;this theorem is the basis for deriving the set of dimensionless products [@Ngwua:2020].
 
@@ -125,7 +125,7 @@ Therefore, function $f$ is transformed into some function $f_1$ whose independen
 
 # Conclusion
 
-`diman` is a Clojure library with no other dependencies. It has its own linear algebra submodule that provides all the necessary operations. Internally, the numerical data type is Clojure's *ratio*; a ratio between integers rather than floats [@Clojure:2020]. This avoids truncation and rounding errors. Since dimensional analysis does not often involve very large matrices, the hit on computational performance due to using the *ratio* number type is practically insignificant. `diman` supplies all the necessary functions for dimensional homogeneity operations and the derivation of dimensionless products; thus making the analysis steps transparent.
+`diman` is a Clojure library with no other dependencies. It has its own linear algebra submodule which provides all the necessary operations. Internally, the numerical data type is Clojure's *ratio*; a ratio between integers rather than floats [@Clojure:2020]. This avoids truncation and rounding errors. Since dimensional analysis does not often involve very large matrices, the hit on computational performance due to using the *ratio* number type is practically insignificant. `diman` supplies all the necessary functions for dimensional homogeneity operations and the derivation of dimensionless products; thus making the analysis steps transparent.
 
 
 # Acknowledgements
