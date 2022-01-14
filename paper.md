@@ -21,7 +21,7 @@ bibliography: paper.bib
 
 # Summary
 
-`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software with the ability to: create dimensional formulas, create dimensional equations, check dimensional homogeneity (consistency), and derive dimensionless products.
+`diman` (**dim**ensional **an**alysis) is a Clojure based scientific software package with the ability to: create dimensional formulas, create dimensional equations, check dimensional homogeneity (consistency), and derive dimensionless products.
 
 `diman` provides functions for each step of the analytic process for checking dimensional homogeneity or deriving dimensionless products; the repetitive operations (computational) are hidden. Users can write compound functions that perform a desired process. Thus, not only is the computational labor saved, but also introspection of the analysis is possible; the analyst is able to go through the steps of dimensional analysis.
 
